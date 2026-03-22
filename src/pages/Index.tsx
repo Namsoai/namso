@@ -1,0 +1,195 @@
+import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
+import { ArrowRight, Shield, Clock, BadgeCheck, Brain, Sparkles, Workflow, Lock, ThumbsUp, ShieldCheck } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import Layout from "@/components/Layout";
+import ServiceCard from "@/components/ServiceCard";
+import { services } from "@/data/mockData";
+import heroMap from "@/assets/hero-map.png";
+
+const whySpecialists = [
+  { icon: Brain, title: "Deep AI Expertise", desc: "Our specialists work with AI tools daily — from GPT integrations and automation platforms to custom AI agent workflows." },
+  { icon: Sparkles, title: "Implementation-Focused", desc: "Not just advice — our freelancers build, deploy, and integrate AI solutions directly into your business operations." },
+  { icon: Workflow, title: "Business-Ready Solutions", desc: "Every project is scoped for real business impact — streamlined workflows, reduced manual work, and measurable results." },
+];
+
+const paymentTrust = [
+  { icon: Lock, title: "Escrow Protection", desc: "Funds are held securely until the project is delivered as agreed." },
+  { icon: ThumbsUp, title: "Client Approval", desc: "Review the deliverables, request revisions if needed, and approve only when satisfied." },
+  { icon: ShieldCheck, title: "Dispute Resolution", desc: "If a project isn't delivered as agreed, our team provides support and a fair resolution process." },
+];
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 20 },
+  visible: (i: number) => ({ opacity: 1, y: 0, transition: { delay: i * 0.1, duration: 0.5 } }),
+};
+
+export default function HomePage() {
+  return (
+    <Layout>
+      {/* Hero */}
+      <section className="relative overflow-hidden bg-background py-24 md:py-32">
+        <img src={heroMap} alt="" className="absolute inset-0 h-full w-full object-cover opacity-20 dark:opacity-10" />
+        <div className="container relative z-10">
+          <motion.div className="mx-auto max-w-3xl text-center" initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
+            <h1 className="mb-6 font-display text-4xl font-extrabold leading-[1.1] tracking-tight text-foreground md:text-6xl lg:text-[4.5rem]">
+              Find the perfect <br className="hidden md:block" />
+              <span className="text-gradient">AI Integration Specialists</span>
+            </h1>
+            <p className="mb-4 text-xl font-medium text-foreground/80 md:text-2xl">
+              Connect with verified freelancers who build intelligent systems.
+            </p>
+            <p className="mb-10 text-base leading-relaxed text-muted-foreground md:text-lg max-w-2xl mx-auto">
+              Hire experienced AI specialists to integrate tools like ChatGPT, automate workflows, and aggressively streamline your business operations without the overhead.
+            </p>
+            <div className="flex flex-col items-center justify-center gap-3 sm:flex-row">
+              <Link to="/services">
+                <Button size="lg" className="h-14 rounded-full bg-primary px-8 text-base font-semibold text-primary-foreground shadow-lg hover:-translate-y-0.5 hover:shadow-xl hover:bg-primary/90 transition-all">
+                  Browse Services <ArrowRight className="ml-2 h-4 w-4" />
+                </Button>
+              </Link>
+              <Link to="/signup/business">
+                <Button size="lg" variant="outline" className="h-14 rounded-full border-primary px-8 text-base font-semibold text-primary bg-background shadow-sm hover:-translate-y-0.5 hover:shadow-md hover:bg-primary/5 transition-all">
+                  Get Started as a Business
+                </Button>
+              </Link>
+              <Link to="/book-call">
+                <Button size="lg" variant="ghost" className="h-14 rounded-full px-8 text-base font-semibold text-foreground hover:bg-secondary transition-all">
+                  Book Strategy Call
+                </Button>
+              </Link>
+            </div>
+            <p className="mt-4 text-xs text-muted-foreground">
+              <Shield className="mr-1 inline h-3 w-3" />
+              Secure payments · Verified specialists · Pay only after approval
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Trust Bar */}
+      <section className="border-y border-border bg-secondary/30 py-8">
+        <div className="container flex flex-wrap items-center justify-center gap-x-10 gap-y-3">
+          {[
+            { icon: BadgeCheck, label: "Verified Specialists" },
+            { icon: Shield, label: "Secure Payments" },
+            { icon: Clock, label: "Fast Delivery" },
+            { icon: Brain, label: "AI Integration Experts" },
+          ].map((item, i) => (
+            <motion.div key={item.label} className="flex items-center gap-2 text-sm font-medium text-muted-foreground" custom={i} initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}>
+              <item.icon className="h-4 w-4 text-primary" />
+              {item.label}
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
+      {/* How It Works — Preview */}
+      <section className="py-20 md:py-32">
+        <div className="container text-center">
+          <h2 className="mb-3 font-display text-3xl font-bold text-foreground">How Namso Works</h2>
+          <p className="mx-auto mb-8 max-w-xl text-muted-foreground">
+            Post a project, get matched with verified AI specialists, review the deliverables, and pay only after approval.
+          </p>
+          <Link to="/how-it-works">
+            <Button variant="outline" className="border-primary text-primary hover:bg-primary/10">
+              View How It Works <ArrowRight className="ml-2 h-4 w-4" />
+            </Button>
+          </Link>
+        </div>
+      </section>
+
+      {/* Featured Services */}
+      <section className="surface-warm py-20 md:py-32">
+        <div className="container">
+          <div className="mb-10 flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-end">
+            <div>
+              <h2 className="font-display text-3xl font-bold text-foreground">Featured Services</h2>
+              <p className="mt-2 text-muted-foreground">Professional AI integration services delivered by verified specialists.</p>
+            </div>
+            <Link to="/services" className="text-sm font-medium text-primary hover:underline">
+              View All Services <ArrowRight className="ml-1 inline h-4 w-4" />
+            </Link>
+          </div>
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {services.slice(0, 4).map((service) => (
+              <ServiceCard key={service.id} service={service} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Why AI Specialists */}
+      <section className="py-20 md:py-32 bg-background">
+        <div className="container">
+          <div className="mb-12 text-center">
+            <h2 className="mb-3 font-display text-3xl font-bold text-foreground">Why Hire AI Integration Specialists?</h2>
+            <p className="mx-auto max-w-xl text-muted-foreground">Our freelancers bring deep technical expertise, hands-on implementation skills, and a focus on real business outcomes.</p>
+          </div>
+          <div className="mx-auto grid max-w-4xl gap-8 md:grid-cols-3">
+            {whySpecialists.map((item, i) => (
+              <motion.div key={item.title} className="text-center" custom={i} initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}>
+                <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-primary/10">
+                  <item.icon className="h-7 w-7 text-primary" />
+                </div>
+                <h3 className="mb-2 font-display text-base font-semibold text-foreground">{item.title}</h3>
+                <p className="text-sm leading-relaxed text-muted-foreground">{item.desc}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Secure Payments */}
+      <section className="surface-warm py-20 md:py-32">
+        <div className="container">
+          <div className="mb-12 text-center">
+            <h2 className="mb-3 font-display text-3xl font-bold text-foreground">Secure Payments</h2>
+            <p className="mx-auto max-w-lg text-muted-foreground">
+              Pay with confidence through our secure checkout. Your payment is only released after you review and approve the completed work.
+            </p>
+          </div>
+          <div className="mx-auto grid max-w-4xl gap-6 md:grid-cols-3">
+            {paymentTrust.map((item, i) => (
+              <motion.div key={item.title} className="rounded-xl border border-border bg-card p-6 text-center" custom={i} initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}>
+                <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10">
+                  <item.icon className="h-6 w-6 text-primary" />
+                </div>
+                <h3 className="mb-2 font-display text-sm font-semibold text-foreground">{item.title}</h3>
+                <p className="text-sm leading-relaxed text-muted-foreground">{item.desc}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Final CTA */}
+      <section className="hero-gradient py-20 md:py-32 relative overflow-hidden">
+        <div className="absolute inset-0 bg-black/10 mix-blend-overlay"></div>
+        <div className="container relative z-10 text-center">
+          <h2 className="mb-3 font-display text-3xl font-bold text-primary-foreground md:text-4xl">
+            Ready to Integrate AI Into Your Business?
+          </h2>
+          <p className="mx-auto mb-8 max-w-lg text-lg text-primary-foreground/80">
+            Hire verified AI specialists to automate workflows, build intelligent systems, and drive real business results.
+          </p>
+          <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
+            <Link to="/services">
+              <Button size="lg" className="h-14 rounded-full border border-primary-foreground/30 bg-primary-foreground/10 px-8 text-base font-semibold text-primary-foreground backdrop-blur-sm transition-all hover:scale-105 hover:bg-primary-foreground/20">
+                Browse Services <ArrowRight className="ml-2 h-4 w-4" />
+              </Button>
+            </Link>
+            <Link to="/signup/business">
+              <Button size="lg" className="h-14 rounded-full bg-primary-foreground px-8 text-base font-semibold text-primary transition-all hover:scale-105 hover:bg-white/90 shadow-xl">
+                Join as a Business
+              </Button>
+            </Link>
+          </div>
+          <p className="mt-4 text-xs text-primary-foreground/60">
+            Create a free business account · Post projects · Pay only after approval
+          </p>
+        </div>
+      </section>
+    </Layout>
+  );
+}

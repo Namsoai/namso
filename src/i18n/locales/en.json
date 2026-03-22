@@ -1,0 +1,37 @@
+{
+  "services": {
+    "meeting_summaries": "AI Meeting Summaries",
+    "prompt_engineering": "AI Prompt Engineering",
+    "data_organisation": "Data Organisation",
+    "content_generation": "AI Content Generation",
+    "image_creation": "AI Image Creation",
+    "research_analysis": "AI Research & Analysis",
+    "website_improvements": "AI Website Improvements",
+    "email_automation": "AI Email Automation",
+    "workflow_automation": "Workflow Automation",
+    "chatbot_setup": "Chatbot Setup"
+  },
+  "pricing": {
+    "agencyPrice": "Agency Price",
+    "tier": "Tier",
+    "selectService": "Select Service",
+    "uplift": "Uplift",
+    "budget": "Budget"
+  },
+  "deliveryTime": {
+    "label": "Delivery Time",
+    "selectOption": "Select delivery time",
+    "options": {
+      "standard": "Standard (3-5 days)",
+      "express": "Express (1-2 days)",
+      "custom": "Custom"
+    },
+    "customDaysLabel": "Number of days"
+  },
+  "common": {
+    "cancel": "Cancel",
+    "confirm": "Confirm",
+    "save": "Save",
+    "back": "Back"
+  }
+}

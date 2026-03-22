@@ -1,0 +1,132 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 270 15% 97%;
+    --foreground: 270 40% 13%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 270 40% 13%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 270 40% 13%;
+
+    --primary: 270 60% 30%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 270 15% 93%;
+    --secondary-foreground: 270 40% 13%;
+
+    --muted: 270 10% 92%;
+    --muted-foreground: 270 10% 46%;
+
+    --accent: 270 50% 45%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 270 10% 89%;
+    --input: 270 10% 89%;
+    --ring: 270 60% 30%;
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 270 5% 26%;
+    --sidebar-primary: 270 60% 20%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 270 5% 95%;
+    --sidebar-accent-foreground: 270 6% 10%;
+    --sidebar-border: 270 10% 91%;
+    --sidebar-ring: 270 60% 30%;
+
+    /* Custom tokens */
+    --hero-gradient: linear-gradient(135deg, hsl(270 60% 30%) 0%, hsl(280 50% 40%) 50%, hsl(270 45% 50%) 100%);
+    --card-shadow: 0 4px 6px -1px hsl(270 40% 13% / 0.03), 0 2px 4px -2px hsl(270 40% 13% / 0.03);
+    --card-shadow-hover: 0 20px 25px -5px hsl(270 40% 13% / 0.08), 0 8px 10px -6px hsl(270 40% 13% / 0.04);
+    --badge-verified: 270 50% 45%;
+    --surface-warm: 270 20% 96%;
+    --text-hero: 0 0% 100%;
+    --amber: 38 92% 50%;
+    --amber-foreground: 38 92% 20%;
+  }
+
+  .dark {
+    --background: 270 40% 7%;
+    --foreground: 270 15% 95%;
+    --card: 270 35% 10%;
+    --card-foreground: 270 15% 95%;
+    --popover: 270 35% 10%;
+    --popover-foreground: 270 15% 95%;
+    --primary: 270 60% 55%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 270 30% 15%;
+    --secondary-foreground: 270 15% 95%;
+    --muted: 270 25% 16%;
+    --muted-foreground: 270 10% 60%;
+    --accent: 270 50% 50%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 270 25% 18%;
+    --input: 270 25% 18%;
+    --ring: 270 60% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: 'Space Grotesk', system-ui, sans-serif;
+  }
+}
+
+@layer components {
+  .hero-gradient {
+    background: var(--hero-gradient);
+  }
+
+  .card-hover {
+    box-shadow: var(--card-shadow);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+  }
+
+  .card-hover:hover {
+    box-shadow: var(--card-shadow-hover);
+    transform: translateY(-2px);
+  }
+
+  .badge-verified {
+    background-color: hsl(var(--badge-verified));
+    color: hsl(var(--accent-foreground));
+  }
+
+  .surface-warm {
+    background-color: hsl(var(--surface-warm));
+  }
+
+  .text-gradient {
+    background: linear-gradient(135deg, hsl(270 60% 30%) 0%, hsl(270 45% 55%) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}

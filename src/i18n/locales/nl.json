@@ -1,0 +1,37 @@
+{
+  "services": {
+    "meeting_summaries": "AI Vergadering Samenvattingen",
+    "prompt_engineering": "AI Prompt Engineering",
+    "data_organisation": "Data Organisatie",
+    "content_generation": "AI Content Generatie",
+    "image_creation": "AI Afbeelding Creatie",
+    "research_analysis": "AI Onderzoek & Analyse",
+    "website_improvements": "AI Website Verbeteringen",
+    "email_automation": "AI E-mail Automatisering",
+    "workflow_automation": "Workflow Automatisering",
+    "chatbot_setup": "Chatbot Opzet"
+  },
+  "pricing": {
+    "agencyPrice": "Bureauprijs",
+    "tier": "Niveau",
+    "selectService": "Selecteer Service",
+    "uplift": "Uplift",
+    "budget": "Budget"
+  },
+  "deliveryTime": {
+    "label": "Levertijd",
+    "selectOption": "Selecteer levertijd",
+    "options": {
+      "standard": "Standaard (3-5 dagen)",
+      "express": "Express (1-2 dagen)",
+      "custom": "Aangepast"
+    },
+    "customDaysLabel": "Aantal dagen"
+  },
+  "common": {
+    "cancel": "Annuleren",
+    "confirm": "Bevestigen",
+    "save": "Opslaan",
+    "back": "Terug"
+  }
+}

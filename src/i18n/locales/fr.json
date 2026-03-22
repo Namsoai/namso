@@ -1,0 +1,37 @@
+{
+  "services": {
+    "meeting_summaries": "Résumés de Réunions IA",
+    "prompt_engineering": "Ingénierie de Prompt IA",
+    "data_organisation": "Organisation des Données",
+    "content_generation": "Génération de Contenu IA",
+    "image_creation": "Création d'Images IA",
+    "research_analysis": "Recherche & Analyse IA",
+    "website_improvements": "Améliorations Site Web IA",
+    "email_automation": "Automatisation Email IA",
+    "workflow_automation": "Automatisation des Processus",
+    "chatbot_setup": "Mise en place Chatbot"
+  },
+  "pricing": {
+    "agencyPrice": "Prix Agence",
+    "tier": "Niveau",
+    "selectService": "Sélectionner le Service",
+    "uplift": "Marge",
+    "budget": "Budget"
+  },
+  "deliveryTime": {
+    "label": "Délai de Livraison",
+    "selectOption": "Sélectionner le délai",
+    "options": {
+      "standard": "Standard (3-5 jours)",
+      "express": "Express (1-2 jours)",
+      "custom": "Personnalisé"
+    },
+    "customDaysLabel": "Nombre de jours"
+  },
+  "common": {
+    "cancel": "Annuler",
+    "confirm": "Confirmer",
+    "save": "Enregistrer",
+    "back": "Retour"
+  }
+}
