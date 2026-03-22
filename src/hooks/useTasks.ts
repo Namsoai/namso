@@ -6,11 +6,18 @@ import { useToast } from "@/hooks/use-toast";
 /**
  * Fetches tasks with optional filtering by status, businessId, or assignedTo.
  */
-export function useTasks(filters?: { status?: string; businessId?: string; assignedTo?: string }) {
+export function useTasks(filters?: {
+  status?: string;
+  businessId?: string;
+  assignedTo?: string;
+}) {
   return useQuery({
     queryKey: ["tasks", filters],
     queryFn: async () => {
-      let q = supabase.from("tasks").select("*").order("created_at", { ascending: false });
+      let q = supabase
+        .from("tasks")
+        .select("*")
+        .order("created_at", { ascending: false });
       if (filters?.status) q = q.eq("status", filters.status as never);
       if (filters?.businessId) q = q.eq("client_id", filters.businessId);
       if (filters?.assignedTo) q = q.eq("freelancer_id", filters.assignedTo);
@@ -37,7 +44,11 @@ export function useCreateTask() {
       tools?: string;
       client_id: string;
     }) => {
-      const { data, error } = await supabase.from("tasks").insert(task).select().single();
+      const { data, error } = await supabase
+        .from("tasks")
+        .insert(task)
+        .select()
+        .single();
       if (error) throw error;
       return data;
     },
@@ -46,7 +57,11 @@ export function useCreateTask() {
       toast({ title: "Task posted successfully" });
     },
     onError: (e: unknown) => {
-      toast({ title: "Error posting task", description: e instanceof Error ? e.message : "Failure", variant: "destructive" });
+      toast({
+        title: "Error posting task",
+        description: e instanceof Error ? e.message : "Failure",
+        variant: "destructive",
+      });
     },
   });
 }
@@ -58,8 +73,19 @@ export function useUpdateTask() {
   const qc = useQueryClient();
   const { toast } = useToast();
   return useMutation({
-    mutationFn: async ({ id, ...updates }: { id: string; [key: string]: unknown }) => {
-      const { data, error } = await supabase.from("tasks").update(updates).eq("id", id).select().single();
+    mutationFn: async ({
+      id,
+      ...updates
+    }: {
+      id: string;
+      [key: string]: unknown;
+    }) => {
+      const { data, error } = await supabase
+        .from("tasks")
+        .update(updates)
+        .eq("id", id)
+        .select()
+        .single();
       if (error) throw error;
       return data;
     },
@@ -68,34 +94,16 @@ export function useUpdateTask() {
       toast({ title: "Task updated" });
     },
     onError: (e: unknown) => {
-      toast({ title: "Error updating task", description: e instanceof Error ? e.message : "Failure", variant: "destructive" });
+      toast({
+        title: "Error updating task",
+        description: e instanceof Error ? e.message : "Failure",
+        variant: "destructive",
+      });
     },
   });
 }
 
 
-
-/**
- * Fetches notifications for the currently logged-in user.
- */
-export function useNotifications() {
-  const { user } = useAuth();
-  return useQuery({
-    queryKey: ["notifications", user?.id],
-    queryFn: async () => {
-      if (!user) return [];
-      const { data, error } = await supabase
-        .from("notifications")
-        .select("*")
-        .eq("user_id", user.id)
-        .order("created_at", { ascending: false })
-        .limit(50);
-      if (error) throw error;
-      return data;
-    },
-    enabled: !!user,
-  });
-}
 
 /**
  * Fetches messages where the given user ID is either the sender or receiver.
@@ -125,7 +133,10 @@ export function usePayments(filters?: { payerId?: string; payeeId?: string }) {
   return useQuery({
     queryKey: ["payments", filters],
     queryFn: async () => {
-      let q = supabase.from("payments").select("*").order("created_at", { ascending: false });
+      let q = supabase
+        .from("payments")
+        .select("*")
+        .order("created_at", { ascending: false });
       if (filters?.payerId) q = q.eq("payer_id", filters.payerId);
       if (filters?.payeeId) q = q.eq("payee_id", filters.payeeId);
       const { data, error } = await q;
