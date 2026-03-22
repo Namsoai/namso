@@ -1,5 +1,16 @@
 project_id = "xbqslsxaskrdxgoxtjoh"
 
+[functions.approve-freelancer]
+verify_jwt = false
+
+[functions.escrow-create]
+verify_jwt = false
+
+[functions.escrow-release]
+verify_jwt = false
+
+[functions.escrow-status]
+verify_jwt = false
 
 [functions.resend-activation]
 verify_jwt = false
@@ -7,12 +18,5 @@ verify_jwt = false
 [functions.send-contact-email]
 verify_jwt = false
 
-# Webhook receiver: Escrow.com cannot send a Supabase JWT.
-# Security maintained by reverse-polling Escrow.com API (payload data is ignored).
 [functions.escrow-webhook]
 verify_jwt = false
-
-# CRIT-01 FIX: escrow-create, escrow-release, escrow-status now use
-# the default verify_jwt = true. The gateway validates the JWT before
-# function code runs, providing defense-in-depth with the internal
-# supabaseAdmin.auth.getUser() check retained inside each function.

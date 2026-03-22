@@ -42,7 +42,7 @@ BEGIN
     NEW.email,
     COALESCE(NEW.raw_user_meta_data ->> 'full_name', ''),
     _role,
-    'active'
+    CASE WHEN _role = 'freelancer' THEN 'pending' ELSE 'active' END
   )
   ON CONFLICT (id) DO NOTHING;
 

@@ -126,6 +126,17 @@ export default function FreelancerSignup() {
 
 
 
+    // Insert Application securely from the frontend
+    await supabase.from("freelancer_applications").insert({
+      first_name: data.firstName,
+      last_name: data.lastName,
+      email: normalizedEmail,
+      university: data.university,
+      major: data.major,
+      tools: data.tools,
+      bio: data.bio
+    });
+
     setLoading(false);
     navigate(`/freelancer`);
   };

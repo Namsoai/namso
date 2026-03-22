@@ -186,9 +186,19 @@ export default function BusinessTaskDetail() {
   const approveWork = async () => {
     if (!task) return;
     try {
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      const { data: paymentId, error } = await (supabase.rpc as any)("approve_task_work", { p_task_id: task.id });
+      const { error: updErr } = await supabase.from('tasks').update({ status: 'completed', assignment_status: 'accepted' }).eq('id', task.id);
+      if (updErr) throw updErr;
+
+      const { data: p, error } = await supabase.from('payments').insert({
+        task_id: task.id,
+        payer_id: user?.id,
+        payee_id: task.freelancer_id,
+        amount: task.budget,
+        currency: 'USD',
+        status: 'pending'
+      }).select('id').single();
       if (error) throw error;
+      const paymentId = p.id;
 
       // Ensure queries capture the completed state and the new payment row natively
       qc.invalidateQueries({ queryKey: ["task", task.id] });
