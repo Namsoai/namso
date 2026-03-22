@@ -17,6 +17,7 @@ import Layout from "@/components/Layout";
 import Captcha from "@/components/Captcha";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
+import { trackEvent } from "@/lib/analytics";
 
 // Very basic disposable email check
 const DISPOSABLE_DOMAINS = ["tempmail.com", "guerrillamail.com", "yopmail.com", "mailinator.com", "10minutemail.com"];
@@ -74,6 +75,11 @@ export default function FreelancerSignup() {
     },
     mode: "onChange",
   });
+
+  // Track funnel: user landed on the freelancer application page
+  useEffect(() => {
+    trackEvent("freelancer_application_started");
+  }, []);
 
   const onSubmit = async (data: FormValues) => {
     if (!captchaToken) {
@@ -138,6 +144,7 @@ export default function FreelancerSignup() {
     });
 
     setLoading(false);
+    trackEvent("freelancer_application_submitted", { major: data.major });
     navigate(`/freelancer`);
   };
 

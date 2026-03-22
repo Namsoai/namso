@@ -279,6 +279,13 @@ Deno.serve(async (req) => {
       }, 500);
     }
 
+    // ── Record Analytics Truth Event ───────────────────────────────────────
+    await supabaseAdmin.rpc("record_analytics_event", {
+      p_event_name: "escrow_created",
+      p_user_id:    payment.payer_id,
+      p_properties: { task_id: taskId, payment_id: paymentId, escrow_id: escrowId },
+    });
+
     // ── Dispatch Formal Notifications ─────────────────────────────────────
     await sendDeliveryNotification(
       supabaseAdmin,

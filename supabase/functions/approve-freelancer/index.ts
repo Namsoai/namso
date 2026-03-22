@@ -143,6 +143,13 @@ Deno.serve(async (req) => {
       { application_id: applicationId || null, freelancer_id: existingUser.id, email: normalizedEmail }
     );
 
+    // Record analytics truth event
+    await supabaseAdmin.rpc("record_analytics_event", {
+      p_event_name: "freelancer_approved",
+      p_user_id: existingUser.id,
+      p_properties: { application_id: applicationId || null, approved_by: caller.id },
+    });
+
     return jsonResponse({
       success: true,
       message: `Application approved. ${normalizedEmail} can now log in with their password.`,

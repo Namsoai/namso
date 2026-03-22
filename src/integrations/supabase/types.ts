@@ -14,6 +14,41 @@ export type Database = {
   }
   public: {
     Tables: {
+      analytics_events: {
+        Row: {
+          event_name: string
+          id: string
+          occurred_at: string
+          properties: Json
+          session_id: string | null
+          user_id: string | null
+        }
+        Insert: {
+          event_name: string
+          id?: string
+          occurred_at?: string
+          properties?: Json
+          session_id?: string | null
+          user_id?: string | null
+        }
+        Update: {
+          event_name?: string
+          id?: string
+          occurred_at?: string
+          properties?: Json
+          session_id?: string | null
+          user_id?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "analytics_events_user_id_fkey"
+            columns: ["user_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       contact_messages: {
         Row: {
           archived: boolean
@@ -193,12 +228,90 @@ export type Database = {
           },
         ]
       }
+      notification_deliveries: {
+        Row: {
+          attempted_at: string | null
+          channel: string
+          created_at: string
+          delivered_at: string | null
+          error: string | null
+          id: string
+          notification_id: string
+          provider: string
+          provider_message_id: string | null
+          status: string
+        }
+        Insert: {
+          attempted_at?: string | null
+          channel: string
+          created_at?: string
+          delivered_at?: string | null
+          error?: string | null
+          id?: string
+          notification_id: string
+          provider?: string
+          provider_message_id?: string | null
+          status: string
+        }
+        Update: {
+          attempted_at?: string | null
+          channel?: string
+          created_at?: string
+          delivered_at?: string | null
+          error?: string | null
+          id?: string
+          notification_id?: string
+          provider?: string
+          provider_message_id?: string | null
+          status?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "notification_deliveries_notification_id_fkey"
+            columns: ["notification_id"]
+            isOneToOne: false
+            referencedRelation: "notifications"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      notification_preferences: {
+        Row: {
+          created_at: string
+          email_enabled: boolean
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          email_enabled?: boolean
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          email_enabled?: boolean
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "notification_preferences_user_id_fkey"
+            columns: ["user_id"]
+            isOneToOne: true
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       notifications: {
         Row: {
           created_at: string
+          dedupe_key: string | null
           id: string
           link: string | null
           message: string
+          payload: Json
           read: boolean
           title: string
           type: string
@@ -206,9 +319,11 @@ export type Database = {
         }
         Insert: {
           created_at?: string
+          dedupe_key?: string | null
           id?: string
           link?: string | null
           message: string
+          payload?: Json
           read?: boolean
           title: string
           type: string
@@ -216,9 +331,11 @@ export type Database = {
         }
         Update: {
           created_at?: string
+          dedupe_key?: string | null
           id?: string
           link?: string | null
           message?: string
+          payload?: Json
           read?: boolean
           title?: string
           type?: string
@@ -567,7 +684,12 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
+      is_active: { Args: never; Returns: boolean }
       is_admin: { Args: never; Returns: boolean }
+      record_analytics_event: {
+        Args: { p_event_name: string; p_properties?: Json; p_user_id: string }
+        Returns: undefined
+      }
     }
     Enums: {
       account_status: "active" | "frozen" | "suspended" | "revoked"

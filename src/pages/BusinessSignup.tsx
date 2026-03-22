@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowRight, CheckCircle2, Building2, FileText, Shield, Users, Zap, AlertCircle, Mail, Loader2 } from "lucide-react";
@@ -16,6 +16,7 @@ import Layout from "@/components/Layout";
 import Captcha from "@/components/Captcha";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
+import { trackEvent } from "@/lib/analytics";
 
 // Very basic disposable email check
 const DISPOSABLE_DOMAINS = ["tempmail.com", "guerrillamail.com", "yopmail.com", "mailinator.com", "10minutemail.com"];
@@ -65,8 +66,10 @@ export default function BusinessSignup() {
     mode: "onChange",
   });
 
-
-
+  // Track funnel: user landed on the signup page
+  useEffect(() => {
+    trackEvent("business_signup_started");
+  }, []);
   const onSubmit = async (data: FormValues) => {
     if (!captchaToken) {
       toast({ title: "Please complete the CAPTCHA check.", variant: "destructive" });
@@ -115,6 +118,7 @@ export default function BusinessSignup() {
 
 
     setLoading(false);
+    trackEvent("business_signup_completed", { business_name: data.businessName });
     navigate(`/business`);
   };
 

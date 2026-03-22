@@ -14,26 +14,24 @@ export default function NotificationSettings() {
     queryKey: ["notification_preferences", user?.id],
     queryFn: async () => {
       if (!user) return null;
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      const { data, error } = await (supabase as any)
+      const { data, error } = await supabase
         .from("notification_preferences")
         .select("*")
         .eq("user_id", user.id)
         .single();
 
       if (error) throw error;
-      return data as { user_id: string; email_enabled: boolean } | null;
+      return data;
     },
     enabled: !!user,
   });
 
   const updatePreferences = useMutation({
     mutationFn: async (enabled: boolean) => {
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      const { error } = await (supabase as any)
+      const { error } = await supabase
         .from("notification_preferences")
         .update({ email_enabled: enabled, updated_at: new Date().toISOString() })
-        .eq("user_id", user?.id);
+        .eq("user_id", user?.id ?? "");
 
       if (error) throw error;
     },
