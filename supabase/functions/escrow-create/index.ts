@@ -16,8 +16,9 @@
  * Returns:
  *   { escrowId, escrowItemId, status, paymentUrl, parties, itemStatus, scheduleStatus }
  */
-import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
+import { createClient } from "https://esm.sh/@supabase/supabase-js@2.32.0";
 import { z } from "https://deno.land/x/zod@v3.22.4/mod.ts";
+import { sendDeliveryNotification } from "../_shared/notification_helpers.ts";
 
 // Escrow.com API base URL — reads from env to allow sandbox/production switching
 // Set ESCROW_API_BASE_URL in Supabase secrets:
@@ -277,6 +278,27 @@ Deno.serve(async (req) => {
         orphaned_escrow_id: escrowId,
       }, 500);
     }
+
+    // ── Dispatch Formal Notifications ─────────────────────────────────────
+    await sendDeliveryNotification(
+      supabaseAdmin,
+      payment.payer_id,
+      "escrow_created_business",
+      "Escrow Vault Opened",
+      `The Escrow security vault for task "${payment.task?.title || taskId}" has been created. Please fund the vault to authorize the freelancer's work.`,
+      `/business/tasks/${taskId}`,
+      { task_id: taskId, payment_id: paymentId, escrow_id: escrowId }
+    );
+
+    await sendDeliveryNotification(
+      supabaseAdmin,
+      payment.payee_id,
+      "escrow_created_freelancer",
+      "Escrow Vault Opened",
+      `The client has securely created the Escrow vault for task "${payment.task?.title || taskId}". You will be notified the moment the funds are physically deposited.`,
+      `/freelancer/tasks/${taskId}`,
+      { task_id: taskId, payment_id: paymentId, escrow_id: escrowId }
+    );
 
     return jsonResponse({
       escrowId,

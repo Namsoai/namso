@@ -4,7 +4,8 @@ const key = process.env.SUPABASE_SERVICE_ROLE_KEY || "eyJhbGciOiJIUzI1NiIsInR5cC
 const db = createClient(url, key);
 
 async function run() {
-  const { data } = await db.from("notification_deliveries").select("*").order("created_at", { ascending: false }).limit(1);
-  console.log(data[0].error);
+  const { data, error } = await db.rpc('get_extension', {});
+  console.log("Checking pg_net...");
+  // just try to call pg_net.http_post
 }
 run();

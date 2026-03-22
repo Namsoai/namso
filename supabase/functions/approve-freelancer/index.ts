@@ -1,4 +1,5 @@
-import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
+import { createClient } from "https://esm.sh/@supabase/supabase-js@2.32.0";
+import { sendDeliveryNotification } from "../_shared/notification_helpers.ts";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": Deno.env.get("ALLOWED_ORIGIN") || "http://localhost:5173",
@@ -130,6 +131,17 @@ Deno.serve(async (req) => {
         console.log("[approve-freelancer] Application status → approved");
       }
     }
+
+    // Dispatch Approval Notification structurally
+    await sendDeliveryNotification(
+      supabaseAdmin,
+      existingUser.id,
+      "freelancer_approved",
+      "Application Approved!",
+      "Congratulations, your Freelancer application has been approved! You may now log in and begin accepting tasks.",
+      "/freelancer/dashboard",
+      { application_id: applicationId || null, freelancer_id: existingUser.id, email: normalizedEmail }
+    );
 
     return jsonResponse({
       success: true,

@@ -1,4 +1,6 @@
-import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
+import { createClient } from "https://esm.sh/@supabase/supabase-js@2.32.0";
+import { crypto } from "https://deno.land/std@0.168.0/crypto/mod.ts";
+import { sendDeliveryNotification } from "../_shared/notification_helpers.ts";
 
 // Escrow.com API base URL — reads from env to allow sandbox/production switching
 const ESCROW_API_BASE_URL = Deno.env.get("ESCROW_API_BASE_URL") ?? "https://api.escrow-sandbox.com/2017-09-01";
@@ -116,7 +118,7 @@ Deno.serve(async (req: Request) => {
     // Fetch existing payment status and ID to explicitly prevent backwards regressions and build audit logs
     const { data: currPayment, error: fetchErr } = await supabaseAdmin
         .from('payments')
-        .select('id, status')
+        .select('id, status, payer_id, payee_id, task_id, tasks(title)')
         .eq('escrow_id', escrowId)
         .single();
         
@@ -175,6 +177,21 @@ Deno.serve(async (req: Request) => {
     }
 
     await logAudit(true, `Successfully mapped external Escrow flag ${derivedEscrowStatus}`);
+
+    const safeTitle = currPayment.tasks ? (Array.isArray(currPayment.tasks) ? currPayment.tasks[0]?.title : currPayment.tasks.title) : "Task ID " + currPayment.task_id;
+
+    // Dispatch Event: Escrow Funded
+    // We strictly use the state-machine transition from pending -> held to guarantee idempotency
+    if (currentStatus === "pending" && paymentStatus === "held") {
+        await sendDeliveryNotification(supabaseAdmin, currPayment.payer_id, "escrow_funded_business", "Escrow Funded", `Your Escrow vault for task "${safeTitle}" has been fully secured.`, `/business/tasks/${currPayment.task_id}`, { task_id: currPayment.task_id, escrow_id: escrowId });
+        await sendDeliveryNotification(supabaseAdmin, currPayment.payee_id, "escrow_funded_freelancer", "Vault Funded", `The client has funded the Escrow vault for task "${safeTitle}". You can safely begin work!`, `/freelancer/tasks/${currPayment.task_id}`, { task_id: currPayment.task_id, escrow_id: escrowId });
+    }
+
+    // Dispatch Event: Escrow Released
+    if (currentStatus === "held" && paymentStatus === "released") {
+        await sendDeliveryNotification(supabaseAdmin, currPayment.payer_id, "escrow_released_business", "Payment Released", `You have explicitly released the Escrow funds for task "${safeTitle}".`, `/business/tasks/${currPayment.task_id}`, { task_id: currPayment.task_id, escrow_id: escrowId });
+        await sendDeliveryNotification(supabaseAdmin, currPayment.payee_id, "escrow_released_freelancer", "Payment Received!", `Funds for task "${safeTitle}" have been successfully released from Escrow into your account!`, `/freelancer/tasks/${currPayment.task_id}`, { task_id: currPayment.task_id, escrow_id: escrowId });
+    }
 
     console.log(`[escrow-webhook] Successfully mapped ${escrowId} to ${derivedEscrowStatus}`);
     return jsonResponse({ success: true, escrow_id: escrowId, synced_status: derivedEscrowStatus });
