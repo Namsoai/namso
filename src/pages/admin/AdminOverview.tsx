@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import {
   LayoutDashboard, GraduationCap, Building2, Briefcase, CreditCard,
   Mail, BarChart3, Settings, FileText, ClipboardList, Store, TrendingUp,
-  Activity, ShieldCheck,
+  Activity, ShieldCheck, LineChart,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import DashboardShell, { SidebarItem } from "@/components/DashboardShell";
@@ -19,6 +19,7 @@ const sidebarItems: SidebarItem[] = [
   { to: "/admin/services", label: "Services", icon: Store },
   { to: "/admin/payments", label: "Payments", icon: CreditCard },
   { to: "/admin/messages", label: "Messages", icon: Mail },
+  { to: "/admin/analytics", label: "Analytics", icon: LineChart },
   { to: "/admin/reports", label: "Reports", icon: BarChart3 },
   { to: "/admin/admins", label: "Admins", icon: ShieldCheck },
   { to: "/admin/settings", label: "Settings", icon: Settings },
