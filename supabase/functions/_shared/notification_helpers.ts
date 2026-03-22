@@ -11,7 +11,8 @@ export async function sendDeliveryNotification(
   title: string,
   message: string,
   link: string,
-  payload: Record<string, unknown>
+  payload: Record<string, unknown>,
+  dedupeKey?: string
 ) {
   try {
     // 1. Insert the Native Notification Row
@@ -24,6 +25,7 @@ export async function sendDeliveryNotification(
         message,
         link,
         payload,
+        dedupe_key: dedupeKey || null,
       })
       .select("id")
       .single();

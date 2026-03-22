@@ -183,14 +183,14 @@ Deno.serve(async (req: Request) => {
     // Dispatch Event: Escrow Funded
     // We strictly use the state-machine transition from pending -> held to guarantee idempotency
     if (currentStatus === "pending" && paymentStatus === "held") {
-        await sendDeliveryNotification(supabaseAdmin, currPayment.payer_id, "escrow_funded_business", "Escrow Funded", `Your Escrow vault for task "${safeTitle}" has been fully secured.`, `/business/tasks/${currPayment.task_id}`, { task_id: currPayment.task_id, escrow_id: escrowId });
-        await sendDeliveryNotification(supabaseAdmin, currPayment.payee_id, "escrow_funded_freelancer", "Vault Funded", `The client has funded the Escrow vault for task "${safeTitle}". You can safely begin work!`, `/freelancer/tasks/${currPayment.task_id}`, { task_id: currPayment.task_id, escrow_id: escrowId });
+        await sendDeliveryNotification(supabaseAdmin, currPayment.payer_id, "escrow_funded_business", "Escrow Funded", `Your Escrow vault for task "${safeTitle}" has been fully secured.`, `/business/tasks/${currPayment.task_id}`, { task_id: currPayment.task_id, escrow_id: escrowId }, `escrow_funded_business:${paymentId}`);
+        await sendDeliveryNotification(supabaseAdmin, currPayment.payee_id, "escrow_funded_freelancer", "Vault Funded", `The client has funded the Escrow vault for task "${safeTitle}". You can safely begin work!`, `/freelancer/tasks/${currPayment.task_id}`, { task_id: currPayment.task_id, escrow_id: escrowId }, `escrow_funded_freelancer:${paymentId}`);
     }
 
     // Dispatch Event: Escrow Released
     if (currentStatus === "held" && paymentStatus === "released") {
-        await sendDeliveryNotification(supabaseAdmin, currPayment.payer_id, "escrow_released_business", "Payment Released", `You have explicitly released the Escrow funds for task "${safeTitle}".`, `/business/tasks/${currPayment.task_id}`, { task_id: currPayment.task_id, escrow_id: escrowId });
-        await sendDeliveryNotification(supabaseAdmin, currPayment.payee_id, "escrow_released_freelancer", "Payment Received!", `Funds for task "${safeTitle}" have been successfully released from Escrow into your account!`, `/freelancer/tasks/${currPayment.task_id}`, { task_id: currPayment.task_id, escrow_id: escrowId });
+        await sendDeliveryNotification(supabaseAdmin, currPayment.payer_id, "escrow_released_business", "Payment Released", `You have explicitly released the Escrow funds for task "${safeTitle}".`, `/business/tasks/${currPayment.task_id}`, { task_id: currPayment.task_id, escrow_id: escrowId }, `escrow_released_business:${paymentId}`);
+        await sendDeliveryNotification(supabaseAdmin, currPayment.payee_id, "escrow_released_freelancer", "Payment Received!", `Funds for task "${safeTitle}" have been successfully released from Escrow into your account!`, `/freelancer/tasks/${currPayment.task_id}`, { task_id: currPayment.task_id, escrow_id: escrowId }, `escrow_released_freelancer:${paymentId}`);
     }
 
     console.log(`[escrow-webhook] Successfully mapped ${escrowId} to ${derivedEscrowStatus}`);

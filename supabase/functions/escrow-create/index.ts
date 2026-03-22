@@ -287,7 +287,8 @@ Deno.serve(async (req) => {
       "Escrow Vault Opened",
       `The Escrow security vault for task "${payment.task?.title || taskId}" has been created. Please fund the vault to authorize the freelancer's work.`,
       `/business/tasks/${taskId}`,
-      { task_id: taskId, payment_id: paymentId, escrow_id: escrowId }
+      { task_id: taskId, payment_id: paymentId, escrow_id: escrowId },
+      `escrow_created_business:${paymentId}`
     );
 
     await sendDeliveryNotification(
@@ -297,7 +298,8 @@ Deno.serve(async (req) => {
       "Escrow Vault Opened",
       `The client has securely created the Escrow vault for task "${payment.task?.title || taskId}". You will be notified the moment the funds are physically deposited.`,
       `/freelancer/tasks/${taskId}`,
-      { task_id: taskId, payment_id: paymentId, escrow_id: escrowId }
+      { task_id: taskId, payment_id: paymentId, escrow_id: escrowId },
+      `escrow_created_freelancer:${paymentId}`
     );
 
     return jsonResponse({
