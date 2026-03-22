@@ -13,7 +13,7 @@ import { useState } from "react";
 import {
   Users, Briefcase, CreditCard, TrendingUp, UserCheck,
   ClipboardList, ShoppingBag, DollarSign, CheckCircle2,
-  BarChart3, Activity,
+  BarChart3, Activity, AlertTriangle, XOctagon, Scale, Undo2, Ban, ShieldCheck, Clock
 } from "lucide-react";
 import DashboardShell from "@/components/DashboardShell";
 import { adminSidebarItems } from "./AdminOverview";
@@ -30,6 +30,13 @@ const RANGES: { label: string; value: TimeRange }[] = [
 function pct(a: number, b: number) {
   if (b === 0) return "—";
   return `${Math.round((a / b) * 100)}%`;
+}
+
+/** Format a median duration for display. Returns '—' when null. */
+function formatDuration(hrs: number | null): string {
+  if (hrs === null) return "—";
+  if (hrs < 24) return `${hrs.toFixed(1)}h`;
+  return `${(hrs / 24).toFixed(1)}d`;
 }
 
 export default function AdminAnalytics() {
@@ -61,6 +68,16 @@ export default function AdminAnalytics() {
       sublabel: `${pct(c?.escrow_funded ?? 0, c?.escrow_created ?? 0)} funded` },
     { label: "Escrow Released",        value: c?.escrow_released ?? 0,            icon: CheckCircle2,  highlight: true,
       sublabel: `${pct(c?.escrow_released ?? 0, c?.escrow_funded ?? 0)} released` },
+  ];
+
+  const failureCards = [
+    { label: "Escrow Failed",          value: c?.escrow_failed ?? 0,              icon: XOctagon,      highlight: false,
+      sublabel: "Gateway rejections" },
+    { label: "Disputes Opened",        value: c?.escrow_disputed ?? 0,            icon: Scale,         highlight: true,
+      sublabel: `${pct(c?.escrow_disputed ?? 0, c?.escrow_funded ?? 0)} dispute rate` },
+    { label: "Refunds Requested",      value: c?.refund_requested ?? 0,           icon: Undo2,         highlight: false },
+    { label: "Refunds Completed",      value: c?.escrow_refunded ?? 0,            icon: ShieldCheck,   highlight: false },
+    { label: "Cancellations",          value: c?.escrow_cancelled ?? 0,           icon: Ban,           highlight: false },
   ];
 
   return (
@@ -111,8 +128,29 @@ export default function AdminAnalytics() {
       ) : (
         <div className="space-y-8">
           {/* Stat cards */}
+          <div className="flex items-center gap-2 mb-2 mt-2">
+            <Activity className="h-4 w-4 text-primary" />
+            <h2 className="text-sm font-semibold text-foreground uppercase tracking-wider">Growth & Engagement</h2>
+          </div>
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             {statCards.map(card => (
+              <StatCard
+                key={card.label}
+                label={card.label}
+                value={card.value}
+                icon={card.icon}
+                sublabel={card.sublabel}
+                highlight={card.highlight}
+              />
+            ))}
+          </div>
+
+          <div className="flex items-center gap-2 mt-6 mb-2">
+            <AlertTriangle className="h-4 w-4 text-amber-500" />
+            <h2 className="text-sm font-semibold text-foreground uppercase tracking-wider">Failures & Disputes</h2>
+          </div>
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
+            {failureCards.map(card => (
               <StatCard
                 key={card.label}
                 label={card.label}
@@ -148,7 +186,64 @@ export default function AdminAnalytics() {
               color="bg-emerald-500"
             />
           </div>
+
+          {/* Time to Convert */}
+          <div className="flex items-center gap-2 mt-6 mb-2">
+            <Clock className="h-4 w-4 text-primary" />
+            <h2 className="text-sm font-semibold text-foreground uppercase tracking-wider">Time to Convert</h2>
+            <span className="text-xs text-muted-foreground ml-1">(median · {range === 'all' ? 'all time' : range})</span>
+          </div>
+
+          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
+            <div className="rounded-xl border border-border bg-card p-4 flex flex-col gap-1">
+              <span className="text-xs text-muted-foreground">Signup → Complete</span>
+              <span className="text-2xl font-display font-bold">{formatDuration(data?.medians.signupToCompleteHrs ?? null)}</span>
+              <span className="text-xs text-muted-foreground">median time</span>
+            </div>
+
+            <div className={`rounded-xl border bg-card p-4 flex flex-col gap-1 ${
+              (data?.medians.appToApprovedHrs ?? 0) > 72 ? 'border-rose-400/50 bg-rose-50/30' : 'border-border'
+            }`}>
+              <span className="text-xs text-muted-foreground">App Submitted → Approved</span>
+              <span className={`text-2xl font-display font-bold ${
+                (data?.medians.appToApprovedHrs ?? 0) > 72 ? 'text-rose-600' : ''
+              }`}>{formatDuration(data?.medians.appToApprovedHrs ?? null)}</span>
+              <span className="text-xs text-muted-foreground">median review time</span>
+            </div>
+
+            <div className="rounded-xl border border-border bg-card p-4 flex flex-col gap-1">
+              <span className="text-xs text-muted-foreground">Escrow Created → Funded</span>
+              <span className="text-2xl font-display font-bold">{formatDuration(data?.medians.escrowCreatedToFundedHrs ?? null)}</span>
+              <span className="text-xs text-muted-foreground">median funding lag</span>
+            </div>
+
+            <div className="rounded-xl border border-border bg-card p-4 flex flex-col gap-1">
+              <span className="text-xs text-muted-foreground">Funded → Released</span>
+              <span className="text-2xl font-display font-bold">{formatDuration(data?.medians.fundedToReleasedHrs ?? null)}</span>
+              <span className="text-xs text-muted-foreground">median hold time</span>
+            </div>
+
+            <div className={`rounded-xl border bg-card p-4 flex flex-col gap-1 ${
+              (data?.medians.oldestPendingAppDays ?? 0) > 3 ? 'border-rose-400/50 bg-rose-50/30' : 'border-border'
+            }`}>
+              <span className="text-xs text-muted-foreground">
+                Oldest pending app{" "}
+                {(data?.medians.pendingAppsCount ?? 0) > 0 && (
+                  <span className="text-amber-500 font-semibold">({data?.medians.pendingAppsCount} waiting)</span>
+                )}
+              </span>
+              <span className={`text-2xl font-display font-bold ${
+                (data?.medians.oldestPendingAppDays ?? 0) > 3 ? 'text-rose-600' : ''
+              }`}>
+                {data?.medians.oldestPendingAppDays != null
+                  ? `${data.medians.oldestPendingAppDays.toFixed(1)}d`
+                  : '—'}
+              </span>
+              <span className="text-xs text-muted-foreground">since oldest submission</span>
+            </div>
+          </div>
         </div>
+
       )}
     </DashboardShell>
   );

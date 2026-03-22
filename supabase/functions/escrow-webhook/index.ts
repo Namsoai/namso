@@ -195,6 +195,12 @@ Deno.serve(async (req: Request) => {
         await sendDeliveryNotification(supabaseAdmin, currPayment.payee_id, "escrow_released_freelancer", "Payment Received!", `Funds for task "${safeTitle}" have been successfully released from Escrow into your account!`, `/freelancer/tasks/${currPayment.task_id}`, { task_id: currPayment.task_id, escrow_id: escrowId }, `escrow_released_freelancer:${paymentId}`);
     }
 
+    // Dispatch Event: Escrow Failed
+    if (paymentStatus === "failed" && currentStatus !== "failed") {
+        await supabaseAdmin.rpc("record_analytics_event", { p_event_name: "escrow_failed", p_user_id: currPayment.payer_id, p_properties: { task_id: currPayment.task_id, payment_id: paymentId, escrow_id: escrowId } });
+        await sendDeliveryNotification(supabaseAdmin, currPayment.payer_id, "escrow_failed", "Escrow Failed", `The Escrow transaction for task "${safeTitle}" has failed. Please check your payment method or contact support.`, `/business/tasks/${currPayment.task_id}`, { task_id: currPayment.task_id, escrow_id: escrowId }, `escrow_failed_business:${paymentId}`);
+    }
+
     console.log(`[escrow-webhook] Successfully mapped ${escrowId} to ${derivedEscrowStatus}`);
     return jsonResponse({ success: true, escrow_id: escrowId, synced_status: derivedEscrowStatus });
   } catch (err: any) {

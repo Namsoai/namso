@@ -30,7 +30,7 @@ RETURNS TRIGGER AS $$
 BEGIN
   PERFORM public.record_analytics_event(
     'task_created',
-    NEW.business_id,
+    NEW.client_id,
     jsonb_build_object(
       'task_id',    NEW.id,
       'task_title', NEW.title
@@ -57,7 +57,7 @@ BEGIN
       jsonb_build_object(
         'task_id',      NEW.id,
         'task_title',   NEW.title,
-        'business_id',  NEW.business_id
+        'client_id',    NEW.client_id
       )
     );
   END IF;

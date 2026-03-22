@@ -22,7 +22,12 @@ export type EventName =
   | "work_submitted"
   | "escrow_created"
   | "escrow_funded"
-  | "escrow_released";
+  | "escrow_released"
+  | "escrow_disputed"
+  | "refund_requested"
+  | "escrow_refunded"
+  | "escrow_cancelled"
+  | "escrow_failed";
 
 export interface EventCounts {
   business_signup_started: number;
@@ -36,6 +41,11 @@ export interface EventCounts {
   escrow_created: number;
   escrow_funded: number;
   escrow_released: number;
+  escrow_disputed: number;
+  refund_requested: number;
+  escrow_refunded: number;
+  escrow_cancelled: number;
+  escrow_failed: number;
 }
 
 export interface FunnelStep {
@@ -47,12 +57,22 @@ export interface FunnelStep {
 
 export type DailyBucket = { date: string; counts: Partial<Record<EventName, number>> };
 
+export interface Medians {
+  signupToCompleteHrs:       number | null;
+  appToApprovedHrs:          number | null;
+  escrowCreatedToFundedHrs:  number | null;
+  fundedToReleasedHrs:       number | null;
+  pendingAppsCount:          number;
+  oldestPendingAppDays:      number | null;
+}
+
 export interface AnalyticsData {
   counts: EventCounts;
   businessFunnel: FunnelStep[];
   freelancerFunnel: FunnelStep[];
   deliveryFunnel: FunnelStep[];
   dailyBuckets: DailyBucket[];
+  medians: Medians;
 }
 
 function makeTimestamp(range: TimeRange): string | null {
@@ -76,6 +96,11 @@ function buildCounts(rows: { event_name: string }[]): EventCounts {
     escrow_created: 0,
     escrow_funded: 0,
     escrow_released: 0,
+    escrow_disputed: 0,
+    refund_requested: 0,
+    escrow_refunded: 0,
+    escrow_cancelled: 0,
+    escrow_failed: 0,
   };
   for (const row of rows) {
     if (row.event_name in zero) {
@@ -122,22 +147,38 @@ export function useAnalytics(range: TimeRange) {
     queryFn: async () => {
       const since = makeTimestamp(range);
 
-      let q = supabase
-        .from("analytics_events")
-        .select("event_name, occurred_at");
+      // Fetch events and medians in parallel — single network round-trip each.
+      const [eventsResult, mediansResult] = await Promise.all([
+        (() => {
+          let q = supabase
+            .from("analytics_events")
+            .select("event_name, occurred_at");
+          if (since) q = q.gte("occurred_at", since);
+          return q.order("occurred_at", { ascending: true });
+        })(),
+        supabase.rpc("get_analytics_medians", { p_since: since ?? null }),
+      ]);
 
-      if (since) q = q.gte("occurred_at", since);
-      q = q.order("occurred_at", { ascending: true });
+      if (eventsResult.error) throw eventsResult.error;
 
-      const { data, error } = await q;
-      if (error) throw error;
-
-      const rows: { event_name: string; occurred_at: string }[] = data ?? [];
+      const rows: { event_name: string; occurred_at: string }[] = eventsResult.data ?? [];
       const counts = buildCounts(rows);
       const daysBack = range === "7d" ? 7 : range === "30d" ? 30 : 90;
 
+      // Parse medians RPC result — each field is null when no data exists
+      const m = (mediansResult.data ?? {}) as Record<string, number | null>;
+      const medians: Medians = {
+        signupToCompleteHrs:       m.signup_to_complete_hrs       ?? null,
+        appToApprovedHrs:          m.app_to_approved_hrs          ?? null,
+        escrowCreatedToFundedHrs:  m.escrow_created_to_funded_hrs ?? null,
+        fundedToReleasedHrs:       m.funded_to_released_hrs       ?? null,
+        pendingAppsCount:          m.pending_apps_count           ?? 0,
+        oldestPendingAppDays:      m.oldest_pending_app_days      ?? null,
+      };
+
       return {
         counts,
+        medians,
         businessFunnel: buildFunnel(
           [
             { name: "Signup Started", event: "business_signup_started" },
