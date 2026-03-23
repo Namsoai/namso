@@ -38,4 +38,4 @@ Must be physically enacted on the production SQL interface or via standard Dashb
 - [ ] Ensure Escrow.com configuration transitions cleanly from Sandbox credentials into full Live Production endpoints and authentic API keys.
 - [ ] Scrub local sandbox seed-users out of live production arrays.
 - [ ] **Final Integrity Constraint**: Admin Panel (`AdminDashboard`, `AdminDisputes`, `AdminNotifications`) loads seamlessly pointing to accurate production arrays, rendering zero 500 exceptions.
-- [ ] **Smoke Test**: The idempotent `live_smoke_run.ts` passes with absolutely zero failed asserts.
+- [ ] **Smoke Test**: The idempotent `scripts/dev/live_smoke_run.ts` passes with absolutely zero failed asserts.

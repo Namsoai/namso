@@ -1,8 +1,11 @@
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2.32.0";
 import { sendDeliveryNotification } from "../_shared/notification_helpers.ts";
 
+const ALLOWED_ORIGIN = Deno.env.get("ALLOWED_ORIGIN");
+if (!ALLOWED_ORIGIN) throw new Error("Missing ALLOWED_ORIGIN");
+
 const corsHeaders = {
-  "Access-Control-Allow-Origin": Deno.env.get("ALLOWED_ORIGIN") || "http://localhost:5173",
+  "Access-Control-Allow-Origin": ALLOWED_ORIGIN,
   "Access-Control-Allow-Headers":
     "authorization, x-client-info, apikey, content-type, x-supabase-client-platform, x-supabase-client-platform-version, x-supabase-client-runtime, x-supabase-client-runtime-version",
 };

@@ -2,7 +2,8 @@ import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2.32.0";
 
 const resendApiKey = Deno.env.get("RESEND_API_KEY");
-const resendFromEmail = Deno.env.get("RESEND_FROM_EMAIL") || "Namso <onboarding@resend.dev>";
+const resendFromEmail = Deno.env.get("RESEND_FROM_EMAIL");
+if (!resendFromEmail) throw new Error("Missing RESEND_FROM_EMAIL");
 const supabaseUrl = Deno.env.get("SUPABASE_URL");
 const supabaseServiceKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY");
 
@@ -231,7 +232,8 @@ function generateTemplate(type: string, p: any, recipientName: string, fallbackN
   let templateName = type;
 
   // Domain URL dynamically for CTA links (Assume VITE_FRONTEND_URL exists or default)
-  const appUrl = Deno.env.get("VITE_FRONTEND_URL") || "https://namso.com";
+  const appUrl = Deno.env.get("VITE_FRONTEND_URL");
+  if (!appUrl) throw new Error("Missing VITE_FRONTEND_URL");
 
   switch (type) {
     case "escrow_created":

@@ -9,16 +9,11 @@ export default function Captcha({ onVerify }: CaptchaProps) {
   const [status, setStatus] = useState<"verifying" | "verified" | "error">("verifying");
 
   useEffect(() => {
-    // This is a placeholder for a real CAPTCHA widget (like reCAPTCHA or Turnstile)
-    // You will need to install the respective library and replace this mock
-    // E.g. <Turnstile siteKey="YOUR_SITE_KEY" onSuccess={onVerify} />
-    
-    const timer = setTimeout(() => {
-      setStatus("verified");
-      onVerify("mock-captcha-token-" + Date.now()); // Send a fake token to the parent form
-    }, 1500);
-
-    return () => clearTimeout(timer);
+    // SECURITY COMMIT: Captcha temporarily bypassed to unblock launch/testing.
+    // TODO: Wire up real Turnstile/reCAPTCHA when able.
+    setStatus("verified");
+    console.warn("SECURITY NOTICE: Captcha is temporarily disabled to unblock sign-ups.");
+    onVerify("temporarily-disabled-for-launch");
   }, [onVerify]);
 
   return (

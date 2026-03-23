@@ -19,7 +19,7 @@
  * succeeds with a partial status — the inspection_period auto-accept will
  * release funds automatically after 3 days.
  *
- * Endpoint: PATCH https://api.escrow-sandbox.com/2017-09-01/transaction/{id}
+ * Endpoint: PATCH https://api.escrow.com/2017-09-01/transaction/{id}
  * Auth:     Basic base64(ESCROW_PLATFORM_EMAIL:ESCROW_API_KEY)
  *
  * Expected request body (from frontend):
@@ -35,11 +35,15 @@
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
 import { z } from "https://deno.land/x/zod@v3.22.4/mod.ts";
 
-// Escrow.com API base URL — reads from env to allow sandbox/production switching
-const ESCROW_API_BASE_URL = Deno.env.get("ESCROW_API_BASE_URL") ?? "https://api.escrow-sandbox.com/2017-09-01";
+// Escrow.com API base URL — Set via environment variable. (Use live production endpoint in production).
+const ESCROW_API_BASE_URL = Deno.env.get("ESCROW_API_BASE_URL");
+if (!ESCROW_API_BASE_URL) throw new Error("Missing ESCROW_API_BASE_URL");
+
+const ALLOWED_ORIGIN = Deno.env.get("ALLOWED_ORIGIN");
+if (!ALLOWED_ORIGIN) throw new Error("Missing ALLOWED_ORIGIN");
 
 const corsHeaders = {
-  "Access-Control-Allow-Origin": Deno.env.get("ALLOWED_ORIGIN") || "http://localhost:5173",
+  "Access-Control-Allow-Origin": ALLOWED_ORIGIN,
   "Access-Control-Allow-Headers":
     "authorization, x-client-info, apikey, content-type",
 };

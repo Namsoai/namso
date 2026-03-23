@@ -1,7 +1,10 @@
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
 
+const ALLOWED_ORIGIN = Deno.env.get("ALLOWED_ORIGIN");
+if (!ALLOWED_ORIGIN) throw new Error("Missing ALLOWED_ORIGIN");
+
 const corsHeaders = {
-  "Access-Control-Allow-Origin": Deno.env.get("ALLOWED_ORIGIN") || "http://localhost:5173",
+  "Access-Control-Allow-Origin": ALLOWED_ORIGIN,
   "Access-Control-Allow-Headers":
     "authorization, x-client-info, apikey, content-type, x-supabase-client-platform, x-supabase-client-platform-version, x-supabase-client-runtime, x-supabase-client-runtime-version",
 };
@@ -81,8 +84,8 @@ Deno.serve(async (req) => {
       await supabaseAdmin.auth.admin.deleteUser(existingUser.id);
     }
 
-    const origin = req.headers.get("origin") || req.headers.get("referer")?.replace(/\/+$/, "") || "";
-    const siteUrl = Deno.env.get("SITE_URL") || origin || "https://id-preview--b3cb6f9a-48a8-4e11-b592-04f353f23997.lovable.app";
+    const siteUrl = Deno.env.get("SITE_URL");
+    if (!siteUrl) throw new Error("Missing SITE_URL. Cannot safely redirect.");
     const redirectTo = `${siteUrl}/activate-account`;
     const fullName = `${application.first_name} ${application.last_name}`;
 
