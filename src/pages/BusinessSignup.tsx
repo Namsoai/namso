@@ -221,6 +221,19 @@ export default function BusinessSignup() {
                             value={field.value}
                             onChange={field.onChange}
                             className="w-full bg-transparent border-none focus:outline-none"
+                            onKeyDown={(e) => {
+                              const input = e.currentTarget as HTMLInputElement;
+                              const value = input.value;
+                              // Prevent backspace/delete if it would remove the country code prefix
+                              if ((e.key === 'Backspace' || e.key === 'Delete')) {
+                                // Find the first space or the first few digits which usually represent the dial code
+                                // In react-phone-number-input, it's usually "+1 " or "+44 "
+                                const dialCodeLength = value.indexOf(' ') + 1 || 3; 
+                                if (input.selectionStart !== null && input.selectionStart <= dialCodeLength && input.selectionEnd === input.selectionStart) {
+                                  e.preventDefault();
+                                }
+                              }
+                            }}
                             style={{ '--PhoneInputCountrySelect-marginRight': '0.5em' } as React.CSSProperties}
                           />
                         </div>

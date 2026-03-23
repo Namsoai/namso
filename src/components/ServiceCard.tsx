@@ -60,11 +60,7 @@ export default function ServiceCard({ service }: { service: ServiceConfig }) {
               </span>
             </div>
             <div className="text-right">
-              {service.previousPrice > 0 && (
-                <span className="block text-[10px] text-muted-foreground line-through">
-                  €{service.previousPrice}
-                </span>
-              )}
+
 
               <span className="font-display text-base font-bold text-foreground">
                 €{service.agencyPrice}

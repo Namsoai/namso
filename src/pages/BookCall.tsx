@@ -236,6 +236,16 @@ export default function BookCall() {
                                 value={field.value}
                                 onChange={field.onChange}
                                 className="w-full bg-transparent border-none focus:outline-none"
+                                onKeyDown={(e) => {
+                                  const input = e.currentTarget as HTMLInputElement;
+                                  const value = input.value;
+                                  if ((e.key === 'Backspace' || e.key === 'Delete')) {
+                                    const dialCodeLength = value.indexOf(' ') + 1 || 3;
+                                    if (input.selectionStart !== null && input.selectionStart <= dialCodeLength && input.selectionEnd === input.selectionStart) {
+                                      e.preventDefault();
+                                    }
+                                  }
+                                }}
                                 style={{ '--PhoneInputCountrySelect-marginRight': '0.5em' } as React.CSSProperties}
                               />
                             </div>

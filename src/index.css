@@ -130,3 +130,16 @@
     background-clip: text;
   }
 }
+
+/* Phone Input Fixes */
+.PhoneInputInput {
+  background: transparent !important;
+  border: none !important;
+  outline: none !important;
+  padding: 0 !important;
+  color: inherit !important;
+}
+
+.PhoneInputCountry {
+  margin-right: 0.5rem !important;
+}

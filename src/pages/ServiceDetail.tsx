@@ -10,13 +10,13 @@ import Layout from "@/components/Layout";
 import { servicesConfig } from "@/config/services";
 import { useAuth } from "@/contexts/AuthContext";
 import { useTranslation } from "react-i18next";
-import { useCurrency } from "@/contexts/CurrencyContext";
+
 
 export default function ServiceDetail() {
   const { id } = useParams();
   const { user, roles } = useAuth();
   const { t } = useTranslation();
-  const { formatPrice } = useCurrency();
+
   const navigate = useNavigate();
 
   const service = servicesConfig.find((s) => s.id === id);
@@ -102,12 +102,8 @@ export default function ServiceDetail() {
                   <span className="text-xs uppercase tracking-wide text-muted-foreground">Starting at</span>
                 </div>
                 <div className="mb-4 text-center">
-                  {service.previousPrice > 0 && (
-                    <span className="mr-2 text-sm text-muted-foreground line-through">
-                      {formatPrice(service.previousPrice)}
-                    </span>
-                  )}
-                  <span className="font-display text-3xl font-bold text-foreground">{formatPrice(service.agencyPrice)}</span>
+
+                  <span className="font-display text-3xl font-bold text-foreground">€{service.agencyPrice}</span>
                 </div>
 
                 <div className="mb-6 space-y-3">
