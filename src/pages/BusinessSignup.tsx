@@ -5,7 +5,7 @@ import { ArrowRight, CheckCircle2, Building2, FileText, Shield, Users, Zap, Aler
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
-import PhoneInput from "react-phone-number-input";
+import PhoneInput, { Country } from "react-phone-number-input";
 import "react-phone-number-input/style.css";
 
 import { Button } from "@/components/ui/button";
@@ -50,6 +50,7 @@ const benefits = [
 
 export default function BusinessSignup() {
   const [loading, setLoading] = useState(false);
+  const [selectedCountry, setSelectedCountry] = useState<Country>("US");
   const [captchaToken, setCaptchaToken] = useState<string | null>(null);
   const navigate = useNavigate();
   const { toast } = useToast();
@@ -216,7 +217,8 @@ export default function BusinessSignup() {
                         <div className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-base ring-offset-background md:text-sm focus-within:ring-2 focus-within:ring-ring focus-within:ring-offset-2 overflow-hidden items-center group">
                           <PhoneInput
                             international
-                            defaultCountry="US"
+                            country={selectedCountry}
+                            onCountryChange={(c) => c && setSelectedCountry(c)}
                             placeholder="Enter phone number"
                             value={field.value}
                             onChange={field.onChange}
@@ -227,7 +229,6 @@ export default function BusinessSignup() {
                               // Prevent backspace/delete if it would remove the country code prefix
                               if ((e.key === 'Backspace' || e.key === 'Delete')) {
                                 // Find the first space or the first few digits which usually represent the dial code
-                                // In react-phone-number-input, it's usually "+1 " or "+44 "
                                 const dialCodeLength = value.indexOf(' ') + 1 || 3; 
                                 if (input.selectionStart !== null && input.selectionStart <= dialCodeLength && input.selectionEnd === input.selectionStart) {
                                   e.preventDefault();

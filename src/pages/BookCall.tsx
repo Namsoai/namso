@@ -5,7 +5,7 @@ import { ArrowRight, CheckCircle2, Calendar, Clock, Target, CreditCard, ChevronD
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
-import PhoneInput from "react-phone-number-input";
+import PhoneInput, { Country } from "react-phone-number-input";
 import "react-phone-number-input/style.css";
 
 import Layout from "@/components/Layout";
@@ -25,8 +25,7 @@ const formSchema = z.object({
   email: z.string().email("Please enter a valid work email address"),
   phone: z.string().min(8, "A valid phone number is required"),
   website: z.string().url("Please enter a valid URL (e.g., https://example.com)").optional().or(z.literal("")),
-  budget: z.string().min(1, "Please select an expected budget"),
-  timeline: z.string().min(1, "Please select your timeline"),
+
   description: z.string().min(10, "Please briefly describe what you are looking for"),
 });
 
@@ -34,6 +33,7 @@ type FormValues = z.infer<typeof formSchema>;
 
 export default function BookCall() {
   const [submitted, setSubmitted] = useState(false);
+  const [selectedCountry, setSelectedCountry] = useState<Country>("US");
   const [loading, setLoading] = useState(false);
   const [captchaToken, setCaptchaToken] = useState<string | null>(null);
   const { toast } = useToast();
@@ -48,8 +48,7 @@ export default function BookCall() {
       email: "",
       phone: "",
       website: "",
-      budget: "",
-      timeline: "",
+
       description: "",
     },
   });
@@ -69,8 +68,7 @@ export default function BookCall() {
       email: data.email,
       phone: data.phone,
       website: data.website || null,
-      budget: data.budget as "under_1k" | "1k_to_5k" | "5k_to_15k" | "over_15k",
-      timeline: data.timeline as "asap" | "within_1_month" | "1_to_3_months" | "exploring",
+
       description: data.description,
     });
 
@@ -231,7 +229,8 @@ export default function BookCall() {
                             <div className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-base ring-offset-background md:text-sm focus-within:ring-2 focus-within:ring-ring focus-within:ring-offset-2 overflow-hidden items-center">
                               <PhoneInput
                                 international
-                                defaultCountry="US"
+                                country={selectedCountry}
+                                onCountryChange={(c) => c && setSelectedCountry(c)}
                                 placeholder="Phone number"
                                 value={field.value}
                                 onChange={field.onChange}
@@ -240,6 +239,7 @@ export default function BookCall() {
                                   const input = e.currentTarget as HTMLInputElement;
                                   const value = input.value;
                                   if ((e.key === 'Backspace' || e.key === 'Delete')) {
+                                    // Lock the dial code part
                                     const dialCodeLength = value.indexOf(' ') + 1 || 3;
                                     if (input.selectionStart !== null && input.selectionStart <= dialCodeLength && input.selectionEnd === input.selectionStart) {
                                       e.preventDefault();
@@ -270,54 +270,7 @@ export default function BookCall() {
                     )}
                   />
 
-                  <div className="grid gap-5 sm:grid-cols-2">
-                    <FormField
-                      control={form.control}
-                      name="budget"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel>Expected Budget</FormLabel>
-                          <Select onValueChange={field.onChange} defaultValue={field.value}>
-                            <FormControl>
-                              <SelectTrigger>
-                                <SelectValue placeholder="Select budget" />
-                              </SelectTrigger>
-                            </FormControl>
-                            <SelectContent>
-                              <SelectItem value="under_1k">Under $1,000</SelectItem>
-                              <SelectItem value="1k_to_5k">$1,000 - $5,000</SelectItem>
-                              <SelectItem value="5k_to_15k">$5,000 - $15,000</SelectItem>
-                              <SelectItem value="over_15k">Over $15,000</SelectItem>
-                            </SelectContent>
-                          </Select>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-                    <FormField
-                      control={form.control}
-                      name="timeline"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel>Timeline</FormLabel>
-                          <Select onValueChange={field.onChange} defaultValue={field.value}>
-                            <FormControl>
-                              <SelectTrigger>
-                                <SelectValue placeholder="Select timeline" />
-                              </SelectTrigger>
-                            </FormControl>
-                            <SelectContent>
-                              <SelectItem value="asap">ASAP / Urgent</SelectItem>
-                              <SelectItem value="within_1_month">Within 1 month</SelectItem>
-                              <SelectItem value="1_to_3_months">1 - 3 months</SelectItem>
-                              <SelectItem value="exploring">Just exploring</SelectItem>
-                            </SelectContent>
-                          </Select>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-                  </div>
+
 
                   <FormField
                     control={form.control}

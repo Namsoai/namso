@@ -5,7 +5,7 @@ import { ArrowRight, CheckCircle2, Briefcase, Brain, Globe, Zap, Euro, Users, Al
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
-import PhoneInput from "react-phone-number-input";
+import PhoneInput, { Country } from "react-phone-number-input";
 import "react-phone-number-input/style.css";
 
 import { Button } from "@/components/ui/button";
@@ -56,6 +56,7 @@ const perks = [
 
 export default function FreelancerSignup() {
   const [loading, setLoading] = useState(false);
+  const [selectedCountry, setSelectedCountry] = useState<Country>("US");
   const [captchaToken, setCaptchaToken] = useState<string | null>(null);
   const { toast } = useToast();
   const navigate = useNavigate();
@@ -247,7 +248,8 @@ export default function FreelancerSignup() {
                         <div className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-base ring-offset-background md:text-sm focus-within:ring-2 focus-within:ring-ring focus-within:ring-offset-2 overflow-hidden items-center group">
                           <PhoneInput
                             international
-                            defaultCountry="US"
+                            country={selectedCountry}
+                            onCountryChange={(c) => c && setSelectedCountry(c)}
                             placeholder="Enter phone number"
                             value={field.value}
                             onChange={field.onChange}
