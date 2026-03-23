@@ -44,11 +44,7 @@ export default function ServiceCard({ service }: { service: ServiceConfig }) {
         </div>
         <div className="p-5">
           <div className="mb-2.5 flex items-center justify-between">
-            <div className="flex flex-wrap gap-1.5">
-              <Badge variant="secondary" className="px-2 py-0.5 text-[11px] font-normal uppercase">
-                {service.tier}
-              </Badge>
-            </div>
+
             <span className="flex shrink-0 items-center gap-1 text-[11px] font-medium text-amber">
               <Star className="h-3 w-3 fill-current" /> New
             </span>
@@ -69,7 +65,7 @@ export default function ServiceCard({ service }: { service: ServiceConfig }) {
                   €{service.previousPrice}
                 </span>
               )}
-              <span className="block text-[10px] text-muted-foreground">{t("pricing.agencyPrice")}</span>
+
               <span className="font-display text-base font-bold text-foreground">
                 €{service.agencyPrice}
               </span>

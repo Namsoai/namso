@@ -6,28 +6,26 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import Layout from "@/components/Layout";
 import ServiceCard from "@/components/ServiceCard";
-import { servicesConfig, ServiceTier } from "@/config/services";
+import { servicesConfig } from "@/config/services";
 import { useTranslation } from "react-i18next";
 
 export default function BrowseServices() {
   const { t } = useTranslation();
   const [search, setSearch] = useState("");
-  const [selectedTier, setSelectedTier] = useState<ServiceTier | "">("");
   const [sortBy, setSortBy] = useState<"default" | "price-low" | "price-high">("default");
 
   const filtered = useMemo(() => {
     const result = servicesConfig.filter((s) => {
       const title = t(s.translationKey).toLowerCase();
       const matchesSearch = !search || title.includes(search.toLowerCase());
-      const matchesTier = !selectedTier || s.tier === selectedTier;
-      return matchesSearch && matchesTier;
+      return matchesSearch;
     });
     if (sortBy === "price-low") result.sort((a, b) => a.agencyPrice - b.agencyPrice);
     else if (sortBy === "price-high") result.sort((a, b) => b.agencyPrice - a.agencyPrice);
     return result;
-  }, [search, selectedTier, sortBy, t]);
+  }, [search, sortBy, t]);
 
-  const tiers: ServiceTier[] = ["low", "medium", "high"];
+
 
   return (
     <Layout>
@@ -59,25 +57,7 @@ export default function BrowseServices() {
           </div>
         </div>
 
-        <div className="mb-8 flex flex-wrap gap-2">
-          <Badge
-            variant={!selectedTier ? "default" : "secondary"}
-            className="cursor-pointer rounded-full px-4 py-1.5 transition-all hover:scale-105"
-            onClick={() => setSelectedTier("")}
-          >
-            All
-          </Badge>
-          {tiers.map((tier) => (
-            <Badge
-              key={tier}
-              variant={selectedTier === tier ? "default" : "secondary"}
-              className="cursor-pointer rounded-full px-4 py-1.5 capitalize transition-all hover:scale-105"
-              onClick={() => setSelectedTier(tier === selectedTier ? "" : tier)}
-            >
-              {tier} Tier
-            </Badge>
-          ))}
-        </div>
+
 
         {filtered.length === 0 ? (
           <div className="py-20 text-center text-muted-foreground">
