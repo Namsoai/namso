@@ -1,21 +1,46 @@
 import { Link } from "react-router-dom";
-import { Star, BadgeCheck } from "lucide-react";
+import { 
+  Star, 
+  BadgeCheck, 
+  FileText, 
+  Bot, 
+  Database, 
+  PenTool, 
+  Image as ImageIcon, 
+  Search, 
+  Globe, 
+  Mail, 
+  Workflow, 
+  MessageSquare 
+} from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { useTranslation } from "react-i18next";
-import { useCurrency } from "@/contexts/CurrencyContext";
 import type { ServiceConfig } from "@/config/services";
+
+const IconMap: Record<string, any> = {
+  FileText,
+  Bot,
+  Database,
+  PenTool,
+  Image: ImageIcon,
+  Search,
+  Globe,
+  Mail,
+  Workflow,
+  MessageSquare,
+};
 
 export default function ServiceCard({ service }: { service: ServiceConfig }) {
   const { t } = useTranslation();
-  const { formatPrice } = useCurrency();
+  const IconComponent = IconMap[service.icon] || FileText;
 
   return (
     <Link to={`/services/${service.id}`} className="group block">
       <div className="card-hover overflow-hidden rounded-xl border border-border bg-card">
-        <div className="flex h-32 items-center justify-center bg-gradient-to-br from-primary/5 to-primary/10">
-          <span className="font-display text-xs font-semibold uppercase tracking-wider text-primary/50">
-            {t("pricing.tier")}: {service.tier}
-          </span>
+        <div className="flex h-32 items-center justify-center bg-secondary/30 transition-colors group-hover:bg-primary/5">
+          <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-primary/10 text-primary shadow-sm transition-transform group-hover:scale-110">
+            <IconComponent className="h-8 w-8" />
+          </div>
         </div>
         <div className="p-5">
           <div className="mb-2.5 flex items-center justify-between">
@@ -41,12 +66,12 @@ export default function ServiceCard({ service }: { service: ServiceConfig }) {
             <div className="text-right">
               {service.previousPrice > 0 && (
                 <span className="block text-[10px] text-muted-foreground line-through">
-                  {formatPrice(service.previousPrice)}
+                  €{service.previousPrice}
                 </span>
               )}
               <span className="block text-[10px] text-muted-foreground">{t("pricing.agencyPrice")}</span>
               <span className="font-display text-base font-bold text-foreground">
-                {formatPrice(service.agencyPrice)}
+                €{service.agencyPrice}
               </span>
             </div>
           </div>

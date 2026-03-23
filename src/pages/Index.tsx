@@ -1,10 +1,8 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { ArrowRight, Shield, Clock, BadgeCheck, Brain, Sparkles, Workflow, Lock, ThumbsUp, ShieldCheck } from "lucide-react";
+import { ArrowRight, Shield, Clock, BadgeCheck, Brain, Sparkles, Workflow } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/Layout";
-import ServiceCard from "@/components/ServiceCard";
-import { services } from "@/data/mockData";
 import heroMap from "@/assets/hero-map.png";
 
 const whySpecialists = [
@@ -13,11 +11,7 @@ const whySpecialists = [
   { icon: Workflow, title: "Business-Ready Solutions", desc: "Every project is scoped for real business impact — streamlined workflows, reduced manual work, and measurable results." },
 ];
 
-const paymentTrust = [
-  { icon: Lock, title: "Escrow Protection", desc: "Funds are held securely until the project is delivered as agreed." },
-  { icon: ThumbsUp, title: "Client Approval", desc: "Review the deliverables, request revisions if needed, and approve only when satisfied." },
-  { icon: ShieldCheck, title: "Dispute Resolution", desc: "If a project isn't delivered as agreed, our team provides support and a fair resolution process." },
-];
+
 
 const fadeUp = {
   hidden: { opacity: 0, y: 20 },
@@ -99,25 +93,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Featured Services */}
-      <section className="surface-warm py-20 md:py-32">
-        <div className="container">
-          <div className="mb-10 flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-end">
-            <div>
-              <h2 className="font-display text-3xl font-bold text-foreground">Featured Services</h2>
-              <p className="mt-2 text-muted-foreground">Professional AI integration services delivered by verified specialists.</p>
-            </div>
-            <Link to="/services" className="text-sm font-medium text-primary hover:underline">
-              View All Services <ArrowRight className="ml-1 inline h-4 w-4" />
-            </Link>
-          </div>
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {services.slice(0, 4).map((service) => (
-              <ServiceCard key={service.id} service={service} />
-            ))}
-          </div>
-        </div>
-      </section>
+
 
       {/* Why AI Specialists */}
       <section className="py-20 md:py-32 bg-background">
@@ -140,28 +116,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Secure Payments */}
-      <section className="surface-warm py-20 md:py-32">
-        <div className="container">
-          <div className="mb-12 text-center">
-            <h2 className="mb-3 font-display text-3xl font-bold text-foreground">Secure Payments</h2>
-            <p className="mx-auto max-w-lg text-muted-foreground">
-              Pay with confidence through our secure checkout. Your payment is only released after you review and approve the completed work.
-            </p>
-          </div>
-          <div className="mx-auto grid max-w-4xl gap-6 md:grid-cols-3">
-            {paymentTrust.map((item, i) => (
-              <motion.div key={item.title} className="rounded-xl border border-border bg-card p-6 text-center" custom={i} initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}>
-                <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10">
-                  <item.icon className="h-6 w-6 text-primary" />
-                </div>
-                <h3 className="mb-2 font-display text-sm font-semibold text-foreground">{item.title}</h3>
-                <p className="text-sm leading-relaxed text-muted-foreground">{item.desc}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
+
 
       {/* Final CTA */}
       <section className="hero-gradient py-20 md:py-32 relative overflow-hidden">

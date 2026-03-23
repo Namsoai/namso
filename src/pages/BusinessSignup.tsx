@@ -15,6 +15,7 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "
 import Layout from "@/components/Layout";
 import Captcha from "@/components/Captcha";
 import { supabase } from "@/integrations/supabase/client";
+import { useAuth } from "@/contexts/AuthContext";
 import { useToast } from "@/hooks/use-toast";
 import { trackEvent } from "@/lib/analytics";
 
@@ -65,6 +66,18 @@ export default function BusinessSignup() {
     },
     mode: "onChange",
   });
+
+  const { user, profile, loading: authLoading } = useAuth();
+
+  // Auth guard: redirect if already logged in
+  useEffect(() => {
+    if (!authLoading && user && profile?.role) {
+      const role = profile.role;
+      if (role === "admin") navigate("/admin");
+      else if (role === "business") navigate("/business");
+      else if (role === "freelancer") navigate("/freelancer");
+    }
+  }, [user, profile, authLoading, navigate]);
 
   // Track funnel: user landed on the signup page
   useEffect(() => {

@@ -1,5 +1,6 @@
 import { useState, useMemo } from "react";
 import { Search, SlidersHorizontal, Shield } from "lucide-react";
+import { cn } from "@/lib/utils";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -43,7 +44,15 @@ export default function BrowseServices() {
           </div>
           <div className="flex gap-2">
             {(["default", "price-low", "price-high"] as const).map((s) => (
-              <Button key={s} size="sm" variant={sortBy === s ? "default" : "outline"} onClick={() => setSortBy(s)}>
+              <Button 
+                key={s} 
+                variant={sortBy === s ? "default" : "outline"} 
+                onClick={() => setSortBy(s)}
+                className={cn(
+                  "rounded-full px-5 transition-all",
+                  sortBy === s ? "shadow-md translate-y-[-1px]" : "hover:bg-secondary"
+                )}
+              >
                 {s === "default" ? "All" : s === "price-low" ? "Price ↑" : "Price ↓"}
               </Button>
             ))}
@@ -53,7 +62,7 @@ export default function BrowseServices() {
         <div className="mb-8 flex flex-wrap gap-2">
           <Badge
             variant={!selectedTier ? "default" : "secondary"}
-            className="cursor-pointer"
+            className="cursor-pointer rounded-full px-4 py-1.5 transition-all hover:scale-105"
             onClick={() => setSelectedTier("")}
           >
             All
@@ -62,7 +71,7 @@ export default function BrowseServices() {
             <Badge
               key={tier}
               variant={selectedTier === tier ? "default" : "secondary"}
-              className="cursor-pointer capitalize"
+              className="cursor-pointer rounded-full px-4 py-1.5 capitalize transition-all hover:scale-105"
               onClick={() => setSelectedTier(tier === selectedTier ? "" : tier)}
             >
               {tier} Tier

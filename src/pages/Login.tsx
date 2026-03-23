@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Mail, Lock, ArrowRight, Shield, AlertCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -6,6 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import Layout from "@/components/Layout";
 import { supabase } from "@/integrations/supabase/client";
+import { useAuth } from "@/contexts/AuthContext";
 import { useToast } from "@/hooks/use-toast";
 import logo from "@/assets/logo.png";
 
@@ -18,6 +19,17 @@ export default function Login() {
   const [pendingMessage, setPendingMessage] = useState("");
   const navigate = useNavigate();
   const { toast } = useToast();
+  const { user, profile, loading: authLoading } = useAuth();
+
+  // Auth guard: redirect if already logged in
+  useEffect(() => {
+    if (!authLoading && user && profile?.role) {
+      const role = profile.role;
+      if (role === "admin") navigate("/admin");
+      else if (role === "business") navigate("/business");
+      else if (role === "freelancer") navigate("/freelancer");
+    }
+  }, [user, profile, authLoading, navigate]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();

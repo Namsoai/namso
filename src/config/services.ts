@@ -7,6 +7,7 @@ export interface ServiceConfig {
   agencyPrice: number;
   uplift: number;
   tier: ServiceTier;
+  icon: string;
 }
 
 export const servicesConfig: ServiceConfig[] = [
@@ -17,6 +18,7 @@ export const servicesConfig: ServiceConfig[] = [
     agencyPrice: 150,
     uplift: 90,
     tier: "low",
+    icon: "FileText",
   },
   {
     id: "ai-prompt-engineering",
@@ -25,6 +27,7 @@ export const servicesConfig: ServiceConfig[] = [
     agencyPrice: 250,
     uplift: 160,
     tier: "low",
+    icon: "Bot",
   },
   {
     id: "data-organisation",
@@ -33,6 +36,7 @@ export const servicesConfig: ServiceConfig[] = [
     agencyPrice: 280,
     uplift: 190,
     tier: "low",
+    icon: "Database",
   },
   {
     id: "ai-content-generation",
@@ -41,6 +45,7 @@ export const servicesConfig: ServiceConfig[] = [
     agencyPrice: 300,
     uplift: 205,
     tier: "low",
+    icon: "PenTool",
   },
   {
     id: "ai-image-creation",
@@ -49,6 +54,7 @@ export const servicesConfig: ServiceConfig[] = [
     agencyPrice: 320,
     uplift: 220,
     tier: "medium",
+    icon: "Image",
   },
   {
     id: "ai-research-analysis",
@@ -57,6 +63,7 @@ export const servicesConfig: ServiceConfig[] = [
     agencyPrice: 400,
     uplift: 280,
     tier: "medium",
+    icon: "Search",
   },
   {
     id: "ai-website-improvements",
@@ -65,6 +72,7 @@ export const servicesConfig: ServiceConfig[] = [
     agencyPrice: 500,
     uplift: 360,
     tier: "medium",
+    icon: "Globe",
   },
   {
     id: "ai-email-automation",
@@ -73,6 +81,7 @@ export const servicesConfig: ServiceConfig[] = [
     agencyPrice: 550,
     uplift: 400,
     tier: "medium",
+    icon: "Mail",
   },
   {
     id: "workflow-automation",
@@ -81,6 +90,7 @@ export const servicesConfig: ServiceConfig[] = [
     agencyPrice: 650,
     uplift: 480,
     tier: "high",
+    icon: "Workflow",
   },
   {
     id: "chatbot-setup",
@@ -89,5 +99,6 @@ export const servicesConfig: ServiceConfig[] = [
     agencyPrice: 950,
     uplift: 730,
     tier: "high",
+    icon: "MessageSquare",
   },
 ];

@@ -4,7 +4,7 @@ import { Menu, X, Shield, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useAuth } from "@/contexts/AuthContext";
 import logo from "@/assets/logo.png";
-import LanguageCurrencySwitcher from "./LanguageCurrencySwitcher";
+import LanguageSwitcher from "./LanguageSwitcher";
 
 const mainNav = [
   { to: "/services", label: "Browse Services" },
@@ -60,7 +60,7 @@ export function Navbar() {
           <div className="ml-3 h-5 w-px bg-border" />
           
           <div className="ml-3 flex items-center pr-2">
-            <LanguageCurrencySwitcher />
+            <LanguageSwitcher />
           </div>
 
           {user ? (
@@ -76,12 +76,13 @@ export function Navbar() {
             <div className="ml-3 flex items-center gap-2">
 
               <Link to="/login">
-                <Button size="sm" className="bg-primary text-primary-foreground hover:bg-primary/85">Log In</Button>
+                <Button className="rounded-full bg-primary px-6 font-semibold text-primary-foreground shadow-sm hover:-translate-y-0.5 hover:bg-primary/90 hover:shadow-md transition-all">
+                  Log In
+                </Button>
               </Link>
               <div className="relative" ref={dropdownRef}>
                 <Button
-                  size="sm"
-                  className="bg-primary text-primary-foreground hover:bg-primary/85"
+                  className="rounded-full bg-primary px-6 font-semibold text-primary-foreground shadow-sm hover:-translate-y-0.5 hover:bg-primary/90 hover:shadow-md transition-all"
                   onClick={() => setSignupOpen(!signupOpen)}
                 >
                   Sign Up <ChevronDown className="ml-1 h-3.5 w-3.5" />
@@ -119,7 +120,7 @@ export function Navbar() {
       {mobileOpen && (
         <div className="border-t border-border bg-card px-4 pb-4 md:hidden">
           <div className="py-2 mb-2 border-b border-border flex items-center">
-            <LanguageCurrencySwitcher />
+            <LanguageSwitcher />
           </div>
           {mainNav.map((link) => (
             <Link
