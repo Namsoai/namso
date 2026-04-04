@@ -84,7 +84,7 @@ export default function About() {
           <h2 className="mb-4 font-display text-2xl font-bold text-foreground">Want to Learn More?</h2>
           <p className="mx-auto mb-6 max-w-md text-muted-foreground">See how Namso connects businesses with verified AI integration specialists.</p>
           <div className="flex flex-col items-center justify-center gap-3 sm:flex-row">
-            <Link to="/how-it-works"><Button className="bg-primary text-primary-foreground hover:bg-primary/85">How It Works <ArrowRight className="ml-2 h-4 w-4" /></Button></Link>
+            <Link to="/how-it-works"><Button>How It Works <ArrowRight className="ml-2 h-4 w-4" /></Button></Link>
             <Link to="/contact"><Button variant="outline">Contact Us</Button></Link>
           </div>
         </div>

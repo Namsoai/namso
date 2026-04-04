@@ -24,7 +24,7 @@ export default function FAQ() {
 
           <div className="mt-12 text-center">
             <p className="mb-4 text-muted-foreground">Still have questions?</p>
-            <Link to="/contact"><Button className="bg-primary text-primary-foreground hover:bg-primary/85">Contact Us</Button></Link>
+            <Link to="/contact"><Button>Contact Us</Button></Link>
           </div>
         </motion.div>
       </div>

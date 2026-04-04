@@ -292,7 +292,7 @@ export default function BookCall() {
 
                   <Captcha onVerify={setCaptchaToken} />
 
-                  <Button type="submit" disabled={loading || !captchaToken} className="w-full bg-primary text-primary-foreground hover:bg-primary/80" size="lg">
+                  <Button type="submit" disabled={loading || !captchaToken} className="w-full" size="lg">
                     {loading ? "Submitting..." : "Submit Request"} <ArrowRight className="ml-2 h-4 w-4" />
                   </Button>
                 </form>

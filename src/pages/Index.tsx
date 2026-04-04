@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-// Cache bust to trigger fresh Vercel build
 import { motion } from "framer-motion";
 import { ArrowRight, Shield, Clock, BadgeCheck, Brain, Sparkles, Workflow } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -11,8 +10,6 @@ const whySpecialists = [
   { icon: Sparkles, title: "Implementation-Focused", desc: "Not just advice — our freelancers build, deploy, and integrate AI solutions directly into your business operations." },
   { icon: Workflow, title: "Business-Ready Solutions", desc: "Every project is scoped for real business impact — streamlined workflows, reduced manual work, and measurable results." },
 ];
-
-
 
 const fadeUp = {
   hidden: { opacity: 0, y: 20 },
@@ -35,7 +32,7 @@ export default function HomePage() {
               Connect with verified freelancers who build intelligent systems.
             </p>
             <p className="mb-10 text-base leading-relaxed text-muted-foreground md:text-lg max-w-2xl mx-auto">
-              Hire experienced AI specialists to integrate tools like ChatGPT, automate workflows, and aggressively streamline your business operations without the overhead.
+              Hire experienced AI specialists to integrate tools like ChatGPT, automate workflows, and streamline your business operations without the overhead.
             </p>
             <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
               <Link to="/services">
@@ -43,14 +40,9 @@ export default function HomePage() {
                   Browse Services <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </Link>
-              <Link to="/signup/business">
-                <Button size="lg">
-                  Get Started as a Business
-                </Button>
-              </Link>
               <Link to="/book-call">
                 <Button size="lg">
-                  Book Strategy Call
+                  Book a Strategy Call
                 </Button>
               </Link>
             </div>
@@ -79,23 +71,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* How It Works — Preview */}
-      <section className="py-20 md:py-32">
-        <div className="container text-center">
-          <h2 className="mb-3 font-display text-3xl font-bold text-foreground">How Namso Works</h2>
-          <p className="mx-auto mb-8 max-w-xl text-muted-foreground">
-            Post a project, get matched with verified AI specialists, review the deliverables, and pay only after approval.
-          </p>
-          <Link to="/how-it-works">
-            <Button variant="outline">
-              View How It Works <ArrowRight className="ml-2 h-4 w-4" />
-            </Button>
-          </Link>
-        </div>
-      </section>
-
-
-
       {/* Why AI Specialists */}
       <section className="py-20 md:py-32 bg-background">
         <div className="container">
@@ -117,29 +92,29 @@ export default function HomePage() {
         </div>
       </section>
 
-
-
-      <section className="bg-secondary/30 py-20 md:py-32 relative overflow-hidden text-center border-t border-border">
-        <div className="container relative z-10">
-          <h2 className="mb-3 font-display text-3xl font-bold text-foreground md:text-4xl">
+      {/* Final CTA — Purple Background */}
+      <section className="hero-gradient py-20 md:py-32 relative overflow-hidden">
+        <div className="absolute inset-0 bg-black/10 mix-blend-overlay"></div>
+        <div className="container relative z-10 text-center">
+          <h2 className="mb-3 font-display text-3xl font-bold text-primary-foreground md:text-4xl">
             Ready to Integrate AI Into Your Business?
           </h2>
-          <p className="mx-auto mb-8 max-w-lg text-lg text-muted-foreground">
+          <p className="mx-auto mb-8 max-w-lg text-lg text-primary-foreground/80">
             Hire verified AI specialists to automate workflows, build intelligent systems, and drive real business results.
           </p>
           <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <Link to="/services">
-              <Button size="lg">
-                Browse Services <ArrowRight className="ml-2 h-4 w-4" />
+            <Link to="/signup/business">
+              <Button size="lg" className="bg-white text-primary hover:bg-white/90 shadow-lg">
+                Get Started <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             </Link>
-            <Link to="/signup/business">
-              <Button size="lg">
-                Join as a Business
+            <Link to="/book-call">
+              <Button size="lg" variant="outline" className="border-2 border-white/40 text-primary-foreground bg-transparent hover:bg-white/10">
+                Book a Call
               </Button>
             </Link>
           </div>
-          <p className="mt-4 text-xs text-muted-foreground">
+          <p className="mt-4 text-xs text-primary-foreground/60">
             Create a free business account · Post projects · Pay only after approval
           </p>
         </div>

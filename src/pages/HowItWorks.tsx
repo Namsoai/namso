@@ -100,7 +100,7 @@ export default function HowItWorks() {
           <h2 className="mb-4 font-display text-3xl font-bold text-foreground">Ready to Get Started?</h2>
           <p className="mx-auto mb-8 max-w-md text-muted-foreground">Browse services from verified AI specialists or create a business account to post projects.</p>
           <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <Link to="/services"><Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/85">Browse Services <ArrowRight className="ml-2 h-4 w-4" /></Button></Link>
+            <Link to="/services"><Button size="lg">Browse Services <ArrowRight className="ml-2 h-4 w-4" /></Button></Link>
             <Link to="/signup/business"><Button size="lg" variant="outline">Join as a Business</Button></Link>
           </div>
           <p className="mt-4 text-xs text-muted-foreground">
