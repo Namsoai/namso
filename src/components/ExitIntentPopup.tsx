@@ -25,16 +25,24 @@ export default function ExitIntentPopup() {
       return;
     }
 
+    let shown = false;
+
     const handleMouseLeave = (e: MouseEvent) => {
+      // Don't show again if already shown or previously dismissed
+      if (shown || localStorage.getItem("namso_exit_intent_seen")) return;
       // Trigger when mouse leaves the top of the viewport
       if (e.clientY <= 0) {
+        shown = true;
         setIsVisible(true);
+        // Remove the listener so it can never fire again
+        document.removeEventListener("mouseleave", handleMouseLeave);
       }
     };
 
     // For mobile, display after 15 seconds as a fallback
     const mobileTimeout = setTimeout(() => {
-      if (window.innerWidth < 768) {
+      if (window.innerWidth < 768 && !shown && !localStorage.getItem("namso_exit_intent_seen")) {
+        shown = true;
         setIsVisible(true);
       }
     }, 15000);
