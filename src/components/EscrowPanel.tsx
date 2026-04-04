@@ -24,7 +24,7 @@ import { useEscrow } from "@/hooks/useEscrow";
 import { useToast } from "@/hooks/use-toast";
 import ConfirmDialog from "@/components/ConfirmDialog";
 import { ShieldCheck, Loader2, RefreshCw, ExternalLink, LockKeyhole } from "lucide-react";
-import { useCurrency } from "@/contexts/CurrencyContext";
+
 
 interface EscrowPanelProps {
   taskId: string;
@@ -110,7 +110,7 @@ export default function EscrowPanel({
   const [escrowId, setEscrowId] = useState<string | null>(initialEscrowId ?? null);
   const [uiStatus, setUiStatus] = useState<EscrowUIStatus>(initialEscrowId ? "awaiting_agreement" : "idle");
   const [paymentUrl, setPaymentUrl] = useState<string | null>(null);
-  const { currency, formatPrice, convertedValue } = useCurrency();
+  const formatPrice = (p: number) => `€${p.toLocaleString()}`;
 
   // ── Create ────────────────────────────────────────────────────────────────
   const handleCreate = async () => {
@@ -120,16 +120,10 @@ export default function EscrowPanel({
       if (stored) deliveryTime = JSON.parse(stored);
     } catch { /* ignore parse error */ }
 
-    const exchangeRate = convertedValue(1);
-    const convertedAmount = convertedValue(amount);
-
     const result = await createEscrow({
       taskId,
       paymentId,
       amount,
-      currency,
-      convertedAmount,
-      exchangeRate,
       deliveryTime,
       buyerEmail,
       sellerEmail,

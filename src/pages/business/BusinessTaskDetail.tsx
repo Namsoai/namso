@@ -194,7 +194,7 @@ export default function BusinessTaskDetail() {
         payer_id: user?.id,
         payee_id: task.freelancer_id,
         amount: task.budget,
-        currency: 'USD',
+        currency: 'EUR',
         status: 'pending'
       }).select('id').single();
       if (error) throw error;

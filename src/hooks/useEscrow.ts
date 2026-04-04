@@ -35,9 +35,6 @@ export interface CreateEscrowParams {
   taskId: string;
   paymentId: string;
   amount: number;       // Base EUR
-  currency?: string;    // Selected currency (e.g., USD)
-  convertedAmount?: number; // Pre-calculated converted amount
-  exchangeRate?: number;    // Rate used
   deliveryTime?: Record<string, any>; // User-defined delivery time payload
   buyerEmail: string;
   sellerEmail: string;
@@ -63,7 +60,7 @@ export interface EscrowResult {
   steps?: Record<string, { executed: boolean; skipped: boolean; ok: boolean; error?: string }>;
   note?: string;
   description?: string;
-  currency?: string;
+
 }
 
 // ── Private helper ────────────────────────────────────────────────────────────
