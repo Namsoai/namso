@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { useAuth } from "@/contexts/AuthContext";
 import { cn } from "@/lib/utils";
 import logo from "@/assets/logo.png";
-import LanguageSwitcher from "./LanguageSwitcher";
+
 
 export interface SidebarItem {
   to: string;
@@ -118,9 +118,7 @@ export default function DashboardShell({ children, sidebarItems, title }: Dashbo
           <Link to="/" className="ml-auto text-xs text-muted-foreground hover:text-foreground">
             ← Back to Website
           </Link>
-          <div className="ml-3 hidden sm:flex items-center">
-             <LanguageSwitcher />
-          </div>
+
         </header>
         <main className="flex-1 overflow-y-auto p-4 md:p-6 lg:p-8">
           {children}

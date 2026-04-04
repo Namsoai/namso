@@ -4,7 +4,7 @@ import { Menu, X, Shield, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useAuth } from "@/contexts/AuthContext";
 import logo from "@/assets/logo.png";
-import LanguageSwitcher from "./LanguageSwitcher";
+
 
 const mainNav = [
   { to: "/services", label: "Browse Services" },
@@ -57,11 +57,7 @@ export function Navbar() {
             </Link>
           ))}
 
-          <div className="ml-3 h-5 w-px bg-border" />
-          
-          <div className="ml-3 flex items-center pr-2">
-            <LanguageSwitcher />
-          </div>
+
 
           {user ? (
             <div className="ml-3 flex items-center gap-2">
@@ -119,9 +115,7 @@ export function Navbar() {
       {/* Mobile menu */}
       {mobileOpen && (
         <div className="border-t border-border bg-card px-4 pb-4 md:hidden">
-          <div className="py-2 mb-2 border-b border-border flex items-center">
-            <LanguageSwitcher />
-          </div>
+
           {mainNav.map((link) => (
             <Link
               key={link.to}

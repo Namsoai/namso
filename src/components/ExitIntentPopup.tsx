@@ -116,18 +116,18 @@ export default function ExitIntentPopup() {
               <div className="p-12 md:w-3/5 flex flex-col justify-center">
                 {submitted ? (
                   <div className="text-center py-10 scale-110">
-                    <h3 className="font-display text-3xl font-bold text-foreground mb-4">You're Set!</h3>
+                    <h3 className="font-display text-3xl font-bold text-foreground mb-4">You're Subscribed!</h3>
                     <p className="text-muted-foreground text-lg leading-relaxed">
-                      Check your inbox shortly for your exclusive business discount and AI insights.
+                      Check your inbox shortly for the latest AI insights, tips, and updates from Namso.
                     </p>
                   </div>
                 ) : (
                   <>
                     <h3 className="font-display text-4xl font-bold leading-tight text-foreground mb-6">
-                      Wait! Don't miss out on <span className="text-primary">20% off</span> your first AI project.
+                      Wait! Don't miss out on <span className="text-primary">exclusive AI insights</span>.
                     </h3>
                     <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-                      Join our newsletter to get access to verified AI specialists, exclusive discounts, and automation guides.
+                      Subscribe to our newsletter for expert tips, industry updates, and guides on AI automation.
                     </p>
 
                     <form onSubmit={handleSubmit} className="space-y-4">
@@ -144,11 +144,11 @@ export default function ExitIntentPopup() {
                         disabled={loading || !email}
                         className="w-full h-14 text-lg font-semibold bg-primary text-primary-foreground hover:bg-primary/90 shadow-lg shadow-primary/20 rounded-xl"
                       >
-                        {loading ? "Claiming..." : "Claim My Discount"} <ArrowRight className="ml-2 h-5 w-5" />
+                        {loading ? "Subscribing..." : "Subscribe Now"} <ArrowRight className="ml-2 h-5 w-5" />
                       </Button>
                     </form>
                     <button onClick={handleClose} className="mt-6 w-full text-center text-sm text-muted-foreground hover:underline transition-all">
-                      No thanks, I don't want to optimize my workflows.
+                      No thanks, I'm not interested.
                     </button>
                   </>
                 )}
