@@ -114,9 +114,9 @@ export default function ExitIntentPopup() {
 
             <div className="flex flex-col md:flex-row min-h-[400px]">
               {/* Left Side: Graphic/Color block */}
-              <div className="bg-primary/10 p-12 flex items-center justify-center md:w-2/5 border-b md:border-b-0 md:border-r border-border">
-                 <div className="h-32 w-32 rounded-full bg-primary/20 flex items-center justify-center mix-blend-multiply animate-pulse">
-                    <Sparkles className="h-16 w-16 text-primary" />
+              <div className="hero-gradient p-12 flex items-center justify-center md:w-2/5 border-b md:border-b-0 md:border-r border-border">
+                 <div className="h-32 w-32 rounded-full bg-white/15 flex items-center justify-center backdrop-blur-sm">
+                    <Sparkles className="h-16 w-16 text-white" />
                  </div>
               </div>
 
@@ -124,24 +124,24 @@ export default function ExitIntentPopup() {
               <div className="p-12 md:w-3/5 flex flex-col justify-center">
                 {submitted ? (
                   <div className="text-center py-10 scale-110">
-                    <h3 className="font-display text-3xl font-bold text-foreground mb-4">You're Subscribed!</h3>
+                    <h3 className="font-display text-3xl font-bold text-foreground mb-4">Welcome Aboard!</h3>
                     <p className="text-muted-foreground text-lg leading-relaxed">
-                      Check your inbox shortly for the latest AI insights, tips, and updates from Namso.
+                      You'll receive a welcome email shortly. We only send updates that matter — no spam, ever.
                     </p>
                   </div>
                 ) : (
                   <>
                     <h3 className="font-display text-4xl font-bold leading-tight text-foreground mb-6">
-                      Wait! Don't miss out on <span className="text-primary">exclusive AI insights</span>.
+                      Stay ahead with <span className="text-primary">AI business news</span>.
                     </h3>
                     <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-                      Subscribe to our newsletter for expert tips, industry updates, and guides on AI automation.
+                      Get practical AI case studies, new service announcements, and early access to features — delivered straight to your inbox.
                     </p>
 
                     <form onSubmit={handleSubmit} className="space-y-4">
                       <Input
                         type="email"
-                        placeholder="Work email address"
+                        placeholder="Your business email"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                         required
@@ -152,11 +152,11 @@ export default function ExitIntentPopup() {
                         disabled={loading || !email}
                         className="w-full h-14 text-lg font-semibold bg-primary text-primary-foreground hover:bg-primary/90 shadow-lg shadow-primary/20 rounded-xl"
                       >
-                        {loading ? "Subscribing..." : "Subscribe Now"} <ArrowRight className="ml-2 h-5 w-5" />
+                        {loading ? "Subscribing..." : "Stay in the Loop"} <ArrowRight className="ml-2 h-5 w-5" />
                       </Button>
                     </form>
                     <button onClick={handleClose} className="mt-6 w-full text-center text-sm text-muted-foreground hover:underline transition-all">
-                      No thanks, I'm not interested.
+                      No thanks, maybe later.
                     </button>
                   </>
                 )}
