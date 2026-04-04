@@ -72,13 +72,12 @@ export function Navbar() {
             <div className="ml-3 flex items-center gap-2">
 
               <Link to="/login">
-                <Button className="rounded-full bg-primary px-6 font-semibold text-primary-foreground shadow-sm hover:-translate-y-0.5 hover:bg-primary/90 hover:shadow-md transition-all">
+                <Button>
                   Log In
                 </Button>
               </Link>
               <div className="relative" ref={dropdownRef}>
                 <Button
-                  className="rounded-full bg-primary px-6 font-semibold text-primary-foreground shadow-sm hover:-translate-y-0.5 hover:bg-primary/90 hover:shadow-md transition-all"
                   onClick={() => setSignupOpen(!signupOpen)}
                 >
                   Sign Up <ChevronDown className="ml-1 h-3.5 w-3.5" />
@@ -139,13 +138,13 @@ export function Navbar() {
             ) : (
               <>
                 <Link to="/login" onClick={() => setMobileOpen(false)}>
-                  <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/85" size="sm">Log In</Button>
+                  <Button className="w-full" size="sm">Log In</Button>
                 </Link>
                 <Link to="/signup/freelancer" onClick={() => setMobileOpen(false)}>
-                  <Button variant="outline" className="w-full border-primary text-primary" size="sm">Join as Specialist</Button>
+                  <Button variant="outline" className="w-full" size="sm">Join as Specialist</Button>
                 </Link>
                 <Link to="/signup/business" onClick={() => setMobileOpen(false)}>
-                  <Button variant="outline" className="w-full border-primary text-primary" size="sm">Join as Business</Button>
+                  <Button variant="outline" className="w-full" size="sm">Join as Business</Button>
                 </Link>
               </>
             )}

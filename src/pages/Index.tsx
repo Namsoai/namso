@@ -36,19 +36,19 @@ export default function HomePage() {
             <p className="mb-10 text-base leading-relaxed text-muted-foreground md:text-lg max-w-2xl mx-auto">
               Hire experienced AI specialists to integrate tools like ChatGPT, automate workflows, and aggressively streamline your business operations without the overhead.
             </p>
-            <div className="flex flex-col items-center justify-center gap-3 sm:flex-row">
+            <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
               <Link to="/services">
-                <Button size="lg" className="h-14 rounded-full bg-primary px-8 text-base font-semibold text-primary-foreground shadow-lg hover:-translate-y-0.5 hover:shadow-xl hover:bg-primary/90 transition-all">
+                <Button size="lg">
                   Browse Services <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </Link>
               <Link to="/signup/business">
-                <Button size="lg" variant="outline" className="h-14 rounded-full border-primary px-8 text-base font-semibold text-primary bg-background shadow-sm hover:-translate-y-0.5 hover:shadow-md hover:bg-primary/5 transition-all">
+                <Button size="lg">
                   Get Started as a Business
                 </Button>
               </Link>
               <Link to="/book-call">
-                <Button size="lg" variant="ghost" className="h-14 rounded-full px-8 text-base font-semibold text-foreground hover:bg-secondary transition-all">
+                <Button size="lg">
                   Book Strategy Call
                 </Button>
               </Link>
@@ -86,7 +86,7 @@ export default function HomePage() {
             Post a project, get matched with verified AI specialists, review the deliverables, and pay only after approval.
           </p>
           <Link to="/how-it-works">
-            <Button variant="outline" className="border-primary text-primary hover:bg-primary/10">
+            <Button variant="outline">
               View How It Works <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
           </Link>
@@ -118,29 +118,27 @@ export default function HomePage() {
 
 
 
-      {/* Final CTA */}
-      <section className="hero-gradient py-20 md:py-32 relative overflow-hidden">
-        <div className="absolute inset-0 bg-black/10 mix-blend-overlay"></div>
-        <div className="container relative z-10 text-center">
-          <h2 className="mb-3 font-display text-3xl font-bold text-primary-foreground md:text-4xl">
+      <section className="bg-secondary/30 py-20 md:py-32 relative overflow-hidden text-center border-t border-border">
+        <div className="container relative z-10">
+          <h2 className="mb-3 font-display text-3xl font-bold text-foreground md:text-4xl">
             Ready to Integrate AI Into Your Business?
           </h2>
-          <p className="mx-auto mb-8 max-w-lg text-lg text-primary-foreground/80">
+          <p className="mx-auto mb-8 max-w-lg text-lg text-muted-foreground">
             Hire verified AI specialists to automate workflows, build intelligent systems, and drive real business results.
           </p>
           <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
             <Link to="/services">
-              <Button size="lg" className="h-14 rounded-full border border-primary-foreground/30 bg-primary-foreground/10 px-8 text-base font-semibold text-primary-foreground backdrop-blur-sm transition-all hover:scale-105 hover:bg-primary-foreground/20">
+              <Button size="lg">
                 Browse Services <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             </Link>
             <Link to="/signup/business">
-              <Button size="lg" className="h-14 rounded-full bg-primary-foreground px-8 text-base font-semibold text-primary transition-all hover:scale-105 hover:bg-white/90 shadow-xl">
+              <Button size="lg">
                 Join as a Business
               </Button>
             </Link>
           </div>
-          <p className="mt-4 text-xs text-primary-foreground/60">
+          <p className="mt-4 text-xs text-muted-foreground">
             Create a free business account · Post projects · Pay only after approval
           </p>
         </div>
