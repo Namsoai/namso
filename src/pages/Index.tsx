@@ -109,7 +109,7 @@ export default function HomePage() {
               </Button>
             </Link>
             <Link to="/book-call">
-              <Button size="lg" variant="outline" className="border-2 border-white/40 text-primary-foreground bg-transparent hover:bg-white/10">
+              <Button size="lg" className="bg-white text-primary hover:bg-white/90 shadow-lg">
                 Book a Call
               </Button>
             </Link>
