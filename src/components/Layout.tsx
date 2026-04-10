@@ -1,23 +1,24 @@
 import { Link, useLocation } from "react-router-dom";
 import { useState, useRef, useEffect } from "react";
-import { Menu, X, Shield, ChevronDown } from "lucide-react";
+import { Menu, X, Shield, ChevronDown, Globe } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useAuth } from "@/contexts/AuthContext";
 import logo from "@/assets/logo.png";
-
-
-const mainNav = [
-  { to: "/services", label: "Browse Services" },
-  { to: "/how-it-works", label: "How It Works" },
-  { to: "/book-call", label: "Book a Call" },
-];
+import { useTranslation } from "react-i18next";
 
 export function Navbar() {
+  const { t } = useTranslation();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [signupOpen, setSignupOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
   const location = useLocation();
   const { user, roles, signOut } = useAuth();
+
+  const mainNav = [
+    { to: "/services", label: t('nav.browseServices') },
+    { to: "/how-it-works", label: t('nav.howItWorks') },
+    { to: "/book-call", label: t('nav.bookCall') },
+  ];
 
   const dashboardPath = roles.includes("admin")
     ? "/admin"
@@ -57,30 +58,27 @@ export function Navbar() {
             </Link>
           ))}
 
-
-
           {user ? (
             <div className="ml-3 flex items-center gap-2">
               <Link to={dashboardPath}>
-                <Button size="sm" variant="outline">Dashboard</Button>
+                <Button size="sm" variant="outline">{t('nav.dashboard')}</Button>
               </Link>
               <Button size="sm" variant="ghost" className="text-muted-foreground hover:text-foreground" onClick={signOut}>
-                Log Out
+                {t('nav.logOut')}
               </Button>
             </div>
           ) : (
             <div className="ml-3 flex items-center gap-2">
-
               <Link to="/login">
                 <Button>
-                  Log In
+                  {t('nav.logIn')}
                 </Button>
               </Link>
               <div className="relative" ref={dropdownRef}>
                 <Button
                   onClick={() => setSignupOpen(!signupOpen)}
                 >
-                  Sign Up <ChevronDown className="ml-1 h-3.5 w-3.5" />
+                  {t('nav.signUp')} <ChevronDown className="ml-1 h-3.5 w-3.5" />
                 </Button>
                 {signupOpen && (
                   <div className="absolute right-0 top-full z-50 mt-1 w-48 rounded-lg border border-border bg-card p-1 shadow-lg">
@@ -89,14 +87,14 @@ export function Navbar() {
                       className="block rounded-md px-3 py-2 text-sm font-medium text-foreground transition-colors hover:bg-secondary"
                       onClick={() => setSignupOpen(false)}
                     >
-                      Join as Specialist
+                      {t('nav.joinSpecialist')}
                     </Link>
                     <Link
                       to="/signup/business"
                       className="block rounded-md px-3 py-2 text-sm font-medium text-foreground transition-colors hover:bg-secondary"
                       onClick={() => setSignupOpen(false)}
                     >
-                      Join as Business
+                      {t('nav.joinBusiness')}
                     </Link>
                   </div>
                 )}
@@ -114,7 +112,6 @@ export function Navbar() {
       {/* Mobile menu */}
       {mobileOpen && (
         <div className="border-t border-border bg-card px-4 pb-4 md:hidden">
-
           {mainNav.map((link) => (
             <Link
               key={link.to}
@@ -129,22 +126,22 @@ export function Navbar() {
             {user ? (
               <>
                 <Link to={dashboardPath} onClick={() => setMobileOpen(false)}>
-                  <Button variant="outline" className="w-full" size="sm">Dashboard</Button>
+                  <Button variant="outline" className="w-full" size="sm">{t('nav.dashboard')}</Button>
                 </Link>
                 <Button variant="ghost" className="w-full justify-start text-muted-foreground" size="sm" onClick={() => { signOut(); setMobileOpen(false); }}>
-                  Log Out
+                  {t('nav.logOut')}
                 </Button>
               </>
             ) : (
               <>
                 <Link to="/login" onClick={() => setMobileOpen(false)}>
-                  <Button className="w-full" size="sm">Log In</Button>
+                  <Button className="w-full" size="sm">{t('nav.logIn')}</Button>
                 </Link>
                 <Link to="/signup/freelancer" onClick={() => setMobileOpen(false)}>
-                  <Button variant="outline" className="w-full" size="sm">Join as Specialist</Button>
+                  <Button variant="outline" className="w-full" size="sm">{t('nav.joinSpecialist')}</Button>
                 </Link>
                 <Link to="/signup/business" onClick={() => setMobileOpen(false)}>
-                  <Button variant="outline" className="w-full" size="sm">Join as Business</Button>
+                  <Button variant="outline" className="w-full" size="sm">{t('nav.joinBusiness')}</Button>
                 </Link>
               </>
             )}
@@ -156,6 +153,8 @@ export function Navbar() {
 }
 
 export function Footer() {
+  const { t, i18n } = useTranslation();
+
   return (
     <footer className="border-t border-border bg-primary text-primary-foreground">
       <div className="container py-12">
@@ -163,43 +162,55 @@ export function Footer() {
           <div>
             <div className="font-display text-lg font-bold">Namso</div>
             <p className="mt-3 text-sm text-primary-foreground/70">
-              The AI freelance marketplace connecting businesses with verified integration specialists.
+              {t('footer.description')}
             </p>
             <div className="mt-4 flex items-center gap-1.5 text-xs text-primary-foreground/50">
               <Shield className="h-3 w-3" />
-              Secure payments · Verified specialists
+              {t('footer.secure')}
+            </div>
+            
+            <div className="mt-8 flex items-center gap-2 text-sm text-primary-foreground/90">
+              <Globe className="h-4 w-4" />
+              <select 
+                value={i18n.language} 
+                onChange={(e) => i18n.changeLanguage(e.target.value)}
+                className="bg-primary/50 text-primary-foreground border border-primary-foreground/20 rounded-md px-2 py-1 outline-none cursor-pointer hover:bg-primary"
+              >
+                <option value="en">English</option>
+                <option value="nl">Nederlands</option>
+              </select>
             </div>
           </div>
           <div>
-            <h4 className="mb-3 font-display text-sm font-semibold">For Businesses</h4>
+            <h4 className="mb-3 font-display text-sm font-semibold">{t('footer.forBusinesses')}</h4>
             <div className="flex flex-col gap-2 text-sm text-primary-foreground/70">
-              <Link to="/services" className="transition-colors hover:text-primary-foreground">Browse Services</Link>
-              <Link to="/signup/business" className="transition-colors hover:text-primary-foreground">Join as Business</Link>
-              <Link to="/how-it-works" className="transition-colors hover:text-primary-foreground">How It Works</Link>
+              <Link to="/services" className="transition-colors hover:text-primary-foreground">{t('nav.browseServices')}</Link>
+              <Link to="/signup/business" className="transition-colors hover:text-primary-foreground">{t('nav.joinBusiness')}</Link>
+              <Link to="/how-it-works" className="transition-colors hover:text-primary-foreground">{t('nav.howItWorks')}</Link>
             </div>
           </div>
           <div>
-            <h4 className="mb-3 font-display text-sm font-semibold">Company</h4>
+            <h4 className="mb-3 font-display text-sm font-semibold">{t('footer.company')}</h4>
             <div className="flex flex-col gap-2 text-sm text-primary-foreground/70">
-              <Link to="/about" className="transition-colors hover:text-primary-foreground">About Namso</Link>
-              <Link to="/faq" className="transition-colors hover:text-primary-foreground">FAQ</Link>
-              <Link to="/contact" className="transition-colors hover:text-primary-foreground">Contact Us</Link>
-              <Link to="/signup/freelancer" className="transition-colors hover:text-primary-foreground">Join as a Specialist</Link>
+              <Link to="/about" className="transition-colors hover:text-primary-foreground">{t('footer.aboutNamso')}</Link>
+              <Link to="/faq" className="transition-colors hover:text-primary-foreground">{t('footer.faq')}</Link>
+              <Link to="/contact" className="transition-colors hover:text-primary-foreground">{t('footer.contactUs')}</Link>
+              <Link to="/signup/freelancer" className="transition-colors hover:text-primary-foreground">{t('footer.joinSpecialist')}</Link>
             </div>
           </div>
           <div>
-            <h4 className="mb-3 font-display text-sm font-semibold">Legal & Support</h4>
+            <h4 className="mb-3 font-display text-sm font-semibold">{t('footer.legalSupport')}</h4>
             <div className="flex flex-col gap-2 text-sm text-primary-foreground/70">
-              <Link to="/privacy" className="transition-colors hover:text-primary-foreground">Privacy Policy</Link>
-              <Link to="/terms" className="transition-colors hover:text-primary-foreground">Terms of Service</Link>
-              <Link to="/cookies" className="transition-colors hover:text-primary-foreground">Cookie Policy</Link>
-              <Link to="/refund-policy" className="transition-colors hover:text-primary-foreground">Refund & Resolution Policy</Link>
+              <Link to="/privacy" className="transition-colors hover:text-primary-foreground">{t('footer.privacyPolicy')}</Link>
+              <Link to="/terms" className="transition-colors hover:text-primary-foreground">{t('footer.termsOfService')}</Link>
+              <Link to="/cookies" className="transition-colors hover:text-primary-foreground">{t('footer.cookiePolicy')}</Link>
+              <Link to="/refund-policy" className="transition-colors hover:text-primary-foreground">{t('footer.refundPolicy')}</Link>
               <a href="mailto:info.namsoai@gmail.com" className="transition-colors hover:text-primary-foreground">info.namsoai@gmail.com</a>
             </div>
           </div>
         </div>
-        <div className="mt-8 border-t border-primary-foreground/20 pt-6 text-center text-sm text-primary-foreground/50">
-          © {new Date().getFullYear()} Namso. All rights reserved.
+        <div className="mt-8 border-t border-primary-foreground/20 pt-6 flex justify-between items-center text-sm text-primary-foreground/50">
+          <div>© {new Date().getFullYear()} Namso. {t('footer.allRightsReserved')}</div>
         </div>
       </div>
     </footer>

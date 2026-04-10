@@ -1,4 +1,62 @@
 {
+  "nav": {
+    "browseServices": "Browse Services",
+    "howItWorks": "How It Works",
+    "bookCall": "Book a Call",
+    "dashboard": "Dashboard",
+    "logOut": "Log Out",
+    "logIn": "Log In",
+    "signUp": "Sign Up",
+    "joinSpecialist": "Join as Specialist",
+    "joinBusiness": "Join as Business"
+  },
+  "footer": {
+    "description": "The AI freelance marketplace connecting businesses with verified integration specialists.",
+    "secure": "Secure payments · Verified specialists",
+    "forBusinesses": "For Businesses",
+    "company": "Company",
+    "legalSupport": "Legal & Support",
+    "aboutNamso": "About Namso",
+    "faq": "FAQ",
+    "contactUs": "Contact Us",
+    "joinSpecialist": "Join as a Specialist",
+    "privacyPolicy": "Privacy Policy",
+    "termsOfService": "Terms of Service",
+    "cookiePolicy": "Cookie Policy",
+    "refundPolicy": "Refund & Resolution Policy",
+    "allRightsReserved": "All rights reserved."
+  },
+  "home": {
+    "heroTitle1": "Find the perfect",
+    "heroTitle2": "AI Integration Specialists",
+    "heroSub1": "Connect with verified freelancers who build intelligent systems.",
+    "heroSub2": "Hire experienced AI specialists to integrate tools like ChatGPT, automate workflows, and streamline your business operations without the overhead.",
+    "browseServices": "Browse Services",
+    "bookStrategy": "Book a Strategy Call",
+    "trustSecure": "Secure payments · Verified specialists · Pay only after approval",
+    "trustBar": {
+      "verified": "Verified Specialists",
+      "secure": "Secure Payments",
+      "fast": "Fast Delivery",
+      "experts": "AI Integration Experts"
+    },
+    "why": {
+      "title": "Why Hire AI Integration Specialists?",
+      "sub": "Our freelancers bring deep technical expertise, hands-on implementation skills, and a focus on real business outcomes.",
+      "feature1Title": "Deep AI Expertise",
+      "feature1Desc": "Our specialists work with AI tools daily — from GPT integrations and automation platforms to custom AI agent workflows.",
+      "feature2Title": "Implementation-Focused",
+      "feature2Desc": "Not just advice — our freelancers build, deploy, and integrate AI solutions directly into your business operations.",
+      "feature3Title": "Business-Ready Solutions",
+      "feature3Desc": "Every project is scoped for real business impact — streamlined workflows, reduced manual work, and measurable results."
+    },
+    "cta": {
+      "title": "Ready to Integrate AI Into Your Business?",
+      "sub": "Hire verified AI specialists to automate workflows, build intelligent systems, and drive real business results.",
+      "getStarted": "Get Started",
+      "footerText": "Create a free business account · Post projects · Pay only after approval"
+    }
+  },
   "services": {
     "meeting_summaries": "AI Meeting Summaries",
     "prompt_engineering": "AI Prompt Engineering",

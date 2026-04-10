@@ -1,4 +1,62 @@
 {
+  "nav": {
+    "browseServices": "Bekijk Diensten",
+    "howItWorks": "Hoe Het Werkt",
+    "bookCall": "Plan een Gesprek",
+    "dashboard": "Dashboard",
+    "logOut": "Uitloggen",
+    "logIn": "Inloggen",
+    "signUp": "Aanmelden",
+    "joinSpecialist": "Word Specialist",
+    "joinBusiness": "Word Bedrijf"
+  },
+  "footer": {
+    "description": "De AI freelance marktplaats die bedrijven verbindt met geverifieerde integratiespecialisten.",
+    "secure": "Veilige betalingen · Geverifieerde specialisten",
+    "forBusinesses": "Voor Bedrijven",
+    "company": "Bedrijf",
+    "legalSupport": "Juridisch & Ondersteuning",
+    "aboutNamso": "Over Namso",
+    "faq": "FAQ",
+    "contactUs": "Neem Contact Op",
+    "joinSpecialist": "Word een Specialist",
+    "privacyPolicy": "Privacybeleid",
+    "termsOfService": "Algemene Voorwaarden",
+    "cookiePolicy": "Cookiebeleid",
+    "refundPolicy": "Restitutie & Resolutiebeleid",
+    "allRightsReserved": "Alle rechten voorbehouden."
+  },
+  "home": {
+    "heroTitle1": "Vind de perfecte",
+    "heroTitle2": "AI-integratiespecialisten",
+    "heroSub1": "Maak contact met geverifieerde freelancers die intelligente systemen bouwen.",
+    "heroSub2": "Huur ervaren AI-specialisten in om tools zoals ChatGPT te integreren, workflows te automatiseren en uw bedrijfsvoering te stroomlijnen zonder de overhead.",
+    "browseServices": "Bekijk Diensten",
+    "bookStrategy": "Plan een Strategiegesprek",
+    "trustSecure": "Veilige betalingen · Geverifieerde specialisten · Betaal pas na goedkeuring",
+    "trustBar": {
+      "verified": "Geverifieerde Specialisten",
+      "secure": "Veilige Betalingen",
+      "fast": "Snelle Levering",
+      "experts": "AI Integratie Experts"
+    },
+    "why": {
+      "title": "Waarom AI Integratie Specialisten Inhuren?",
+      "sub": "Onze freelancers brengen diepe technische expertise, hands-on implementatievaardigheden en een focus op echte zakelijke resultaten.",
+      "feature1Title": "Diepe AI Expertise",
+      "feature1Desc": "Onze specialisten werken dagelijks met AI tools — van GPT integraties en automatiseringsplatformen tot maatwerk AI agent workflows.",
+      "feature2Title": "Focus op Implementatie",
+      "feature2Desc": "Niet zomaar advies — onze freelancers bouwen, implementeren en integreren AI-oplossingen direct in uw bedrijfsvoering.",
+      "feature3Title": "Kant-en-klare Zakelijke Oplossingen",
+      "feature3Desc": "Elk project is afgestemd op echte impact — geoptimaliseerde workflows, minder handmatig werk en meetbare resultaten."
+    },
+    "cta": {
+      "title": "Klaar om AI te Integreren in Uw Bedrijf?",
+      "sub": "Huur geverifieerde AI-specialisten in om workflows te automatiseren, intelligente systemen te bouwen en bedrijfsresultaten te boeken.",
+      "getStarted": "Aan de Slag",
+      "footerText": "Maak gratis een bedrijfsaccount aan · Plaats projecten · Betaal pas na goedkeuring"
+    }
+  },
   "services": {
     "meeting_summaries": "AI Vergadering Samenvattingen",
     "prompt_engineering": "AI Prompt Engineering",

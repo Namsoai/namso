@@ -4,12 +4,7 @@ import { ArrowRight, Shield, Clock, BadgeCheck, Brain, Sparkles, Workflow } from
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/Layout";
 import heroMap from "@/assets/hero-map.png";
-
-const whySpecialists = [
-  { icon: Brain, title: "Deep AI Expertise", desc: "Our specialists work with AI tools daily — from GPT integrations and automation platforms to custom AI agent workflows." },
-  { icon: Sparkles, title: "Implementation-Focused", desc: "Not just advice — our freelancers build, deploy, and integrate AI solutions directly into your business operations." },
-  { icon: Workflow, title: "Business-Ready Solutions", desc: "Every project is scoped for real business impact — streamlined workflows, reduced manual work, and measurable results." },
-];
+import { useTranslation } from "react-i18next";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 20 },
@@ -17,6 +12,14 @@ const fadeUp = {
 };
 
 export default function HomePage() {
+  const { t } = useTranslation();
+
+  const whySpecialists = [
+    { icon: Brain, title: t('home.why.feature1Title'), desc: t('home.why.feature1Desc') },
+    { icon: Sparkles, title: t('home.why.feature2Title'), desc: t('home.why.feature2Desc') },
+    { icon: Workflow, title: t('home.why.feature3Title'), desc: t('home.why.feature3Desc') },
+  ];
+
   return (
     <Layout>
       {/* Hero */}
@@ -25,30 +28,30 @@ export default function HomePage() {
         <div className="container relative z-10">
           <motion.div className="mx-auto max-w-3xl text-center" initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
             <h1 className="mb-6 font-display text-4xl font-extrabold leading-[1.1] tracking-tight text-foreground md:text-6xl lg:text-[4.5rem]">
-              Find the perfect <br className="hidden md:block" />
-              <span className="text-gradient">AI Integration Specialists</span>
+              {t('home.heroTitle1')} <br className="hidden md:block" />
+              <span className="text-gradient">{t('home.heroTitle2')}</span>
             </h1>
             <p className="mb-4 text-xl font-medium text-foreground/80 md:text-2xl">
-              Connect with verified freelancers who build intelligent systems.
+              {t('home.heroSub1')}
             </p>
             <p className="mb-10 text-base leading-relaxed text-muted-foreground md:text-lg max-w-2xl mx-auto">
-              Hire experienced AI specialists to integrate tools like ChatGPT, automate workflows, and streamline your business operations without the overhead.
+              {t('home.heroSub2')}
             </p>
             <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
               <Link to="/services">
                 <Button size="lg">
-                  Browse Services <ArrowRight className="ml-2 h-4 w-4" />
+                  {t('home.browseServices')} <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </Link>
               <Link to="/book-call">
                 <Button size="lg">
-                  Book a Strategy Call
+                  {t('home.bookStrategy')}
                 </Button>
               </Link>
             </div>
             <p className="mt-4 text-xs text-muted-foreground">
               <Shield className="mr-1 inline h-3 w-3" />
-              Secure payments · Verified specialists · Pay only after approval
+              {t('home.trustSecure')}
             </p>
           </motion.div>
         </div>
@@ -58,10 +61,10 @@ export default function HomePage() {
       <section className="border-y border-border bg-secondary/30 py-8">
         <div className="container flex flex-wrap items-center justify-center gap-x-10 gap-y-3">
           {[
-            { icon: BadgeCheck, label: "Verified Specialists" },
-            { icon: Shield, label: "Secure Payments" },
-            { icon: Clock, label: "Fast Delivery" },
-            { icon: Brain, label: "AI Integration Experts" },
+            { icon: BadgeCheck, label: t('home.trustBar.verified') },
+            { icon: Shield, label: t('home.trustBar.secure') },
+            { icon: Clock, label: t('home.trustBar.fast') },
+            { icon: Brain, label: t('home.trustBar.experts') },
           ].map((item, i) => (
             <motion.div key={item.label} className="flex items-center gap-2 text-sm font-medium text-muted-foreground" custom={i} initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}>
               <item.icon className="h-4 w-4 text-primary" />
@@ -75,8 +78,8 @@ export default function HomePage() {
       <section className="py-20 md:py-32 bg-background">
         <div className="container">
           <div className="mb-12 text-center">
-            <h2 className="mb-3 font-display text-3xl font-bold text-foreground">Why Hire AI Integration Specialists?</h2>
-            <p className="mx-auto max-w-xl text-muted-foreground">Our freelancers bring deep technical expertise, hands-on implementation skills, and a focus on real business outcomes.</p>
+            <h2 className="mb-3 font-display text-3xl font-bold text-foreground">{t('home.why.title')}</h2>
+            <p className="mx-auto max-w-xl text-muted-foreground">{t('home.why.sub')}</p>
           </div>
           <div className="mx-auto grid max-w-4xl gap-8 md:grid-cols-3">
             {whySpecialists.map((item, i) => (
@@ -97,25 +100,25 @@ export default function HomePage() {
         <div className="absolute inset-0 bg-black/10 mix-blend-overlay"></div>
         <div className="container relative z-10 text-center">
           <h2 className="mb-3 font-display text-3xl font-bold text-primary-foreground md:text-4xl">
-            Ready to Integrate AI Into Your Business?
+            {t('home.cta.title')}
           </h2>
           <p className="mx-auto mb-8 max-w-lg text-lg text-primary-foreground/80">
-            Hire verified AI specialists to automate workflows, build intelligent systems, and drive real business results.
+            {t('home.cta.sub')}
           </p>
           <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
             <Link to="/signup/business">
               <Button size="lg" className="bg-white text-primary hover:bg-white/90 shadow-lg">
-                Get Started <ArrowRight className="ml-2 h-4 w-4" />
+                {t('home.cta.getStarted')} <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             </Link>
             <Link to="/book-call">
               <Button size="lg" className="bg-white text-primary hover:bg-white/90 shadow-lg">
-                Book a Call
+                {t('home.bookStrategy')}
               </Button>
             </Link>
           </div>
           <p className="mt-4 text-xs text-primary-foreground/60">
-            Create a free business account · Post projects · Pay only after approval
+            {t('home.cta.footerText')}
           </p>
         </div>
       </section>
