@@ -3,9 +3,7 @@ import { render, screen } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
 import React from "react";
 
-// ─── Minimal mocks ────────────────────────────────────────────────────────────
-
-// Mock Supabase client (avoids real network calls and env var requirement)
+// ─── Supabase mock — factory values must be inlined (vi.mock is hoisted) ────
 vi.mock("@/integrations/supabase/client", () => ({
   supabase: {
     auth: {
@@ -23,8 +21,12 @@ vi.mock("@/integrations/supabase/client", () => ({
   },
 }));
 
-// Helper: render ProtectedRoute in a controlled auth state
-async function renderProtectedRoute(
+// Static imports — safe now that supabase is mocked
+import { AuthContext } from "@/contexts/AuthContext";
+import ProtectedRoute from "@/components/ProtectedRoute";
+
+// ─── Helper ─────────────────────────────────────────────────────────────────
+function renderProtectedRoute(
   authState: {
     user: object | null;
     profile: { account_status?: string; role?: string } | null;
@@ -33,11 +35,7 @@ async function renderProtectedRoute(
   },
   requiredRole?: string
 ) {
-  // Dynamically import after mocks are set up
-  const { AuthContext } = await import("@/contexts/AuthContext");
-  const { default: ProtectedRoute } = await import("@/components/ProtectedRoute");
-
-  const mockSignOut = vi.fn().mockResolvedValue(undefined);
+  const signOutMock = vi.fn().mockResolvedValue(undefined);
 
   const contextValue = {
     session: null,
@@ -45,11 +43,11 @@ async function renderProtectedRoute(
     profile: authState.profile as any,
     roles: authState.roles as any,
     loading: authState.loading,
-    signOut: mockSignOut,
+    signOut: signOutMock,
     refreshProfile: vi.fn(),
   };
 
-  return render(
+  const result = render(
     <MemoryRouter initialEntries={["/protected"]}>
       <AuthContext.Provider value={contextValue}>
         <ProtectedRoute requiredRole={requiredRole as any}>
@@ -58,100 +56,64 @@ async function renderProtectedRoute(
       </AuthContext.Provider>
     </MemoryRouter>
   );
+
+  return { ...result, signOutMock };
 }
 
-// ─── Tests ────────────────────────────────────────────────────────────────────
-
+// ─── Tests ──────────────────────────────────────────────────────────────────
 describe("ProtectedRoute", () => {
   beforeEach(() => {
     vi.clearAllMocks();
   });
 
-  it("shows loader while auth is resolving", async () => {
-    const { container } = await renderProtectedRoute({
+  it("shows loader while auth is resolving", () => {
+    const { container } = renderProtectedRoute({
       user: null,
       profile: null,
       roles: [],
       loading: true,
     });
-    // Loading spinner should be present; no redirect, no content
     expect(container.querySelector(".animate-spin")).not.toBeNull();
     expect(screen.queryByTestId("protected-content")).toBeNull();
   });
 
-  it("redirects unauthenticated user to /login", async () => {
-    await renderProtectedRoute({
+  it("redirects unauthenticated user to /login", () => {
+    renderProtectedRoute({
       user: null,
       profile: null,
       roles: [],
       loading: false,
     });
-    // MemoryRouter will render nothing after Navigate to /login
     expect(screen.queryByTestId("protected-content")).toBeNull();
   });
 
-  it("blocks suspended account and calls signOut", async () => {
-    const { default: ProtectedRoute } = await import("@/components/ProtectedRoute");
-    const { AuthContext } = await import("@/contexts/AuthContext");
-    const mockSignOut = vi.fn().mockResolvedValue(undefined);
+  it("blocks suspended account and calls signOut", () => {
+    const { signOutMock } = renderProtectedRoute({
+      user: { id: "user-1" },
+      profile: { account_status: "suspended", role: "freelancer" },
+      roles: ["freelancer"],
+      loading: false,
+    });
+    expect(screen.queryByTestId("protected-content")).toBeNull();
+    expect(signOutMock).toHaveBeenCalledOnce();
+  });
 
-    render(
-      <MemoryRouter initialEntries={["/protected"]}>
-        <AuthContext.Provider
-          value={{
-            session: null,
-            user: { id: "user-1" } as any,
-            profile: { account_status: "suspended", role: "freelancer" } as any,
-            roles: ["freelancer"] as any,
-            loading: false,
-            signOut: mockSignOut,
-            refreshProfile: vi.fn(),
-          }}
-        >
-          <ProtectedRoute>
-            <div data-testid="protected-content">Content</div>
-          </ProtectedRoute>
-        </AuthContext.Provider>
-      </MemoryRouter>
+  it("blocks revoked account and calls signOut", () => {
+    const { signOutMock } = renderProtectedRoute(
+      {
+        user: { id: "user-2" },
+        profile: { account_status: "revoked", role: "business" },
+        roles: ["business"],
+        loading: false,
+      },
+      "business"
     );
-
-    // Content should NOT be visible — suspended user is kicked out
     expect(screen.queryByTestId("protected-content")).toBeNull();
-    // signOut must be invoked to clear the session
-    expect(mockSignOut).toHaveBeenCalledOnce();
+    expect(signOutMock).toHaveBeenCalledOnce();
   });
 
-  it("blocks revoked account and calls signOut", async () => {
-    const { default: ProtectedRoute } = await import("@/components/ProtectedRoute");
-    const { AuthContext } = await import("@/contexts/AuthContext");
-    const mockSignOut = vi.fn().mockResolvedValue(undefined);
-
-    render(
-      <MemoryRouter initialEntries={["/protected"]}>
-        <AuthContext.Provider
-          value={{
-            session: null,
-            user: { id: "user-2" } as any,
-            profile: { account_status: "revoked", role: "business" } as any,
-            roles: ["business"] as any,
-            loading: false,
-            signOut: mockSignOut,
-            refreshProfile: vi.fn(),
-          }}
-        >
-          <ProtectedRoute requiredRole="business">
-            <div data-testid="protected-content">Content</div>
-          </ProtectedRoute>
-        </AuthContext.Provider>
-      </MemoryRouter>
-    );
-
-    expect(screen.queryByTestId("protected-content")).toBeNull();
-    expect(mockSignOut).toHaveBeenCalledOnce();
-  });
-
-  it("allows active account with correct role", async () => {
-    await renderProtectedRoute(
+  it("allows active account with correct role", () => {
+    renderProtectedRoute(
       {
         user: { id: "user-3" },
         profile: { account_status: "active", role: "business" },
@@ -160,32 +122,29 @@ describe("ProtectedRoute", () => {
       },
       "business"
     );
-
     expect(screen.getByTestId("protected-content")).not.toBeNull();
   });
 
-  it("blocks active account with wrong role", async () => {
-    await renderProtectedRoute(
+  it("blocks active account with wrong role", () => {
+    renderProtectedRoute(
       {
         user: { id: "user-4" },
         profile: { account_status: "active", role: "freelancer" },
         roles: ["freelancer"],
         loading: false,
       },
-      "business" // requires business but user is freelancer
+      "business"
     );
-
     expect(screen.queryByTestId("protected-content")).toBeNull();
   });
 
-  it("allows active account with no role requirement", async () => {
-    await renderProtectedRoute({
+  it("allows active account with no role requirement", () => {
+    renderProtectedRoute({
       user: { id: "user-5" },
       profile: { account_status: "active", role: "freelancer" },
       roles: ["freelancer"],
       loading: false,
     });
-
     expect(screen.getByTestId("protected-content")).not.toBeNull();
   });
 });

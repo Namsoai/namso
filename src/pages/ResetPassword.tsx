@@ -232,7 +232,7 @@ export default function ResetPassword() {
                   <Label htmlFor="resend-email">Email Address</Label>
                   <div className="relative mt-1">
                     <Mail className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
-                    <Input id="resend-email" type="email" placeholder="you@example.com" className="pl-10" value={resendEmail} onChange={(e) => setResendEmail(e.target.value)} required />
+                    <Input id="resend-email" type="email" className="pl-10" value={resendEmail} onChange={(e) => setResendEmail(e.target.value)} required />
                   </div>
                 </div>
                 <Button type="submit" disabled={resendLoading || resendCooldown > 0} className="w-full bg-primary text-primary-foreground hover:bg-primary/85" size="lg">
@@ -300,7 +300,7 @@ export default function ResetPassword() {
                 <Label htmlFor="password">New Password</Label>
                 <div className="relative mt-1">
                   <Lock className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
-                  <Input id="password" type="password" placeholder="At least 8 characters" className="pl-10" value={password} onChange={(e) => setPassword(e.target.value)} required />
+                  <Input id="password" type="password" className="pl-10" value={password} onChange={(e) => setPassword(e.target.value)} required />
                 </div>
                 <p className="mt-1 text-xs text-muted-foreground">Minimum 8 characters</p>
               </div>
@@ -308,7 +308,7 @@ export default function ResetPassword() {
                 <Label htmlFor="confirm">Confirm Password</Label>
                 <div className="relative mt-1">
                   <Lock className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
-                  <Input id="confirm" type="password" placeholder="Confirm password" className="pl-10" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} required />
+                  <Input id="confirm" type="password" className="pl-10" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} required />
                 </div>
               </div>
               <Button type="submit" disabled={loading} className="w-full bg-primary text-primary-foreground hover:bg-primary/85" size="lg">

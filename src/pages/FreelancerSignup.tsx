@@ -203,7 +203,7 @@ export default function FreelancerSignup() {
                       <FormItem>
                         <FormLabel>First Name</FormLabel>
                         <FormControl>
-                          <Input placeholder="First Name" {...field} />
+                          <Input {...field} />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -216,7 +216,7 @@ export default function FreelancerSignup() {
                       <FormItem>
                         <FormLabel>Last Name</FormLabel>
                         <FormControl>
-                          <Input placeholder="Last Name" {...field} />
+                          <Input {...field} />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -231,7 +231,7 @@ export default function FreelancerSignup() {
                     <FormItem>
                       <FormLabel>Email Address</FormLabel>
                       <FormControl>
-                        <Input type="email" placeholder="you@example.com" {...field} />
+                        <Input type="email" {...field} />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -250,7 +250,6 @@ export default function FreelancerSignup() {
                             international
                             country={selectedCountry}
                             onCountryChange={(c) => c && setSelectedCountry(c)}
-                            placeholder="Enter phone number"
                             value={field.value}
                             onChange={field.onChange}
                             className="w-full bg-transparent border-none focus:outline-none"
@@ -281,7 +280,7 @@ export default function FreelancerSignup() {
                       <FormItem>
                         <FormLabel>Password</FormLabel>
                         <FormControl>
-                          <Input type="password" placeholder="Min. 6 characters" {...field} />
+                          <Input type="password" {...field} />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -294,7 +293,7 @@ export default function FreelancerSignup() {
                       <FormItem>
                         <FormLabel>Confirm Password</FormLabel>
                         <FormControl>
-                          <Input type="password" placeholder="Repeat password" {...field} />
+                          <Input type="password" {...field} />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -309,7 +308,7 @@ export default function FreelancerSignup() {
                     <FormItem>
                       <FormLabel>Organization / University</FormLabel>
                       <FormControl>
-                        <Input placeholder="Your organization or university" {...field} />
+                        <Input {...field} />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -323,7 +322,7 @@ export default function FreelancerSignup() {
                     <FormItem>
                       <FormLabel>Area of Expertise</FormLabel>
                       <FormControl>
-                        <Input placeholder="e.g., AI Automation, Chatbots, Data..." {...field} />
+                        <Input {...field} />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -337,7 +336,7 @@ export default function FreelancerSignup() {
                     <FormItem>
                       <FormLabel>AI Tools &amp; Skills</FormLabel>
                       <FormControl>
-                        <Input placeholder="e.g., ChatGPT, Zapier, Make, n8n..." {...field} />
+                        <Input {...field} />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -352,7 +351,6 @@ export default function FreelancerSignup() {
                       <FormLabel>Tell us about your experience</FormLabel>
                       <FormControl>
                         <Textarea 
-                          placeholder="What AI projects have you worked on? What kind of solutions do you specialize in?" 
                           rows={4} 
                           {...field} 
                         />

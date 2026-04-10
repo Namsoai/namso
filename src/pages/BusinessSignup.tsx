@@ -172,7 +172,7 @@ export default function BusinessSignup() {
                     <FormItem>
                       <FormLabel>Business Name</FormLabel>
                       <FormControl>
-                        <Input placeholder="Your business name" {...field} />
+                        <Input {...field} />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -186,7 +186,7 @@ export default function BusinessSignup() {
                     <FormItem>
                       <FormLabel>Your Name</FormLabel>
                       <FormControl>
-                        <Input placeholder="Full name" {...field} />
+                        <Input {...field} />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -200,7 +200,7 @@ export default function BusinessSignup() {
                     <FormItem>
                       <FormLabel>Business Email</FormLabel>
                       <FormControl>
-                        <Input type="email" placeholder="you@business.com" {...field} />
+                        <Input type="email" {...field} />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -219,7 +219,6 @@ export default function BusinessSignup() {
                             international
                             country={selectedCountry}
                             onCountryChange={(c) => c && setSelectedCountry(c)}
-                            placeholder="Enter phone number"
                             value={field.value}
                             onChange={field.onChange}
                             className="w-full bg-transparent border-none focus:outline-none"
@@ -251,7 +250,7 @@ export default function BusinessSignup() {
                     <FormItem>
                       <FormLabel>Password</FormLabel>
                       <FormControl>
-                        <Input type="password" placeholder="At least 6 characters" {...field} />
+                        <Input type="password" {...field} />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -265,7 +264,7 @@ export default function BusinessSignup() {
                     <FormItem>
                       <FormLabel>Confirm Password</FormLabel>
                       <FormControl>
-                        <Input type="password" placeholder="Confirm your password" {...field} />
+                        <Input type="password" {...field} />
                       </FormControl>
                       <FormMessage />
                     </FormItem>

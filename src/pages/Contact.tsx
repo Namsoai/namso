@@ -96,20 +96,20 @@ export default function Contact() {
             <div className="grid gap-4 sm:grid-cols-2">
               <div>
                 <Label htmlFor="name">Name</Label>
-                <Input id="name" name="name" placeholder="Your name" required maxLength={100} />
+                <Input id="name" name="name" required maxLength={100} />
               </div>
               <div>
                 <Label htmlFor="email">Email</Label>
-                <Input id="email" name="email" type="email" placeholder="you@company.com" required maxLength={255} />
+                <Input id="email" name="email" type="email" required maxLength={255} />
               </div>
             </div>
             <div>
               <Label htmlFor="subject">Subject</Label>
-              <Input id="subject" name="subject" placeholder="How can we help?" required maxLength={200} />
+              <Input id="subject" name="subject" required maxLength={200} />
             </div>
             <div>
               <Label htmlFor="message">Message</Label>
-              <Textarea id="message" name="message" placeholder="Tell us more..." rows={5} required maxLength={2000} />
+              <Textarea id="message" name="message" rows={5} required maxLength={2000} />
               <p className="mt-1 text-xs text-muted-foreground">Max 2,000 characters.</p>
             </div>
             <Button type="submit" disabled={loading} className="w-full bg-primary text-primary-foreground hover:bg-primary/85" size="lg">

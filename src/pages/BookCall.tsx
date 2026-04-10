@@ -68,7 +68,8 @@ export default function BookCall() {
       email: data.email,
       phone: data.phone,
       website: data.website || null,
-
+      budget: "not_specified",
+      timeline: "flexible",
       description: data.description,
     });
 
@@ -184,7 +185,7 @@ export default function BookCall() {
                         <FormItem>
                           <FormLabel>Full Name</FormLabel>
                           <FormControl>
-                            <Input placeholder="John Doe" {...field} />
+                            <Input {...field} />
                           </FormControl>
                           <FormMessage />
                         </FormItem>
@@ -197,7 +198,7 @@ export default function BookCall() {
                         <FormItem>
                           <FormLabel>Company Name</FormLabel>
                           <FormControl>
-                            <Input placeholder="Acme Inc." {...field} />
+                            <Input {...field} />
                           </FormControl>
                           <FormMessage />
                         </FormItem>
@@ -213,7 +214,7 @@ export default function BookCall() {
                         <FormItem>
                           <FormLabel>Work Email</FormLabel>
                           <FormControl>
-                            <Input type="email" placeholder="john@company.com" {...field} />
+                            <Input type="email" {...field} />
                           </FormControl>
                           <FormMessage />
                         </FormItem>
@@ -231,7 +232,6 @@ export default function BookCall() {
                                 international
                                 country={selectedCountry}
                                 onCountryChange={(c) => c && setSelectedCountry(c)}
-                                placeholder="Phone number"
                                 value={field.value}
                                 onChange={field.onChange}
                                 className="w-full bg-transparent border-none focus:outline-none"
@@ -263,7 +263,7 @@ export default function BookCall() {
                       <FormItem>
                         <FormLabel>Website (Optional)</FormLabel>
                         <FormControl>
-                          <Input type="url" placeholder="https://..." {...field} />
+                          <Input type="url" {...field} />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -280,7 +280,6 @@ export default function BookCall() {
                         <FormLabel>What are your main goals and challenges?</FormLabel>
                         <FormControl>
                           <Textarea 
-                            placeholder="Tell us a bit about what you're trying to achieve with AI..." 
                             rows={4}
                             {...field} 
                           />

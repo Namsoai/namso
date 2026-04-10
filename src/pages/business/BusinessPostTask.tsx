@@ -70,7 +70,7 @@ export default function BusinessPostTask() {
         <form onSubmit={handleSubmit} className="space-y-5 rounded-xl border border-border bg-card p-6">
           <div>
             <Label>Task Title</Label>
-            <Input value={title} onChange={e => setTitle(e.target.value)} placeholder="e.g., Set up automated email follow-ups" required />
+            <Input value={title} onChange={e => setTitle(e.target.value)} required />
           </div>
           <div>
             <Label>Category</Label>
@@ -83,12 +83,12 @@ export default function BusinessPostTask() {
           </div>
           <div>
             <Label>Description</Label>
-            <Textarea value={description} onChange={e => setDescription(e.target.value)} placeholder="Describe the task in detail..." rows={5} required />
+            <Textarea value={description} onChange={e => setDescription(e.target.value)} rows={5} required />
           </div>
           <div className="grid gap-4 sm:grid-cols-2">
             <div>
               <Label>Budget (€)</Label>
-              <Input type="number" value={budget} onChange={e => setBudget(e.target.value)} placeholder="100" min="10" required />
+              <Input type="number" value={budget} onChange={e => setBudget(e.target.value)} min="10" required />
             </div>
             <div>
               <Label>Preferred Deadline</Label>
@@ -97,7 +97,7 @@ export default function BusinessPostTask() {
           </div>
           <div>
             <Label>Tools (optional)</Label>
-            <Input value={tools} onChange={e => setTools(e.target.value)} placeholder="e.g., ChatGPT, Zapier, Make" />
+            <Input value={tools} onChange={e => setTools(e.target.value)} />
           </div>
           <Button type="submit" className="w-full" size="lg" disabled={createTask.isPending}>
             {createTask.isPending ? "Posting..." : "Post Task"} <ArrowRight className="ml-2 h-4 w-4" />

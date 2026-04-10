@@ -92,7 +92,7 @@ export default function PostTask() {
           <form onSubmit={(e) => { e.preventDefault(); setSubmitted(true); }} className="space-y-5 rounded-xl border border-border bg-card p-6 md:p-8">
             <div>
               <Label>Task Title</Label>
-              <Input placeholder="e.g., Set up automated email follow-ups for new leads" required />
+              <Input required />
               <p className="mt-1.5 text-xs text-muted-foreground">Give your task a clear, descriptive title.</p>
             </div>
             <div>
@@ -106,13 +106,13 @@ export default function PostTask() {
             </div>
             <div>
               <Label>What do you need help with?</Label>
-              <Textarea placeholder="Describe the task in detail — what's the goal, what tools are involved, and what the final deliverable should look like." rows={5} required />
+              <Textarea rows={5} required />
               <p className="mt-1.5 text-xs text-muted-foreground">Include your goal, tools involved, and what success looks like.</p>
             </div>
             <div className="grid gap-4 sm:grid-cols-2">
               <div>
                 <Label>Budget (€)</Label>
-                <Input type="number" placeholder="100" min="10" required />
+                <Input type="number" min="10" required />
                 <p className="mt-1.5 text-xs text-muted-foreground">Estimated budget. Final price is agreed with the freelancer.</p>
               </div>
               <div>

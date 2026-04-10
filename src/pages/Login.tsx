@@ -115,7 +115,7 @@ export default function Login() {
                     <Label htmlFor="email">Email</Label>
                     <div className="relative mt-1">
                       <Mail className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
-                      <Input id="email" type="email" placeholder="you@example.com" className="pl-10" value={email} onChange={(e) => setEmail(e.target.value)} required />
+                      <Input id="email" type="email" className="pl-10" value={email} onChange={(e) => setEmail(e.target.value)} required />
                     </div>
                   </div>
                   <Button type="submit" disabled={loading} className="w-full bg-primary text-primary-foreground hover:bg-primary/85" size="lg">
@@ -157,7 +157,7 @@ export default function Login() {
                 <Label htmlFor="email">Email</Label>
                 <div className="relative mt-1">
                   <Mail className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
-                  <Input id="email" type="email" placeholder="you@example.com" className="pl-10" value={email} onChange={(e) => { setEmail(e.target.value); setPendingMessage(""); }} required />
+                  <Input id="email" type="email" className="pl-10" value={email} onChange={(e) => { setEmail(e.target.value); setPendingMessage(""); }} required />
                 </div>
               </div>
               <div>
@@ -169,7 +169,7 @@ export default function Login() {
                 </div>
                 <div className="relative mt-1">
                   <Lock className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
-                  <Input id="password" type="password" placeholder="••••••••" className="pl-10" value={password} onChange={(e) => setPassword(e.target.value)} required />
+                  <Input id="password" type="password" className="pl-10" value={password} onChange={(e) => setPassword(e.target.value)} required />
                 </div>
               </div>
               <Button type="submit" disabled={loading} className="w-full bg-primary text-primary-foreground hover:bg-primary/85" size="lg">
