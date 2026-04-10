@@ -244,5 +244,127 @@
       "captcha": "Voltooi alstublieft de CAPTCHA-controle.",
       "submitError": "Fout bij het indienen van de aanvraag"
     }
+  },
+  "login": {
+    "resetPasswordTitle": "Wachtwoord Resetten",
+    "resetSentText": "Controleer uw e-mail voor een link om uw wachtwoord te resetten.",
+    "resetPromptText": "Vul uw e-mailadres in en we sturen u een resetlink.",
+    "resetIfAccountExists": "Als er een account bestaat met dat e-mailadres, ontvangt u binnenkort een resetlink.",
+    "backToLogin": "Terug naar Inloggen",
+    "emailLabel": "E-mail",
+    "sendResetLink": "Stuur Resetlink",
+    "sending": "Verzenden...",
+    "welcomeBack": "Welkom Terug",
+    "loginToAccount": "Log in op uw Namso account",
+    "secureAccess": "Veilige toegang voor bedrijven, freelancers en beheerders.",
+    "email": "E-mail",
+    "password": "Wachtwoord",
+    "forgotPassword": "Wachtwoord vergeten?",
+    "logIn": "Inloggen",
+    "loggingIn": "Bezig met inloggen...",
+    "forBusinesses": "Voor bedrijven, freelancers en beheerders",
+    "businessJoin": "Bedrijf?",
+    "freelancerJoin": "Freelancer?",
+    "joinAsBusiness": "Meld u aan als Bedrijf",
+    "joinAsFreelancer": "Meld u aan als Freelancer",
+    "noRoleAssigned": "Uw account heeft nog geen toegewezen rol."
+  },
+  "resetPassword": {
+    "verifyingLink": "Uw resetlink verifiëren…",
+    "linkExpired": "Link Verlopen",
+    "linkExpiredDesc": "Deze wachtwoord resetlink is verlopen of niet meer geldig.",
+    "requestNewLink": "Vraag Nieuwe Resetlink Aan",
+    "enterEmailForNew": "Vul uw e-mail in om een nieuwe wachtwoord resetlink te ontvangen.",
+    "emailAddress": "E-mailadres",
+    "wait": "Wacht",
+    "backToLogin": "Terug naar Inloggen",
+    "resetLinkSent": "Resetlink Verzonden!",
+    "ifAccountExists": "Als er een account bestaat met dat e-mailadres, ontvangt u binnenkort een resetlink.",
+    "checkInbox": "Controleer uw inbox en spamfolder. Open de link in dezelfde browser als waarmee u de aanvraag deed.",
+    "passwordUpdated": "Wachtwoord Bijgewerkt",
+    "passwordUpdatedDesc": "Uw wachtwoord is succesvol bijgewerkt. Log in met uw nieuwe wachtwoord.",
+    "goToLogin": "Ga naar Inloggen",
+    "resetYourPassword": "Reset Uw Wachtwoord",
+    "chooseNewPassword": "Kies een nieuw wachtwoord voor uw account.",
+    "newPassword": "Nieuw Wachtwoord",
+    "minimumCharacters": "Minimaal 8 karakters",
+    "confirmPassword": "Bevestig Wachtwoord",
+    "updating": "Bijwerken…",
+    "updatePassword": "Wachtwoord Bijwerken",
+    "errors": {
+      "minLength": "Wachtwoord moet minimaal 8 tekens lang zijn",
+      "dontMatch": "Wachtwoorden komen niet overeen",
+      "sessionExpired": "Uw sessie is verlopen. Vraag een nieuwe resetlink aan.",
+      "expiredLink": "Uw resetlink is verlopen. Vraag een nieuwe aan.",
+      "unableToUpdate": "Kan wachtwoord niet bijwerken. Probeer het opnieuw.",
+      "enterEmail": "Vul alstublieft uw e-mailadres in",
+      "rateLimit": "Wacht even voordat u een nieuwe e-mail aanvraagt.",
+      "somethingWrong": "Er ging iets mis. Probeer het opnieuw."
+    }
+  },
+  "signup": {
+    "freelancer": {
+      "heroTitle": "Word AI Specialist bij Namso",
+      "heroDesc": "Meld u aan voor onze marktplaats en werk voor bedrijven wereldwijd. Gebruik uw AI-expertise om oplossingen te leveren, uw reputatie op te bouwen en uw freelance carrière te laten groeien.",
+      "idealFor": "Ideaal voor professionals met ervaring in ChatGPT, Zapier, Make, n8n, Notion AI, Airtable, Google Workspace en andere AI-platforms.",
+      "perks": {
+        "monetize": "Verdien aan uw AI-expertise met echte projecten",
+        "portfolio": "Bouw een professioneel portfolio op met echte klanten",
+        "remote": "Werk op afstand voor bedrijven wereldwijd",
+        "sharp": "Blijf scherp — pas uw vaardigheden toe op diverse uitdagingen",
+        "rates": "Bepaal uw eigen tarieven en beschikbaarheid",
+        "network": "Sluit u aan bij een groeiend netwerk van AI-professionals"
+      },
+      "applyToJoin": "Meld U Aan",
+      "joinInstantly": "Meld u direct aan en ontdek projecten.",
+      "form": {
+        "firstName": "Voornaam",
+        "lastName": "Achternaam",
+        "email": "E-mailadres",
+        "phone": "Mobiel Nummer",
+        "password": "Wachtwoord",
+        "confirmPassword": "Bevestig Wachtwoord",
+        "university": "Organisatie / Zelfstandig",
+        "major": "Expertisegebied",
+        "tools": "AI Tools & Vaardigheden",
+        "bio": "Vertel ons over uw ervaring",
+        "joinNow": "Nu Aanmelden",
+        "joining": "Bezig met aanmelden...",
+        "welcomeCommunity": "Welkom bij onze freelance community!"
+      }
+    },
+    "business": {
+      "heroTitle": "Meld u aan als Bedrijf",
+      "heroDesc": "Maak een bedrijfsaccount aan om AI-taken te plaatsen, voorstellen van freelancers te beoordelen en werk op één plek te beheren.",
+      "perks": {
+        "post": "Plaats taken snel en ontvang direct voorstellen",
+        "match": "Word gekoppeld aan geverifieerde freelancers",
+        "secure": "Beheer betalingen veilig",
+        "review": "Beoordeel werk voor goedkeuring",
+        "affordable": "Vind betaalbare AI-hulp voor uw bedrijf"
+      },
+      "createAccount": "Maak Uw Account Aan",
+      "startPosting": "Begin binnen enkele minuten met het plaatsen van taken.",
+      "form": {
+        "businessName": "Bedrijfsnaam",
+        "fullName": "Uw Naam",
+        "email": "Bedrijfs E-mail",
+        "phone": "Mobiel Nummer",
+        "password": "Wachtwoord",
+        "confirmPassword": "Bevestig Wachtwoord",
+        "createButton": "Account Aanmaken",
+        "creating": "Account Aanmaken...",
+        "secureNotice": "Veilig afrekenen · Beschermde betalingen · Betaal pas na goedkeuring"
+      }
+    },
+    "common": {
+      "haveAccount": "Heeft u al een account?",
+      "logIn": "Inloggen",
+      "errors": {
+        "captcha": "Voltooi alstublieft de CAPTCHA-controle.",
+        "accountExists": "Account bestaat maar we konden u niet inloggen.",
+        "incorrectPass": "Onjuist wachtwoord. Ga naar de inlogpagina om het opnieuw te proberen of uw wachtwoord te resetten."
+      }
+    }
   }
 }

@@ -18,6 +18,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/contexts/AuthContext";
 import { useToast } from "@/hooks/use-toast";
 import { trackEvent } from "@/lib/analytics";
+import { useTranslation } from "react-i18next";
 
 // Very basic disposable email check
 const DISPOSABLE_DOMAINS = ["tempmail.com", "guerrillamail.com", "yopmail.com", "mailinator.com", "10minutemail.com"];
@@ -40,20 +41,21 @@ const formSchema = z.object({
 
 type FormValues = z.infer<typeof formSchema>;
 
-const benefits = [
-  { icon: Zap, text: "Post tasks quickly and get proposals fast" },
-  { icon: Users, text: "Get matched with verified freelancers" },
-  { icon: Shield, text: "Manage payments securely" },
-  { icon: FileText, text: "Review work before approval" },
-  { icon: Building2, text: "Find affordable AI help for your business" },
-];
-
 export default function BusinessSignup() {
+  const { t } = useTranslation();
   const [loading, setLoading] = useState(false);
   const [selectedCountry, setSelectedCountry] = useState<Country>("US");
   const [captchaToken, setCaptchaToken] = useState<string | null>(null);
   const navigate = useNavigate();
   const { toast } = useToast();
+
+  const benefits = [
+    { icon: Zap, text: t('signup.business.perks.post') },
+    { icon: Users, text: t('signup.business.perks.match') },
+    { icon: Shield, text: t('signup.business.perks.secure') },
+    { icon: FileText, text: t('signup.business.perks.review') },
+    { icon: Building2, text: t('signup.business.perks.affordable') },
+  ];
 
   const form = useForm<FormValues>({
     resolver: zodResolver(formSchema),
@@ -86,7 +88,7 @@ export default function BusinessSignup() {
   }, []);
   const onSubmit = async (data: FormValues) => {
     if (!captchaToken) {
-      toast({ title: "Please complete the CAPTCHA check.", variant: "destructive" });
+      toast({ title: t('signup.common.errors.captcha'), variant: "destructive" });
       return;
     }
 
@@ -115,7 +117,7 @@ export default function BusinessSignup() {
         });
         
         if (signInError) {
-          toast({ title: "Account exists but couldn't log you in.", description: "Incorrect password. Please go to the login page to try again or reset your password.", variant: "destructive" });
+          toast({ title: t('signup.common.errors.accountExists'), description: t('signup.common.errors.incorrectPass'), variant: "destructive" });
           setLoading(false);
           return;
         }
@@ -142,10 +144,10 @@ export default function BusinessSignup() {
         <div className="mx-auto grid max-w-5xl gap-12 lg:grid-cols-2">
           <div>
             <h1 className="mb-4 font-display text-3xl font-bold text-foreground md:text-4xl">
-              Join as a Business
+              {t('signup.business.heroTitle')}
             </h1>
             <p className="mb-6 text-lg text-muted-foreground">
-              Create a business account to post AI tasks, review freelancer proposals, and manage work in one place.
+              {t('signup.business.heroDesc')}
             </p>
             <div className="space-y-3.5">
               {benefits.map((b) => (
@@ -160,8 +162,8 @@ export default function BusinessSignup() {
           </div>
 
           <div className="rounded-xl border border-border bg-card p-6 md:p-8">
-            <h2 className="mb-2 font-display text-xl font-semibold text-foreground">Create Your Account</h2>
-            <p className="mb-6 text-sm text-muted-foreground">Start posting tasks in minutes.</p>
+            <h2 className="mb-2 font-display text-xl font-semibold text-foreground">{t('signup.business.createAccount')}</h2>
+            <p className="mb-6 text-sm text-muted-foreground">{t('signup.business.startPosting')}</p>
 
             <Form {...form}>
               <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
@@ -170,7 +172,7 @@ export default function BusinessSignup() {
                   name="businessName"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Business Name</FormLabel>
+                      <FormLabel>{t('signup.business.form.businessName')}</FormLabel>
                       <FormControl>
                         <Input {...field} />
                       </FormControl>
@@ -184,7 +186,7 @@ export default function BusinessSignup() {
                   name="fullName"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Your Name</FormLabel>
+                      <FormLabel>{t('signup.business.form.fullName')}</FormLabel>
                       <FormControl>
                         <Input {...field} />
                       </FormControl>
@@ -198,7 +200,7 @@ export default function BusinessSignup() {
                   name="email"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Business Email</FormLabel>
+                      <FormLabel>{t('signup.business.form.email')}</FormLabel>
                       <FormControl>
                         <Input type="email" {...field} />
                       </FormControl>
@@ -212,7 +214,7 @@ export default function BusinessSignup() {
                   name="phone"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Mobile Phone</FormLabel>
+                      <FormLabel>{t('signup.business.form.phone')}</FormLabel>
                       <FormControl>
                         <div className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-base ring-offset-background md:text-sm focus-within:ring-2 focus-within:ring-ring focus-within:ring-offset-2 overflow-hidden items-center group">
                           <PhoneInput
@@ -248,7 +250,7 @@ export default function BusinessSignup() {
                   name="password"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Password</FormLabel>
+                      <FormLabel>{t('signup.business.form.password')}</FormLabel>
                       <FormControl>
                         <Input type="password" {...field} />
                       </FormControl>
@@ -262,7 +264,7 @@ export default function BusinessSignup() {
                   name="confirmPassword"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Confirm Password</FormLabel>
+                      <FormLabel>{t('signup.business.form.confirmPassword')}</FormLabel>
                       <FormControl>
                         <Input type="password" {...field} />
                       </FormControl>
@@ -274,16 +276,16 @@ export default function BusinessSignup() {
                 <Captcha onVerify={setCaptchaToken} />
 
                 <Button type="submit" disabled={loading || !captchaToken} className="w-full bg-primary text-primary-foreground hover:bg-primary/85" size="lg">
-                  {loading ? "Creating Account..." : "Create Account"} <ArrowRight className="ml-2 h-4 w-4" />
+                  {loading ? t('signup.business.form.creating') : <>{t('signup.business.form.createButton')} <ArrowRight className="ml-2 h-4 w-4" /></>}
                 </Button>
                 
                 <p className="text-center text-xs text-muted-foreground">
                   <Shield className="mr-1 inline h-3 w-3" />
-                  Secure checkout · Protected payments · Pay only after approval
+                  {t('signup.business.form.secureNotice')}
                 </p>
                 <div className="text-center text-sm text-muted-foreground">
-                  Already have an account?{" "}
-                  <Link to="/login" className="font-medium text-primary hover:underline">Log In</Link>
+                  {t('signup.common.haveAccount')}{" "}
+                  <Link to="/login" className="font-medium text-primary hover:underline">{t('signup.common.logIn')}</Link>
                 </div>
               </form>
             </Form>

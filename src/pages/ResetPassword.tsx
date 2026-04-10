@@ -8,10 +8,12 @@ import Layout from "@/components/Layout";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
 import logo from "@/assets/logo.png";
+import { useTranslation } from "react-i18next";
 
 type PageState = "loading" | "form" | "expired" | "success" | "resend_form" | "resend_success";
 
 export default function ResetPassword() {
+  const { t } = useTranslation();
   const [pageState, setPageState] = useState<PageState>("loading");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -35,7 +37,7 @@ export default function ResetPassword() {
     // Check for error in URL
     const urlError = hashParams?.get("error_description") || searchParams?.get("error_description");
     if (hashParams?.get("error") || searchParams?.get("error")) {
-      setErrorDetail(urlError || "This password reset link is invalid or has expired.");
+      setErrorDetail(urlError || t('resetPassword.linkExpiredDesc'));
       setPageState("expired");
       return;
     }
@@ -84,7 +86,7 @@ export default function ResetPassword() {
         if (session) {
           resolve("form");
         } else {
-          resolve("expired", "No reset link detected. Please use the link from your email.");
+          resolve("expired", t('resetPassword.linkExpiredDesc'));
         }
         return;
       }
@@ -101,7 +103,7 @@ export default function ResetPassword() {
       }
       
       if (!resolved.current) {
-        resolve("expired", "This password reset link has expired or was opened in a different browser. Please request a new one.");
+        resolve("expired", t('resetPassword.linkExpiredDesc'));
       }
     };
 
@@ -110,7 +112,7 @@ export default function ResetPassword() {
     return () => {
       subscription.unsubscribe();
     };
-  }, []);
+  }, [t]);
 
   useEffect(() => {
     if (resendCooldown <= 0) return;
@@ -121,11 +123,11 @@ export default function ResetPassword() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (password.length < 8) {
-      toast({ title: "Password must be at least 8 characters", variant: "destructive" });
+      toast({ title: t('resetPassword.errors.minLength'), variant: "destructive" });
       return;
     }
     if (password !== confirmPassword) {
-      toast({ title: "Passwords don't match", variant: "destructive" });
+      toast({ title: t('resetPassword.errors.dontMatch'), variant: "destructive" });
       return;
     }
 
@@ -133,7 +135,7 @@ export default function ResetPassword() {
 
     const { data: { session } } = await supabase.auth.getSession();
     if (!session) {
-      setErrorDetail("Your session has expired. Please request a new reset link.");
+      setErrorDetail(t('resetPassword.errors.sessionExpired'));
       setPageState("expired");
       setLoading(false);
       return;
@@ -143,10 +145,10 @@ export default function ResetPassword() {
 
     if (error) {
       if (error.message.toLowerCase().includes("session") || error.message.toLowerCase().includes("token")) {
-        setErrorDetail("Your reset link has expired. Please request a new one.");
+        setErrorDetail(t('resetPassword.errors.expiredLink'));
         setPageState("expired");
       } else {
-        toast({ title: "Unable to update password. Please try again.", variant: "destructive" });
+        toast({ title: t('resetPassword.errors.unableToUpdate'), variant: "destructive" });
       }
       setLoading(false);
       return;
@@ -160,7 +162,7 @@ export default function ResetPassword() {
   const handleResendReset = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!resendEmail.trim()) {
-      toast({ title: "Please enter your email address", variant: "destructive" });
+      toast({ title: t('resetPassword.errors.enterEmail'), variant: "destructive" });
       return;
     }
     if (resendCooldown > 0) return;
@@ -172,9 +174,9 @@ export default function ResetPassword() {
 
     if (error) {
       if (error.message.includes("rate") || error.status === 429) {
-        toast({ title: "Please wait a moment before requesting another email.", variant: "destructive" });
+        toast({ title: t('resetPassword.errors.rateLimit'), variant: "destructive" });
       } else {
-        toast({ title: "Something went wrong. Please try again.", variant: "destructive" });
+        toast({ title: t('resetPassword.errors.somethingWrong'), variant: "destructive" });
       }
     } else {
       setPageState("resend_success");
@@ -188,7 +190,7 @@ export default function ResetPassword() {
       <Layout>
         <div className="flex min-h-[60vh] flex-col items-center justify-center gap-4">
           <Loader2 className="h-8 w-8 animate-spin text-primary" />
-          <p className="text-muted-foreground">Verifying your reset link…</p>
+          <p className="text-muted-foreground">{t('resetPassword.verifyingLink')}</p>
         </div>
       </Layout>
     );
@@ -202,13 +204,13 @@ export default function ResetPassword() {
             <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-destructive/10">
               <AlertCircle className="h-8 w-8 text-destructive" />
             </div>
-            <h1 className="mb-2 font-display text-2xl font-bold text-foreground">Link Expired</h1>
-            <p className="mb-6 text-muted-foreground">{errorDetail || "This password reset link has expired or is no longer valid."}</p>
+            <h1 className="mb-2 font-display text-2xl font-bold text-foreground">{t('resetPassword.linkExpired')}</h1>
+            <p className="mb-6 text-muted-foreground">{errorDetail || t('resetPassword.linkExpiredDesc')}</p>
             <div className="space-y-3">
               <Button onClick={() => setPageState("resend_form")} className="w-full bg-primary text-primary-foreground hover:bg-primary/85" size="lg">
-                <Mail className="mr-2 h-4 w-4" /> Request a New Reset Link
+                <Mail className="mr-2 h-4 w-4" /> {t('resetPassword.requestNewLink')}
               </Button>
-              <Button onClick={() => navigate("/login")} variant="outline" className="w-full" size="lg">Back to Login</Button>
+              <Button onClick={() => navigate("/login")} variant="outline" className="w-full" size="lg">{t('resetPassword.backToLogin')}</Button>
             </div>
           </div>
         </div>
@@ -223,24 +225,24 @@ export default function ResetPassword() {
           <div className="w-full max-w-md">
             <div className="mb-8 text-center">
               <img src={logo} alt="Namso logo" className="mx-auto mb-4 h-16 w-16 rounded-lg" />
-              <h1 className="font-display text-2xl font-bold text-foreground">Request New Reset Link</h1>
-              <p className="mt-1 text-muted-foreground">Enter your email to receive a new password reset link.</p>
+              <h1 className="font-display text-2xl font-bold text-foreground">{t('resetPassword.requestNewLink')}</h1>
+              <p className="mt-1 text-muted-foreground">{t('resetPassword.enterEmailForNew')}</p>
             </div>
             <div className="rounded-xl border border-border bg-card p-6 md:p-8">
               <form onSubmit={handleResendReset} className="space-y-4">
                 <div>
-                  <Label htmlFor="resend-email">Email Address</Label>
+                  <Label htmlFor="resend-email">{t('resetPassword.emailAddress')}</Label>
                   <div className="relative mt-1">
                     <Mail className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
                     <Input id="resend-email" type="email" className="pl-10" value={resendEmail} onChange={(e) => setResendEmail(e.target.value)} required />
                   </div>
                 </div>
                 <Button type="submit" disabled={resendLoading || resendCooldown > 0} className="w-full bg-primary text-primary-foreground hover:bg-primary/85" size="lg">
-                  {resendLoading ? <><Loader2 className="mr-2 h-4 w-4 animate-spin" /> Sending…</> : resendCooldown > 0 ? `Wait ${resendCooldown}s` : "Send Reset Link"}
+                  {resendLoading ? <><Loader2 className="mr-2 h-4 w-4 animate-spin" /> {t('resetPassword.sending')}</> : resendCooldown > 0 ? `${t('resetPassword.wait')} ${resendCooldown}s` : t('resetPassword.requestNewLink')}
                 </Button>
               </form>
               <div className="mt-4 text-center">
-                <Button onClick={() => navigate("/login")} variant="link" className="text-muted-foreground">Back to Login</Button>
+                <Button onClick={() => navigate("/login")} variant="link" className="text-muted-foreground">{t('resetPassword.backToLogin')}</Button>
               </div>
             </div>
           </div>
@@ -257,10 +259,10 @@ export default function ResetPassword() {
             <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-primary/10">
               <CheckCircle2 className="h-8 w-8 text-primary" />
             </div>
-            <h1 className="mb-2 font-display text-2xl font-bold text-foreground">Reset Link Sent!</h1>
-            <p className="mb-4 text-muted-foreground">If an account exists with that email, you'll receive a password reset link shortly.</p>
-            <p className="mb-6 text-sm text-muted-foreground">Check your inbox and spam folder. <strong>Open the link in the same browser</strong> you used to request the reset.</p>
-            <Button onClick={() => navigate("/login")} variant="outline">Back to Login</Button>
+            <h1 className="mb-2 font-display text-2xl font-bold text-foreground">{t('resetPassword.resetLinkSent')}</h1>
+            <p className="mb-4 text-muted-foreground">{t('resetPassword.ifAccountExists')}</p>
+            <p className="mb-6 text-sm text-muted-foreground">{t('resetPassword.checkInbox')}</p>
+            <Button onClick={() => navigate("/login")} variant="outline">{t('resetPassword.backToLogin')}</Button>
           </div>
         </div>
       </Layout>
@@ -275,9 +277,9 @@ export default function ResetPassword() {
             <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-primary/10">
               <CheckCircle2 className="h-8 w-8 text-primary" />
             </div>
-            <h1 className="mb-2 font-display text-2xl font-bold text-foreground">Password Updated</h1>
-            <p className="mb-4 text-muted-foreground">Your password has been updated successfully. Please log in with your new password.</p>
-            <Button onClick={() => navigate("/login")} className="bg-primary text-primary-foreground hover:bg-primary/85">Go to Login</Button>
+            <h1 className="mb-2 font-display text-2xl font-bold text-foreground">{t('resetPassword.passwordUpdated')}</h1>
+            <p className="mb-4 text-muted-foreground">{t('resetPassword.passwordUpdatedDesc')}</p>
+            <Button onClick={() => navigate("/login")} className="bg-primary text-primary-foreground hover:bg-primary/85">{t('resetPassword.goToLogin')}</Button>
           </div>
         </div>
       </Layout>
@@ -291,32 +293,32 @@ export default function ResetPassword() {
         <div className="w-full max-w-md">
           <div className="mb-8 text-center">
             <img src={logo} alt="Namso logo" className="mx-auto mb-4 h-16 w-16 rounded-lg" />
-            <h1 className="font-display text-2xl font-bold text-foreground">Reset Your Password</h1>
-            <p className="mt-1 text-muted-foreground">Choose a new password for your account.</p>
+            <h1 className="font-display text-2xl font-bold text-foreground">{t('resetPassword.resetYourPassword')}</h1>
+            <p className="mt-1 text-muted-foreground">{t('resetPassword.chooseNewPassword')}</p>
           </div>
           <div className="rounded-xl border border-border bg-card p-6 md:p-8">
             <form onSubmit={handleSubmit} className="space-y-4">
               <div>
-                <Label htmlFor="password">New Password</Label>
+                <Label htmlFor="password">{t('resetPassword.newPassword')}</Label>
                 <div className="relative mt-1">
                   <Lock className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
                   <Input id="password" type="password" className="pl-10" value={password} onChange={(e) => setPassword(e.target.value)} required />
                 </div>
-                <p className="mt-1 text-xs text-muted-foreground">Minimum 8 characters</p>
+                <p className="mt-1 text-xs text-muted-foreground">{t('resetPassword.minimumCharacters')}</p>
               </div>
               <div>
-                <Label htmlFor="confirm">Confirm Password</Label>
+                <Label htmlFor="confirm">{t('resetPassword.confirmPassword')}</Label>
                 <div className="relative mt-1">
                   <Lock className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
                   <Input id="confirm" type="password" className="pl-10" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} required />
                 </div>
               </div>
               <Button type="submit" disabled={loading} className="w-full bg-primary text-primary-foreground hover:bg-primary/85" size="lg">
-                {loading ? <><Loader2 className="mr-2 h-4 w-4 animate-spin" /> Updating…</> : <>Update Password <ArrowRight className="ml-2 h-4 w-4" /></>}
+                {loading ? <><Loader2 className="mr-2 h-4 w-4 animate-spin" /> {t('resetPassword.updating')}</> : <>{t('resetPassword.updatePassword')} <ArrowRight className="ml-2 h-4 w-4" /></>}
               </Button>
             </form>
             <div className="mt-4 text-center">
-              <Button onClick={() => navigate("/login")} variant="link" className="text-muted-foreground">Back to Login</Button>
+              <Button onClick={() => navigate("/login")} variant="link" className="text-muted-foreground">{t('resetPassword.backToLogin')}</Button>
             </div>
           </div>
         </div>

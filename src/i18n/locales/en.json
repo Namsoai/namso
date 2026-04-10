@@ -244,5 +244,127 @@
       "captcha": "Please complete the CAPTCHA check.",
       "submitError": "Error submitting request"
     }
+  },
+  "login": {
+    "resetPasswordTitle": "Reset Password",
+    "resetSentText": "Check your email for a password reset link.",
+    "resetPromptText": "Enter your email and we'll send you a reset link.",
+    "resetIfAccountExists": "If an account exists with that email, you'll receive a reset link shortly.",
+    "backToLogin": "Back to Login",
+    "emailLabel": "Email",
+    "sendResetLink": "Send Reset Link",
+    "sending": "Sending...",
+    "welcomeBack": "Welcome Back",
+    "loginToAccount": "Log in to your Namso account",
+    "secureAccess": "Secure access for businesses, freelancers, and administrators.",
+    "email": "Email",
+    "password": "Password",
+    "forgotPassword": "Forgot password?",
+    "logIn": "Log In",
+    "loggingIn": "Logging in...",
+    "forBusinesses": "For businesses, freelancers, and administrators",
+    "businessJoin": "Business?",
+    "freelancerJoin": "Freelancer?",
+    "joinAsBusiness": "Join as a Business",
+    "joinAsFreelancer": "Join as a Freelancer",
+    "noRoleAssigned": "Your account does not have an assigned role yet."
+  },
+  "resetPassword": {
+    "verifyingLink": "Verifying your reset link…",
+    "linkExpired": "Link Expired",
+    "linkExpiredDesc": "This password reset link has expired or is no longer valid.",
+    "requestNewLink": "Request a New Reset Link",
+    "enterEmailForNew": "Enter your email to receive a new password reset link.",
+    "emailAddress": "Email Address",
+    "wait": "Wait",
+    "backToLogin": "Back to Login",
+    "resetLinkSent": "Reset Link Sent!",
+    "ifAccountExists": "If an account exists with that email, you'll receive a password reset link shortly.",
+    "checkInbox": "Check your inbox and spam folder. Open the link in the same browser you used to request the reset.",
+    "passwordUpdated": "Password Updated",
+    "passwordUpdatedDesc": "Your password has been updated successfully. Please log in with your new password.",
+    "goToLogin": "Go to Login",
+    "resetYourPassword": "Reset Your Password",
+    "chooseNewPassword": "Choose a new password for your account.",
+    "newPassword": "New Password",
+    "minimumCharacters": "Minimum 8 characters",
+    "confirmPassword": "Confirm Password",
+    "updating": "Updating…",
+    "updatePassword": "Update Password",
+    "errors": {
+      "minLength": "Password must be at least 8 characters",
+      "dontMatch": "Passwords don't match",
+      "sessionExpired": "Your session has expired. Please request a new reset link.",
+      "expiredLink": "Your reset link has expired. Please request a new one.",
+      "unableToUpdate": "Unable to update password. Please try again.",
+      "enterEmail": "Please enter your email address",
+      "rateLimit": "Please wait a moment before requesting another email.",
+      "somethingWrong": "Something went wrong. Please try again."
+    }
+  },
+  "signup": {
+    "freelancer": {
+      "heroTitle": "Join Namso as an AI Specialist",
+      "heroDesc": "Apply to join our marketplace and start working with businesses worldwide. Use your AI expertise to deliver real solutions, build your reputation, and grow your freelance career.",
+      "idealFor": "Ideal for professionals experienced with tools like ChatGPT, Zapier, Make, n8n, Notion AI, Airtable, Google Workspace, and other AI platforms.",
+      "perks": {
+        "monetize": "Monetize your AI expertise on real projects",
+        "portfolio": "Build a professional portfolio with real clients",
+        "remote": "Work remotely with businesses worldwide",
+        "sharp": "Stay sharp — apply your skills to diverse challenges",
+        "rates": "Set your own rates and availability",
+        "network": "Join a growing network of AI professionals"
+      },
+      "applyToJoin": "Apply to Join",
+      "joinInstantly": "Join instantly and start exploring projects.",
+      "form": {
+        "firstName": "First Name",
+        "lastName": "LastName",
+        "email": "Email Address",
+        "phone": "Mobile Phone",
+        "password": "Password",
+        "confirmPassword": "Confirm Password",
+        "university": "Organization / University",
+        "major": "Area of Expertise",
+        "tools": "AI Tools & Skills",
+        "bio": "Tell us about your experience",
+        "joinNow": "Join Now",
+        "joining": "Joining...",
+        "welcomeCommunity": "Welcome to our freelancer community!"
+      }
+    },
+    "business": {
+      "heroTitle": "Join as a Business",
+      "heroDesc": "Create a business account to post AI tasks, review freelancer proposals, and manage work in one place.",
+      "perks": {
+        "post": "Post tasks quickly and get proposals fast",
+        "match": "Get matched with verified freelancers",
+        "secure": "Manage payments securely",
+        "review": "Review work before approval",
+        "affordable": "Find affordable AI help for your business"
+      },
+      "createAccount": "Create Your Account",
+      "startPosting": "Start posting tasks in minutes.",
+      "form": {
+        "businessName": "Business Name",
+        "fullName": "Your Name",
+        "email": "Business Email",
+        "phone": "Mobile Phone",
+        "password": "Password",
+        "confirmPassword": "Confirm Password",
+        "createButton": "Create Account",
+        "creating": "Creating Account...",
+        "secureNotice": "Secure checkout · Protected payments · Pay only after approval"
+      }
+    },
+    "common": {
+      "haveAccount": "Already have an account?",
+      "logIn": "Log In",
+      "errors": {
+        "captcha": "Please complete the CAPTCHA check.",
+        "accountExists": "Account exists but couldn't log you in.",
+        "incorrectPass": "Incorrect password. Please go to the login page to try again or reset your password."
+      }
+    }
   }
 }

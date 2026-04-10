@@ -19,6 +19,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/contexts/AuthContext";
 import { useToast } from "@/hooks/use-toast";
 import { trackEvent } from "@/lib/analytics";
+import { useTranslation } from "react-i18next";
 
 // Very basic disposable email check
 const DISPOSABLE_DOMAINS = ["tempmail.com", "guerrillamail.com", "yopmail.com", "mailinator.com", "10minutemail.com"];
@@ -45,21 +46,22 @@ const formSchema = z.object({
 
 type FormValues = z.infer<typeof formSchema>;
 
-const perks = [
-  { icon: Zap, text: "Monetize your AI expertise on real projects" },
-  { icon: Briefcase, text: "Build a professional portfolio with real clients" },
-  { icon: Globe, text: "Work remotely with businesses worldwide" },
-  { icon: Brain, text: "Stay sharp — apply your skills to diverse challenges" },
-  { icon: Euro, text: "Set your own rates and availability" },
-  { icon: Users, text: "Join a growing network of AI professionals" },
-];
-
 export default function FreelancerSignup() {
+  const { t } = useTranslation();
   const [loading, setLoading] = useState(false);
   const [selectedCountry, setSelectedCountry] = useState<Country>("US");
   const [captchaToken, setCaptchaToken] = useState<string | null>(null);
   const { toast } = useToast();
   const navigate = useNavigate();
+
+  const perks = [
+    { icon: Zap, text: t('signup.freelancer.perks.monetize') },
+    { icon: Briefcase, text: t('signup.freelancer.perks.portfolio') },
+    { icon: Globe, text: t('signup.freelancer.perks.remote') },
+    { icon: Brain, text: t('signup.freelancer.perks.sharp') },
+    { icon: Euro, text: t('signup.freelancer.perks.rates') },
+    { icon: Users, text: t('signup.freelancer.perks.network') },
+  ];
 
   const form = useForm<FormValues>({
     resolver: zodResolver(formSchema),
@@ -97,7 +99,7 @@ export default function FreelancerSignup() {
 
   const onSubmit = async (data: FormValues) => {
     if (!captchaToken) {
-      toast({ title: "Please complete the CAPTCHA check.", variant: "destructive" });
+      toast({ title: t('signup.common.errors.captcha'), variant: "destructive" });
       return;
     }
 
@@ -130,7 +132,7 @@ export default function FreelancerSignup() {
         });
         
         if (signInError) {
-          toast({ title: "Account exists but couldn't log you in.", description: "Incorrect password. Please go to the login page to try again or reset your password.", variant: "destructive" });
+          toast({ title: t('signup.common.errors.accountExists'), description: t('signup.common.errors.incorrectPass'), variant: "destructive" });
           setLoading(false);
           return;
         }
@@ -168,13 +170,13 @@ export default function FreelancerSignup() {
         <div className="mx-auto grid max-w-5xl gap-12 lg:grid-cols-2">
           <div>
             <h1 className="mb-4 font-display text-3xl font-bold text-foreground md:text-4xl">
-              Join Namso as an AI Specialist
+              {t('signup.freelancer.heroTitle')}
             </h1>
             <p className="mb-6 text-lg text-muted-foreground">
-              Apply to join our marketplace and start working with businesses worldwide. Use your AI expertise to deliver real solutions, build your reputation, and grow your freelance career.
+              {t('signup.freelancer.heroDesc')}
             </p>
             <p className="mb-8 rounded-lg border border-border bg-card px-4 py-3 text-sm text-muted-foreground">
-              Ideal for professionals experienced with tools like ChatGPT, Zapier, Make, n8n, Notion AI, Airtable, Google Workspace, and other AI platforms.
+              {t('signup.freelancer.idealFor')}
             </p>
             <div className="space-y-3.5">
               {perks.map((perk) => (
@@ -189,8 +191,8 @@ export default function FreelancerSignup() {
           </div>
 
           <div className="rounded-xl border border-border bg-card p-6 md:p-8">
-            <h2 className="mb-2 font-display text-xl font-semibold text-foreground">Apply to Join</h2>
-            <p className="mb-6 text-sm text-muted-foreground">Join instantly and start exploring projects.</p>
+            <h2 className="mb-2 font-display text-xl font-semibold text-foreground">{t('signup.freelancer.applyToJoin')}</h2>
+            <p className="mb-6 text-sm text-muted-foreground">{t('signup.freelancer.joinInstantly')}</p>
 
 
             <Form {...form}>
@@ -201,7 +203,7 @@ export default function FreelancerSignup() {
                     name="firstName"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>First Name</FormLabel>
+                        <FormLabel>{t('signup.freelancer.form.firstName')}</FormLabel>
                         <FormControl>
                           <Input {...field} />
                         </FormControl>
@@ -214,7 +216,7 @@ export default function FreelancerSignup() {
                     name="lastName"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Last Name</FormLabel>
+                        <FormLabel>{t('signup.freelancer.form.lastName')}</FormLabel>
                         <FormControl>
                           <Input {...field} />
                         </FormControl>
@@ -229,7 +231,7 @@ export default function FreelancerSignup() {
                   name="email"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Email Address</FormLabel>
+                      <FormLabel>{t('signup.freelancer.form.email')}</FormLabel>
                       <FormControl>
                         <Input type="email" {...field} />
                       </FormControl>
@@ -243,7 +245,7 @@ export default function FreelancerSignup() {
                   name="phone"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Mobile Phone</FormLabel>
+                      <FormLabel>{t('signup.freelancer.form.phone')}</FormLabel>
                       <FormControl>
                         <div className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-base ring-offset-background md:text-sm focus-within:ring-2 focus-within:ring-ring focus-within:ring-offset-2 overflow-hidden items-center group">
                           <PhoneInput
@@ -278,7 +280,7 @@ export default function FreelancerSignup() {
                     name="password"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Password</FormLabel>
+                        <FormLabel>{t('signup.freelancer.form.password')}</FormLabel>
                         <FormControl>
                           <Input type="password" {...field} />
                         </FormControl>
@@ -291,7 +293,7 @@ export default function FreelancerSignup() {
                     name="confirmPassword"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Confirm Password</FormLabel>
+                        <FormLabel>{t('signup.freelancer.form.confirmPassword')}</FormLabel>
                         <FormControl>
                           <Input type="password" {...field} />
                         </FormControl>
@@ -306,7 +308,7 @@ export default function FreelancerSignup() {
                   name="university"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Organization / University</FormLabel>
+                      <FormLabel>{t('signup.freelancer.form.university')}</FormLabel>
                       <FormControl>
                         <Input {...field} />
                       </FormControl>
@@ -320,7 +322,7 @@ export default function FreelancerSignup() {
                   name="major"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Area of Expertise</FormLabel>
+                      <FormLabel>{t('signup.freelancer.form.major')}</FormLabel>
                       <FormControl>
                         <Input {...field} />
                       </FormControl>
@@ -334,7 +336,7 @@ export default function FreelancerSignup() {
                   name="tools"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>AI Tools &amp; Skills</FormLabel>
+                      <FormLabel>{t('signup.freelancer.form.tools')}</FormLabel>
                       <FormControl>
                         <Input {...field} />
                       </FormControl>
@@ -348,7 +350,7 @@ export default function FreelancerSignup() {
                   name="bio"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Tell us about your experience</FormLabel>
+                      <FormLabel>{t('signup.freelancer.form.bio')}</FormLabel>
                       <FormControl>
                         <Textarea 
                           rows={4} 
@@ -363,14 +365,14 @@ export default function FreelancerSignup() {
                 <Captcha onVerify={setCaptchaToken} />
 
                 <Button type="submit" disabled={loading || !captchaToken} className="w-full bg-primary text-primary-foreground hover:bg-primary/85" size="lg">
-                  {loading ? "Joining..." : "Join Now"} <ArrowRight className="ml-2 h-4 w-4" />
+                  {loading ? t('signup.freelancer.form.joining') : <>{t('signup.freelancer.form.joinNow')} <ArrowRight className="ml-2 h-4 w-4" /></>}
                 </Button>
                 <p className="text-center text-xs text-muted-foreground">
-                  Welcome to our freelancer community!
+                  {t('signup.freelancer.form.welcomeCommunity')}
                 </p>
                 <div className="text-center text-sm text-muted-foreground mt-4">
-                  Already have an account?{" "}
-                  <Link to="/login" className="font-medium text-primary hover:underline">Log In</Link>
+                  {t('signup.common.haveAccount')}{" "}
+                  <Link to="/login" className="font-medium text-primary hover:underline">{t('signup.common.logIn')}</Link>
                 </div>
               </form>
             </Form>
