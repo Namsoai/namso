@@ -7,7 +7,7 @@ import logo from "@/assets/logo.png";
 import { useTranslation } from "react-i18next";
 
 export function Navbar() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [signupOpen, setSignupOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
@@ -57,6 +57,27 @@ export function Navbar() {
               {link.label}
             </Link>
           ))}
+
+          {/* Language toggle */}
+          <div className="flex items-center gap-0.5 text-sm font-medium ml-1">
+            <button
+              onClick={() => i18n.changeLanguage('en')}
+              className={`rounded px-1.5 py-1 transition-colors ${
+                i18n.language === 'en' ? 'text-foreground' : 'text-muted-foreground hover:text-foreground'
+              }`}
+            >
+              EN
+            </button>
+            <span className="text-border">|</span>
+            <button
+              onClick={() => i18n.changeLanguage('nl')}
+              className={`rounded px-1.5 py-1 transition-colors ${
+                i18n.language === 'nl' ? 'text-foreground' : 'text-muted-foreground hover:text-foreground'
+              }`}
+            >
+              NL
+            </button>
+          </div>
 
           {user ? (
             <div className="ml-3 flex items-center gap-2">
@@ -122,6 +143,26 @@ export function Navbar() {
               {link.label}
             </Link>
           ))}
+          {/* Mobile language toggle */}
+          <div className="flex items-center gap-2 px-3 py-2.5">
+            <button
+              onClick={() => i18n.changeLanguage('en')}
+              className={`rounded px-2 py-1 text-sm font-medium transition-colors ${
+                i18n.language === 'en' ? 'bg-secondary text-foreground' : 'text-muted-foreground hover:text-foreground'
+              }`}
+            >
+              EN
+            </button>
+            <span className="text-border text-sm">|</span>
+            <button
+              onClick={() => i18n.changeLanguage('nl')}
+              className={`rounded px-2 py-1 text-sm font-medium transition-colors ${
+                i18n.language === 'nl' ? 'bg-secondary text-foreground' : 'text-muted-foreground hover:text-foreground'
+              }`}
+            >
+              NL
+            </button>
+          </div>
           <div className="mt-3 flex flex-col gap-2">
             {user ? (
               <>
@@ -169,17 +210,7 @@ export function Footer() {
               {t('footer.secure')}
             </div>
             
-            <div className="mt-8 flex items-center gap-2 text-sm text-primary-foreground/90">
-              <Globe className="h-4 w-4" />
-              <select 
-                value={i18n.language} 
-                onChange={(e) => i18n.changeLanguage(e.target.value)}
-                className="bg-primary/50 text-primary-foreground border border-primary-foreground/20 rounded-md px-2 py-1 outline-none cursor-pointer hover:bg-primary"
-              >
-                <option value="en">English</option>
-                <option value="nl">Nederlands</option>
-              </select>
-            </div>
+
           </div>
           <div>
             <h4 className="mb-3 font-display text-sm font-semibold">{t('footer.forBusinesses')}</h4>
