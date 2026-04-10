@@ -27,35 +27,103 @@
     "allRightsReserved": "All rights reserved."
   },
   "home": {
-    "heroTitle1": "Find the perfect",
-    "heroTitle2": "AI Integration Specialists",
-    "heroSub1": "Connect with verified freelancers who build intelligent systems.",
-    "heroSub2": "Hire experienced AI specialists to integrate tools like ChatGPT, automate workflows, and streamline your business operations without the overhead.",
-    "browseServices": "Browse Services",
-    "bookStrategy": "Book a Strategy Call",
-    "trustSecure": "Secure payments · Verified specialists · Pay only after approval",
+    "heroTag": "AI Automation Marketplace",
+    "heroTitle1": "Automate your business",
+    "heroTitle2": "with vetted AI specialists.",
+    "heroSub": "Namso connects businesses with verified AI professionals who build automations, deploy chatbots, and streamline operations — so you can focus on growth.",
+    "ctaFindSolutions": "Find AI Solutions",
+    "ctaBecome": "Become a Freelancer",
+    "heroSecure": "Secure escrow payments · Verified specialists · Pay only after approval",
     "trustBar": {
       "verified": "Verified Specialists",
       "secure": "Secure Payments",
       "fast": "Fast Delivery",
       "experts": "AI Integration Experts"
     },
-    "why": {
-      "title": "Why Hire AI Integration Specialists?",
-      "sub": "Our freelancers bring deep technical expertise, hands-on implementation skills, and a focus on real business outcomes.",
-      "feature1Title": "Deep AI Expertise",
-      "feature1Desc": "Our specialists work with AI tools daily — from GPT integrations and automation platforms to custom AI agent workflows.",
-      "feature2Title": "Implementation-Focused",
-      "feature2Desc": "Not just advice — our freelancers build, deploy, and integrate AI solutions directly into your business operations.",
-      "feature3Title": "Business-Ready Solutions",
-      "feature3Desc": "Every project is scoped for real business impact — streamlined workflows, reduced manual work, and measurable results."
+    "whatWeDo": {
+      "tag": "What We Do",
+      "title": "We help businesses eliminate repetitive work using AI.",
+      "desc": "Most businesses burn hours on manual data entry, fragmented communication, and repetitive customer inquiries. We connect you with specialists who build custom AI systems to take over those tasks — permanently."
     },
-    "cta": {
-      "title": "Ready to Integrate AI Into Your Business?",
-      "sub": "Hire verified AI specialists to automate workflows, build intelligent systems, and drive real business results.",
-      "getStarted": "Get Started",
-      "footerText": "Create a free business account · Post projects · Pay only after approval"
-    }
+    "coreServices": {
+      "tag": "Our Solutions",
+      "title": "Tailored AI solutions for ambitious businesses.",
+      "s1Title": "Workflow Automation",
+      "s1Desc": "Connect your tools and automate internal processes so data flows without manual input.",
+      "s1Outcome": "Save hours every week and reduce human error.",
+      "s2Title": "AI Chatbots & Lead Capture",
+      "s2Desc": "AI assistants that handle customer questions, qualify leads, and respond instantly on your website.",
+      "s2Outcome": "24/7 support without increasing headcount.",
+      "s3Title": "Communication Automation",
+      "s3Desc": "Systems that manage emails, summarise meetings, and organise requests automatically.",
+      "s3Outcome": "Less inbox time, faster responses.",
+      "s4Title": "Content & Research",
+      "s4Desc": "Generate marketing content and gather market insights quickly using AI.",
+      "s4Outcome": "Scale output without hiring more staff.",
+      "viewAll": "View All Services"
+    },
+    "howSplit": {
+      "tag": "How It Works",
+      "title": "Simple for both sides.",
+      "tabBusiness": "For Businesses",
+      "tabFreelancer": "For Freelancers",
+      "b1": "Describe the AI solution you need.",
+      "b2": "Get matched with a verified specialist.",
+      "b3": "Work gets delivered and reviewed.",
+      "b4": "Pay securely after you approve.",
+      "f1": "Apply with your AI skills and experience.",
+      "f2": "Get verified by our team.",
+      "f3": "Receive matched projects.",
+      "f4": "Deliver work and get paid."
+    },
+    "features": {
+      "tag": "Why Namso",
+      "title": "Built for trust, speed, and results.",
+      "f1Title": "Escrow Payments",
+      "f1Desc": "Funds are held securely until work is approved.",
+      "f2Title": "Verified Specialists",
+      "f2Desc": "Every freelancer is vetted before joining.",
+      "f3Title": "Fast Turnaround",
+      "f3Desc": "Most projects delivered in 1–5 days.",
+      "f4Title": "Bilingual Platform",
+      "f4Desc": "Full support in English and Dutch.",
+      "f5Title": "Transparent Pricing",
+      "f5Desc": "See prices upfront, no hidden fees.",
+      "f6Title": "Revision Support",
+      "f6Desc": "Request changes until you're satisfied."
+    },
+    "consulting": {
+      "tag": "Not sure where to start?",
+      "title": "Book a free consultation call.",
+      "desc": "Whether you need a high-level AI strategy or help identifying specific tasks to automate, our team will guide you.",
+      "strategyTitle": "Strategy Call",
+      "strategyDesc": "Explore how AI can transform your business.",
+      "taskTitle": "Task Identifier Call",
+      "taskDesc": "Scope specific, actionable automation tasks.",
+      "cta": "Book a Call"
+    },
+    "useCases": {
+      "tag": "Real Outcomes",
+      "title": "What businesses achieve with Namso.",
+      "u1Title": "Email volume reduced by 60%",
+      "u1Desc": "Automated triage and routing for a logistics firm.",
+      "u2Title": "Lead response time under 30 seconds",
+      "u2Desc": "AI chatbot deployed for a SaaS startup.",
+      "u3Title": "10+ hours saved per week",
+      "u3Desc": "Workflow automation for a consulting agency.",
+      "u4Title": "Content output tripled",
+      "u4Desc": "AI-powered content pipeline for an e-commerce brand."
+    },
+    "finalCta": {
+      "title": "Stop doing repetitive work. Start scaling with AI.",
+      "desc": "Join businesses already using Namso to automate operations and reduce manual workload.",
+      "ctaSolutions": "Find a Solution",
+      "ctaCall": "Book a Call",
+      "footer": "Create a free business account · Post projects · Pay only after approval"
+    },
+    "browseServices": "Browse Services",
+    "bookStrategy": "Book a Strategy Call",
+    "trustSecure": "Secure payments · Verified specialists · Pay only after approval"
   },
   "services": {
     "meeting_summaries": "AI Meeting Summaries",

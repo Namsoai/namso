@@ -27,35 +27,103 @@
     "allRightsReserved": "Alle rechten voorbehouden."
   },
   "home": {
-    "heroTitle1": "Vind de perfecte",
-    "heroTitle2": "AI-integratiespecialisten",
-    "heroSub1": "Maak contact met geverifieerde freelancers die intelligente systemen bouwen.",
-    "heroSub2": "Huur ervaren AI-specialisten in om tools zoals ChatGPT te integreren, workflows te automatiseren en uw bedrijfsvoering te stroomlijnen zonder de overhead.",
-    "browseServices": "Bekijk Diensten",
-    "bookStrategy": "Plan een Strategiegesprek",
-    "trustSecure": "Veilige betalingen · Geverifieerde specialisten · Betaal pas na goedkeuring",
+    "heroTag": "AI Automatisering Marktplaats",
+    "heroTitle1": "Automatiseer uw bedrijf",
+    "heroTitle2": "met geverifieerde AI-specialisten.",
+    "heroSub": "Namso verbindt bedrijven met geverifieerde AI-professionals die automatiseringen bouwen, chatbots implementeren en processen stroomlijnen — zodat u zich kunt richten op groei.",
+    "ctaFindSolutions": "Vind AI Oplossingen",
+    "ctaBecome": "Word Freelancer",
+    "heroSecure": "Veilige escrow-betalingen · Geverifieerde specialisten · Betaal pas na goedkeuring",
     "trustBar": {
       "verified": "Geverifieerde Specialisten",
       "secure": "Veilige Betalingen",
       "fast": "Snelle Levering",
       "experts": "AI Integratie Experts"
     },
-    "why": {
-      "title": "Waarom AI Integratie Specialisten Inhuren?",
-      "sub": "Onze freelancers brengen diepe technische expertise, hands-on implementatievaardigheden en een focus op echte zakelijke resultaten.",
-      "feature1Title": "Diepe AI Expertise",
-      "feature1Desc": "Onze specialisten werken dagelijks met AI tools — van GPT integraties en automatiseringsplatformen tot maatwerk AI agent workflows.",
-      "feature2Title": "Focus op Implementatie",
-      "feature2Desc": "Niet zomaar advies — onze freelancers bouwen, implementeren en integreren AI-oplossingen direct in uw bedrijfsvoering.",
-      "feature3Title": "Kant-en-klare Zakelijke Oplossingen",
-      "feature3Desc": "Elk project is afgestemd op echte impact — geoptimaliseerde workflows, minder handmatig werk en meetbare resultaten."
+    "whatWeDo": {
+      "tag": "Wat We Doen",
+      "title": "We helpen bedrijven repetitief werk te elimineren met AI.",
+      "desc": "De meeste bedrijven verspillen uren aan handmatige gegevensinvoer, gefragmenteerde communicatie en herhaaldelijke klantvragen. Wij verbinden u met specialisten die op maat gemaakte AI-systemen bouwen om die taken permanent over te nemen."
     },
-    "cta": {
-      "title": "Klaar om AI te Integreren in Uw Bedrijf?",
-      "sub": "Huur geverifieerde AI-specialisten in om workflows te automatiseren, intelligente systemen te bouwen en bedrijfsresultaten te boeken.",
-      "getStarted": "Aan de Slag",
-      "footerText": "Maak gratis een bedrijfsaccount aan · Plaats projecten · Betaal pas na goedkeuring"
-    }
+    "coreServices": {
+      "tag": "Onze Oplossingen",
+      "title": "Op maat gemaakte AI-oplossingen voor ambitieuze bedrijven.",
+      "s1Title": "Workflow Automatisering",
+      "s1Desc": "Verbind uw tools en automatiseer interne processen zodat data naadloos stroomt.",
+      "s1Outcome": "Bespaar elke week uren en verminder fouten.",
+      "s2Title": "AI Chatbots & Leadgeneratie",
+      "s2Desc": "AI-assistenten die klantvragen afhandelen, leads kwalificeren en direct reageren op uw website.",
+      "s2Outcome": "24/7 ondersteuning zonder extra personeel.",
+      "s3Title": "Communicatie Automatisering",
+      "s3Desc": "Systemen die e-mails beheren, vergaderingen samenvatten en verzoeken automatisch organiseren.",
+      "s3Outcome": "Minder inbox-tijd, snellere reacties.",
+      "s4Title": "Content & Onderzoek",
+      "s4Desc": "Genereer marketingcontent en verzamel marktinzichten snel met AI.",
+      "s4Outcome": "Schaal uw output zonder extra personeel.",
+      "viewAll": "Bekijk Alle Diensten"
+    },
+    "howSplit": {
+      "tag": "Hoe Het Werkt",
+      "title": "Eenvoudig voor beide kanten.",
+      "tabBusiness": "Voor Bedrijven",
+      "tabFreelancer": "Voor Freelancers",
+      "b1": "Beschrijf de AI-oplossing die u nodig heeft.",
+      "b2": "Word gekoppeld aan een geverifieerde specialist.",
+      "b3": "Het werk wordt opgeleverd en beoordeeld.",
+      "b4": "Betaal veilig na uw goedkeuring.",
+      "f1": "Meld u aan met uw AI-vaardigheden en ervaring.",
+      "f2": "Word geverifieerd door ons team.",
+      "f3": "Ontvang passende projecten.",
+      "f4": "Lever het werk op en ontvang betaling."
+    },
+    "features": {
+      "tag": "Waarom Namso",
+      "title": "Gebouwd op vertrouwen, snelheid en resultaten.",
+      "f1Title": "Escrow Betalingen",
+      "f1Desc": "Geld wordt veilig bewaard tot het werk is goedgekeurd.",
+      "f2Title": "Geverifieerde Specialisten",
+      "f2Desc": "Elke freelancer wordt gescreend voor toetreding.",
+      "f3Title": "Snelle Oplevering",
+      "f3Desc": "De meeste projecten binnen 1–5 dagen opgeleverd.",
+      "f4Title": "Tweetalig Platform",
+      "f4Desc": "Volledige ondersteuning in Engels en Nederlands.",
+      "f5Title": "Transparante Prijzen",
+      "f5Desc": "Bekijk prijzen vooraf, geen verborgen kosten.",
+      "f6Title": "Revisie Ondersteuning",
+      "f6Desc": "Vraag wijzigingen aan tot u tevreden bent."
+    },
+    "consulting": {
+      "tag": "Weet u niet waar u moet beginnen?",
+      "title": "Boek een gratis consultatiegesprek.",
+      "desc": "Of u nu een AI-strategie op hoog niveau nodig heeft of hulp bij het identificeren van specifieke taken om te automatiseren, ons team begeleidt u.",
+      "strategyTitle": "Strategiegesprek",
+      "strategyDesc": "Ontdek hoe AI uw bedrijf kan transformeren.",
+      "taskTitle": "Taakidentificatie Gesprek",
+      "taskDesc": "Definieer specifieke, uitvoerbare automatiseringstaken.",
+      "cta": "Plan een Gesprek"
+    },
+    "useCases": {
+      "tag": "Echte Resultaten",
+      "title": "Wat bedrijven bereiken met Namso.",
+      "u1Title": "E-mailvolume met 60% verminderd",
+      "u1Desc": "Geautomatiseerde triage en routering voor een logistiek bedrijf.",
+      "u2Title": "Reactietijd op leads onder 30 seconden",
+      "u2Desc": "AI-chatbot geïmplementeerd voor een SaaS-startup.",
+      "u3Title": "10+ uur per week bespaard",
+      "u3Desc": "Workflow-automatisering voor een adviesbureau.",
+      "u4Title": "Content output verdrievoudigd",
+      "u4Desc": "AI-aangedreven contentpijplijn voor een e-commerce merk."
+    },
+    "finalCta": {
+      "title": "Stop met repetitief werk. Begin met schalen met AI.",
+      "desc": "Sluit u aan bij bedrijven die Namso al gebruiken om processen te automatiseren en handmatig werk te verminderen.",
+      "ctaSolutions": "Vind een Oplossing",
+      "ctaCall": "Plan een Gesprek",
+      "footer": "Maak gratis een bedrijfsaccount aan · Plaats projecten · Betaal pas na goedkeuring"
+    },
+    "browseServices": "Bekijk Diensten",
+    "bookStrategy": "Plan een Strategiegesprek",
+    "trustSecure": "Veilige betalingen · Geverifieerde specialisten · Betaal pas na goedkeuring"
   },
   "services": {
     "meeting_summaries": "AI Vergadering Samenvattingen",
