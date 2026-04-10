@@ -31,14 +31,14 @@ export default function BrowseServices() {
     <Layout>
       <div className="container py-8 md:py-12">
         <div className="mb-8">
-          <h1 className="mb-2 font-display text-3xl font-bold text-foreground">Browse Services</h1>
-          <p className="text-muted-foreground">Professional AI integration services delivered by verified specialists. Secure payments, transparent pricing.</p>
+          <h1 className="mb-2 font-display text-3xl font-bold text-foreground">{t('browseServices.title')}</h1>
+          <p className="text-muted-foreground">{t('browseServices.sub')}</p>
         </div>
 
         <div className="mb-6 flex flex-col gap-4 md:flex-row md:items-center">
           <div className="relative flex-1">
             <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
-            <Input placeholder="Search services..." value={search} onChange={(e) => setSearch(e.target.value)} className="pl-10" />
+            <Input placeholder={t('browseServices.searchPlaceholder')} value={search} onChange={(e) => setSearch(e.target.value)} className="pl-10" />
           </div>
           <div className="flex gap-2">
             {(["default", "price-low", "price-high"] as const).map((s) => (
@@ -51,7 +51,7 @@ export default function BrowseServices() {
                   sortBy === s ? "shadow-md translate-y-[-1px]" : "hover:bg-secondary"
                 )}
               >
-                {s === "default" ? "All" : s === "price-low" ? "Price ↑" : "Price ↓"}
+                {s === "default" ? t('browseServices.all') : s === "price-low" ? t('browseServices.priceLow') : t('browseServices.priceHigh')}
               </Button>
             ))}
           </div>
@@ -62,8 +62,8 @@ export default function BrowseServices() {
         {filtered.length === 0 ? (
           <div className="py-20 text-center text-muted-foreground">
             <SlidersHorizontal className="mx-auto mb-4 h-12 w-12" />
-            <p className="text-lg font-medium">No services found</p>
-            <p className="text-sm">Try adjusting your search or filters.</p>
+            <p className="text-lg font-medium">{t('browseServices.noServices')}</p>
+            <p className="text-sm">{t('browseServices.noServicesSub')}</p>
           </div>
         ) : (
           <>
@@ -75,7 +75,7 @@ export default function BrowseServices() {
             <div className="mt-8 text-center">
               <p className="text-xs text-muted-foreground">
                 <Shield className="mr-1 inline h-3 w-3" />
-                All services include secure escrow payments. You only pay after you approve the work.
+                {t('browseServices.secureNotice')}
               </p>
             </div>
           </>

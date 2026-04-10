@@ -13,10 +13,10 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import Captcha from "@/components/Captcha";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
+import { useTranslation } from "react-i18next";
 
 const formSchema = z.object({
   callType: z.enum(["strategy", "task_identifier"]),
@@ -25,13 +25,13 @@ const formSchema = z.object({
   email: z.string().email("Please enter a valid work email address"),
   phone: z.string().min(8, "A valid phone number is required"),
   website: z.string().url("Please enter a valid URL (e.g., https://example.com)").optional().or(z.literal("")),
-
   description: z.string().min(10, "Please briefly describe what you are looking for"),
 });
 
 type FormValues = z.infer<typeof formSchema>;
 
 export default function BookCall() {
+  const { t } = useTranslation();
   const [submitted, setSubmitted] = useState(false);
   const [selectedCountry, setSelectedCountry] = useState<Country>("US");
   const [loading, setLoading] = useState(false);
@@ -48,14 +48,13 @@ export default function BookCall() {
       email: "",
       phone: "",
       website: "",
-
       description: "",
     },
   });
 
   const onSubmit = async (data: FormValues) => {
     if (!captchaToken) {
-      toast({ title: "Please complete the CAPTCHA check.", variant: "destructive" });
+      toast({ title: t('bookCall.errors.captcha'), variant: "destructive" });
       return;
     }
 
@@ -74,12 +73,11 @@ export default function BookCall() {
     });
 
     if (error) {
-      // Gracefully mock success if the table doesn't exist in the DB yet
       if (error.code === "42P01") {
         console.warn("Table 'strategy_calls' does not exist yet. Mocking success for demo.");
         setSubmitted(true);
       } else {
-        toast({ title: "Error submitting request", description: error.message, variant: "destructive" });
+        toast({ title: t('bookCall.errors.submitError'), description: error.message, variant: "destructive" });
       }
     } else {
       setSubmitted(true);
@@ -96,11 +94,11 @@ export default function BookCall() {
             <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-green-100 dark:bg-green-900/30">
               <CheckCircle2 className="h-8 w-8 text-green-600 dark:text-green-500" />
             </div>
-            <h1 className="mb-2 font-display text-2xl font-bold text-foreground">Request Received</h1>
+            <h1 className="mb-2 font-display text-2xl font-bold text-foreground">{t('bookCall.success.title')}</h1>
             <p className="mb-6 text-muted-foreground">
-              Thank you for booking a call. Our team will review your details and reach out within 24 hours to schedule a time that works for you.
+              {t('bookCall.success.desc')}
             </p>
-            <Button onClick={() => navigate("/")} variant="outline">Return Home</Button>
+            <Button onClick={() => navigate("/")} variant="outline">{t('bookCall.success.returnHome')}</Button>
           </motion.div>
         </div>
       </Layout>
@@ -117,10 +115,10 @@ export default function BookCall() {
           {/* Left Column: Context */}
           <div className="lg:col-span-5">
             <h1 className="mb-4 font-display text-3xl font-bold text-foreground md:text-4xl">
-              Let's map out your next AI project.
+              {t('bookCall.heroTitle')}
             </h1>
             <p className="mb-8 text-lg text-muted-foreground">
-              Whether you need a high-level strategy or help identifying specific tasks, our experts are here to guide you.
+              {t('bookCall.heroSub')}
             </p>
 
             <div className="space-y-6">
@@ -134,14 +132,14 @@ export default function BookCall() {
                     <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary/10">
                       <Target className="h-5 w-5 text-primary" />
                     </div>
-                    <h3 className="font-semibold text-foreground">Strategy Call</h3>
+                    <h3 className="font-semibold text-foreground">{t('bookCall.strategy.title')}</h3>
                   </div>
                   {callType === 'strategy' && (
                     <CheckCircle2 className="h-5 w-5 text-primary" />
                   )}
                 </div>
                 <p className="text-sm text-muted-foreground">
-                  Perfect if you want to explore how AI can transform your business at a macro level. We'll discuss use cases, ROI, and overarching architecture.
+                  {t('bookCall.strategy.desc')}
                 </p>
               </button>
 
@@ -155,14 +153,14 @@ export default function BookCall() {
                     <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary/10">
                       <Calendar className="h-5 w-5 text-primary" />
                     </div>
-                    <h3 className="font-semibold text-foreground">Task Identifier Call</h3>
+                    <h3 className="font-semibold text-foreground">{t('bookCall.task.title')}</h3>
                   </div>
                   {callType === 'task_identifier' && (
                     <CheckCircle2 className="h-5 w-5 text-primary" />
                   )}
                 </div>
                 <p className="text-sm text-muted-foreground">
-                  Best if you know you need help but aren't sure how to break it down. We'll help you scope specific, actionable tasks ready to go on the marketplace.
+                  {t('bookCall.task.desc')}
                 </p>
               </button>
             </div>
@@ -171,19 +169,17 @@ export default function BookCall() {
           {/* Right Column: Form */}
           <div className="lg:col-span-7">
             <div className="rounded-xl border border-border bg-card p-6 md:p-8 shadow-sm">
-              <h2 className="mb-6 font-display text-2xl font-semibold text-foreground">Book Your Session</h2>
+              <h2 className="mb-6 font-display text-2xl font-semibold text-foreground">{t('bookCall.form.title')}</h2>
               
               <Form {...form}>
                 <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-5">
-
-
                   <div className="grid gap-5 sm:grid-cols-2">
                     <FormField
                       control={form.control}
                       name="fullName"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel>Full Name</FormLabel>
+                          <FormLabel>{t('bookCall.form.fullName')}</FormLabel>
                           <FormControl>
                             <Input {...field} />
                           </FormControl>
@@ -196,7 +192,7 @@ export default function BookCall() {
                       name="companyName"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel>Company Name</FormLabel>
+                          <FormLabel>{t('bookCall.form.companyName')}</FormLabel>
                           <FormControl>
                             <Input {...field} />
                           </FormControl>
@@ -212,7 +208,7 @@ export default function BookCall() {
                       name="email"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel>Work Email</FormLabel>
+                          <FormLabel>{t('bookCall.form.email')}</FormLabel>
                           <FormControl>
                             <Input type="email" {...field} />
                           </FormControl>
@@ -225,7 +221,7 @@ export default function BookCall() {
                       name="phone"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel>Phone Number</FormLabel>
+                          <FormLabel>{t('bookCall.form.phone')}</FormLabel>
                           <FormControl>
                             <div className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-base ring-offset-background md:text-sm focus-within:ring-2 focus-within:ring-ring focus-within:ring-offset-2 overflow-hidden items-center">
                               <PhoneInput
@@ -261,7 +257,7 @@ export default function BookCall() {
                     name="website"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Website (Optional)</FormLabel>
+                        <FormLabel>{t('bookCall.form.website')}</FormLabel>
                         <FormControl>
                           <Input type="url" {...field} />
                         </FormControl>
@@ -270,19 +266,14 @@ export default function BookCall() {
                     )}
                   />
 
-
-
                   <FormField
                     control={form.control}
                     name="description"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>What are your main goals and challenges?</FormLabel>
+                        <FormLabel>{t('bookCall.form.goals')}</FormLabel>
                         <FormControl>
-                          <Textarea 
-                            rows={4}
-                            {...field} 
-                          />
+                          <Textarea rows={4} {...field} />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -292,7 +283,7 @@ export default function BookCall() {
                   <Captcha onVerify={setCaptchaToken} />
 
                   <Button type="submit" disabled={loading || !captchaToken} className="w-full" size="lg">
-                    {loading ? "Submitting..." : "Submit Request"} <ArrowRight className="ml-2 h-4 w-4" />
+                    {loading ? t('bookCall.form.submitting') : t('bookCall.form.submit')} <ArrowRight className="ml-2 h-4 w-4" />
                   </Button>
                 </form>
               </Form>

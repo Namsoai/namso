@@ -91,5 +91,158 @@
     "confirm": "Confirm",
     "save": "Save",
     "back": "Back"
+  },
+  "about": {
+    "heroTitle": "About Namso",
+    "heroSub": "Namso is the AI freelance marketplace that connects businesses with verified integration specialists.",
+    "missionTitle": "Our Mission",
+    "missionText": "Namso exists to make AI implementation accessible for every business. We connect companies with verified AI specialists who can build automations, deploy intelligent systems, and integrate AI tools — turning complex technology into practical business solutions.",
+    "storyTitle": "Our Story",
+    "storyText1": "Namso started with a clear observation: businesses of all sizes want to leverage AI but struggle to find reliable, specialized talent to implement it. Meanwhile, skilled AI professionals need a dedicated platform to connect with businesses that value their expertise.",
+    "storyText2": "We built Namso to bridge that gap. Our marketplace makes it easy for businesses anywhere in the world to find verified AI specialists who can automate workflows, deploy chatbots, build intelligent systems, and much more — with transparent pricing and secure payments.",
+    "whoTitle": "Who Namso Is For",
+    "whoText": "Namso is built for businesses that want to implement AI solutions without the overhead of traditional consulting firms or the uncertainty of general freelance platforms.",
+    "valuesTitle": "Our Values",
+    "values": {
+      "resultsTitle": "Results-Driven",
+      "resultsDesc": "Every project on Namso is focused on delivering measurable business outcomes — not just recommendations.",
+      "fairTitle": "Fair & Transparent",
+      "fairDesc": "Clear pricing, secure payments, and a platform built on trust between businesses and specialists.",
+      "forwardTitle": "Forward-Thinking",
+      "forwardDesc": "We believe AI will reshape how businesses operate. Our platform connects the right expertise with real business needs.",
+      "communityTitle": "Community",
+      "communityDesc": "We're building a network of skilled AI professionals and forward-thinking businesses driving innovation together."
+    },
+    "learnMoreTitle": "Want to Learn More?",
+    "learnMoreSub": "See how Namso connects businesses with verified AI integration specialists.",
+    "howItWorks": "How It Works",
+    "contactUs": "Contact Us"
+  },
+  "howItWorks": {
+    "heroTitle": "How Namso Works",
+    "heroSub": "Hire verified AI specialists to implement solutions for your business — here's how.",
+    "steps": {
+      "1": {
+        "title": "Post Your Project",
+        "desc": "Describe the AI integration you need — from chatbot deployment to workflow automation or data pipeline setup. Posting is free."
+      },
+      "2": {
+        "title": "Get Matched With Specialists",
+        "desc": "Assign your project directly to verified AI specialists who fit your needs."
+      },
+      "3": {
+        "title": "Work Gets Done",
+        "desc": "Your specialist implements the solution using industry-leading AI tools. Review deliverables and request revisions if needed."
+      },
+      "4": {
+        "title": "Pay Securely",
+        "desc": "Release payment only when you're satisfied. If a project isn't delivered as agreed, our team provides support and a fair resolution process."
+      }
+    },
+    "securePayments": {
+      "title": "Secure Payments",
+      "sub": "Pay with confidence through our secure checkout. Your payment is only released after you review and approve the completed work.",
+      "cards": {
+        "escrowTitle": "Escrow Protection",
+        "escrowDesc": "Funds are held securely until the project is delivered as agreed.",
+        "approvalTitle": "Client Approval",
+        "approvalDesc": "Review the deliverables, request revisions if needed, and approve only when satisfied.",
+        "disputeTitle": "Dispute Resolution",
+        "disputeDesc": "If a project isn't delivered as agreed, our team provides support and a fair resolution process."
+      }
+    },
+    "benefits": {
+      "title": "Why Businesses Choose Namso",
+      "item1": "Verified AI integration specialists",
+      "item2": "Hands-on implementation, not just advice",
+      "item3": "Fast turnaround — most projects in 1–5 days",
+      "item4": "Secure escrow payments",
+      "item5": "Transparent pricing on every listing",
+      "item6": "Revision support on every project"
+    },
+    "cta": {
+      "title": "Ready to Get Started?",
+      "sub": "Browse services from verified AI specialists or create a business account to post projects.",
+      "browse": "Browse Services",
+      "joinBusiness": "Join as a Business",
+      "secureText": "Secure checkout · Protected payments · Pay only after approval"
+    }
+  },
+  "contact": {
+    "heroTitle": "Get in Touch",
+    "heroSub": "Have a question, partnership idea, or feedback? We'd love to hear from you.",
+    "emailSupport": "Email support",
+    "responseTimeTitle": "We aim to respond within 24 hours",
+    "responseTimeDesc": "Response time",
+    "form": {
+      "name": "Name",
+      "namePlaceholder": "Your name",
+      "email": "Email",
+      "emailPlaceholder": "you@company.com",
+      "subject": "Subject",
+      "subjectPlaceholder": "How can we help?",
+      "message": "Message",
+      "messagePlaceholder": "Tell us more...",
+      "maxLength": "Max 2,000 characters.",
+      "submit": "Send Message",
+      "submitting": "Sending..."
+    },
+    "success": {
+      "title": "Message Sent!",
+      "desc": "Thank you for reaching out. We'll get back to you within 24 hours at the email you provided."
+    },
+    "errors": {
+      "fillAll": "Please fill in all fields.",
+      "failedSend": "Failed to send message. Please try again."
+    }
+  },
+  "faq": {
+    "heroTitle": "Frequently Asked Questions",
+    "heroSub": "Everything you need to know about Namso.",
+    "stillHaveQuestions": "Still have questions?",
+    "contactUs": "Contact Us"
+  },
+  "browseServices": {
+    "title": "Browse Services",
+    "sub": "Professional AI integration services delivered by verified specialists. Secure payments, transparent pricing.",
+    "searchPlaceholder": "Search services...",
+    "all": "All",
+    "priceLow": "Price ↑",
+    "priceHigh": "Price ↓",
+    "noServices": "No services found",
+    "noServicesSub": "Try adjusting your search or filters.",
+    "secureNotice": "All services include secure escrow payments. You only pay after you approve the work."
+  },
+  "bookCall": {
+    "heroTitle": "Let's map out your next AI project.",
+    "heroSub": "Whether you need a high-level strategy or help identifying specific tasks, our experts are here to guide you.",
+    "strategy": {
+      "title": "Strategy Call",
+      "desc": "Perfect if you want to explore how AI can transform your business at a macro level. We'll discuss use cases, ROI, and overarching architecture."
+    },
+    "task": {
+      "title": "Task Identifier Call",
+      "desc": "Best if you know you need help but aren't sure how to break it down. We'll help you scope specific, actionable tasks ready to go on the marketplace."
+    },
+    "form": {
+      "title": "Book Your Session",
+      "fullName": "Full Name",
+      "companyName": "Company Name",
+      "email": "Work Email",
+      "phone": "Phone Number",
+      "website": "Website (Optional)",
+      "goals": "What are your main goals and challenges?",
+      "submit": "Submit Request",
+      "submitting": "Submitting..."
+    },
+    "success": {
+      "title": "Request Received",
+      "desc": "Thank you for booking a call. Our team will review your details and reach out within 24 hours to schedule a time that works for you.",
+      "returnHome": "Return Home"
+    },
+    "errors": {
+      "captcha": "Please complete the CAPTCHA check.",
+      "submitError": "Error submitting request"
+    }
   }
 }

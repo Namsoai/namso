@@ -91,5 +91,158 @@
     "confirm": "Bevestigen",
     "save": "Opslaan",
     "back": "Terug"
+  },
+  "about": {
+    "heroTitle": "Over Namso",
+    "heroSub": "Namso is de AI freelance marktplaats die bedrijven verbindt met geverifieerde integratiespecialisten.",
+    "missionTitle": "Onze Missie",
+    "missionText": "Namso bestaat om AI-implementatie toegankelijk te maken voor elk bedrijf. We verbinden bedrijven met geverifieerde AI-specialisten die automatiseringen kunnen bouwen, intelligente systemen kunnen implementeren en AI-tools kunnen integreren — om zo complexe technologie om te zetten in praktische zakelijke oplossingen.",
+    "storyTitle": "Ons Verhaal",
+    "storyText1": "Namso begon met een duidelijke observatie: bedrijven van elke omvang willen AI inzetten, maar hebben moeite om betrouwbaar, gespecialiseerd talent te vinden om dit te implementeren. Ondertussen hebben begaafde AI-professionals een speciaal platform nodig om in contact te komen met bedrijven die hun expertise waarderen.",
+    "storyText2": "We hebben Namso gebouwd om die kloof te overbruggen. Onze marktplaats maakt het voor bedrijven overal ter wereld gemakkelijk om geverifieerde AI-specialisten te vinden die workflows kunnen automatiseren, chatbots kunnen inzetten, intelligente systemen kunnen bouwen en nog veel meer — met transparante prijzen en veilige betalingen.",
+    "whoTitle": "Voor Wie Namso Is",
+    "whoText": "Namso is gebouwd voor bedrijven die AI-oplossingen willen implementeren zonder de overhead van traditionele adviesbureaus of de onzekerheid van algemene freelanceplatforms.",
+    "valuesTitle": "Onze Waarden",
+    "values": {
+      "resultsTitle": "Resultaatgericht",
+      "resultsDesc": "Elk project op Namso is gericht op het leveren van meetbare zakelijke resultaten — niet alleen advies.",
+      "fairTitle": "Eerlijk & Transparant",
+      "fairDesc": "Heldere prijzen, veilige betalingen en een platform gebouwd op vertrouwen tussen bedrijven en specialisten.",
+      "forwardTitle": "Vooruitstrevend",
+      "forwardDesc": "Wij geloven dat AI de manier waarop bedrijven werken zal hervormen. Ons platform verbindt de juiste expertise met echte zakelijke behoeften.",
+      "communityTitle": "Gemeenschap",
+      "communityDesc": "We bouwen aan een netwerk van vaardige AI-professionals en vooruitstrevende bedrijven die samen innovatie stimuleren."
+    },
+    "learnMoreTitle": "Meer Weten?",
+    "learnMoreSub": "Ontdek hoe Namso bedrijven verbindt met geverifieerde AI-integratiespecialisten.",
+    "howItWorks": "Hoe Het Werkt",
+    "contactUs": "Neem Contact Op"
+  },
+  "howItWorks": {
+    "heroTitle": "Hoe Namso Werkt",
+    "heroSub": "Huur geverifieerde AI-specialisten in om oplossingen voor uw bedrijf te implementeren — ontdek hier hoe.",
+    "steps": {
+      "1": {
+        "title": "Plaats Uw Project",
+        "desc": "Beschrijf de AI-integratie die u nodig heeft — van de implementatie van een chatbot tot workflow-automatisering. Plaatsen is gratis."
+      },
+      "2": {
+        "title": "Vind De Juiste Specialist",
+        "desc": "Wijs uw project direct toe aan geverifieerde AI-specialisten die aan uw behoeften voldoen."
+      },
+      "3": {
+        "title": "Het Werk Wordt Gedaan",
+        "desc": "Uw specialist implementeert de oplossing. Beoordeel de resultaten en vraag indien nodig revisies aan."
+      },
+      "4": {
+        "title": "Veilig Betalen",
+        "desc": "Geef de betaling pas vrij wanneer u tevreden bent. Als een project niet wordt opgeleverd zoals afgesproken, bieden wij bemiddeling."
+      }
+    },
+    "securePayments": {
+      "title": "Veilige Betalingen",
+      "sub": "Betaal met vertrouwen via onze beveiligde kassa. Uw betaling wordt pas vrijgegeven nadat u het voltooide werk heeft beoordeeld en goedgekeurd.",
+      "cards": {
+        "escrowTitle": "Escrow Bescherming",
+        "escrowDesc": "Geld wordt veilig bewaard totdat het project volgens afspraak is opgeleverd.",
+        "approvalTitle": "Goedkeuring Klant",
+        "approvalDesc": "Beoordeel de deliverables, vraag indien nodig revisies aan en keur pas goed als u tevreden bent.",
+        "disputeTitle": "Geschillenbeslechting",
+        "disputeDesc": "Als een project niet wordt afgeleverd zoals afgesproken, biedt ons team ondersteuning."
+      }
+    },
+    "benefits": {
+      "title": "Waarom Bedrijven Voor Namso Kiezen",
+      "item1": "Geverifieerde AI-integratiespecialisten",
+      "item2": "Praktische implementatie, niet slechts advies",
+      "item3": "Snelle levering — de meeste projecten binnen 1–5 dagen",
+      "item4": "Veilige escrow-betalingen",
+      "item5": "Transparante prijzen bij elke vermelding",
+      "item6": "Ondersteuning voor revisies bij elk project"
+    },
+    "cta": {
+      "title": "Klaar om te Beginnen?",
+      "sub": "Blader door diensten van geverifieerde AI-specialisten of maak een zakelijk account aan om projecten te plaatsen.",
+      "browse": "Bekijk Diensten",
+      "joinBusiness": "Sluit je aan als Bedrijf",
+      "secureText": "Veilige kassa · Beschermde betalingen · Betaal pas na goedkeuring"
+    }
+  },
+  "contact": {
+    "heroTitle": "Neem Contact Op",
+    "heroSub": "Heeft u een vraag, samenwerkingsidee of feedback? We horen graag van u.",
+    "emailSupport": "E-mail ondersteuning",
+    "responseTimeTitle": "We streven ernaar om binnen 24 uur te reageren",
+    "responseTimeDesc": "Reactietijd",
+    "form": {
+      "name": "Naam",
+      "namePlaceholder": "Uw naam",
+      "email": "E-mail",
+      "emailPlaceholder": "u@bedrijf.nl",
+      "subject": "Onderwerp",
+      "subjectPlaceholder": "Hoe kunnen we helpen?",
+      "message": "Bericht",
+      "messagePlaceholder": "Vertel ons meer...",
+      "maxLength": "Max 2.000 karakters.",
+      "submit": "Verstuur Bericht",
+      "submitting": "Verzenden..."
+    },
+    "success": {
+      "title": "Bericht Verzonden!",
+      "desc": "Bedankt voor uw bericht. We reageren binnen 24 uur op het door u opgegeven e-mailadres."
+    },
+    "errors": {
+      "fillAll": "Vul alstublieft alle velden in.",
+      "failedSend": "Bericht verzenden mislukt. Probeer het opnieuw."
+    }
+  },
+  "faq": {
+    "heroTitle": "Veelgestelde Vragen",
+    "heroSub": "Alles wat u moet weten over Namso.",
+    "stillHaveQuestions": "Heeft u nog vragen?",
+    "contactUs": "Neem Contact Op"
+  },
+  "browseServices": {
+    "title": "Bekijk Diensten",
+    "sub": "Professionele AI-integratiediensten geleverd door geverifieerde specialisten. Veilige betalingen, transparante prijzen.",
+    "searchPlaceholder": "Zoek diensten...",
+    "all": "Alles",
+    "priceLow": "Prijs ↑",
+    "priceHigh": "Prijs ↓",
+    "noServices": "Geen diensten gevonden",
+    "noServicesSub": "Probeer uw zoekopdracht of filters aan te passen.",
+    "secureNotice": "Alle diensten zijn inclusief veilige escrow-betalingen. U betaalt pas nadat u het werk heeft goedgekeurd."
+  },
+  "bookCall": {
+    "heroTitle": "Laten we uw volgende AI-project uitstippelen.",
+    "heroSub": "Of u nu een strategie op hoog niveau nodig heeft of hulp bij het identificeren van specifieke taken, onze experts staan voor u klaar.",
+    "strategy": {
+      "title": "Strategiegesprek",
+      "desc": "Perfect als u wilt verkennen hoe AI uw bedrijf op macroniveau kan transformeren. We bespreken use cases, ROI en de overkoepelende architectuur."
+    },
+    "task": {
+      "title": "Taakidentificatiegesprek",
+      "desc": "Het beste als u weet dat u hulp nodig heeft, maar niet zeker weet hoe u dit moet uitsplitsen. We helpen u bij het definiëren van specifieke, uitvoerbare taken die klaar zijn voor de marktplaats."
+    },
+    "form": {
+      "title": "Boek Uw Sessie",
+      "fullName": "Volledige Naam",
+      "companyName": "Bedrijfsnaam",
+      "email": "Werk E-mail",
+      "phone": "Telefoonnummer",
+      "website": "Website (Optioneel)",
+      "goals": "Wat zijn uw belangrijkste doelen en uitdagingen?",
+      "submit": "Aanvraag Indienen",
+      "submitting": "Bezig met indienen..."
+    },
+    "success": {
+      "title": "Aanvraag Ontvangen",
+      "desc": "Bedankt voor het boeken van een gesprek. Ons team zal uw gegevens bekijken en binnen 24 uur contact met u opnemen om een geschikt moment in te plannen.",
+      "returnHome": "Keer Terug naar Home"
+    },
+    "errors": {
+      "captcha": "Voltooi alstublieft de CAPTCHA-controle.",
+      "submitError": "Fout bij het indienen van de aanvraag"
+    }
   }
 }

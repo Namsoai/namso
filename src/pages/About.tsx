@@ -4,41 +4,44 @@ import Layout from "@/components/Layout";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
-
-const values = [
-  { icon: Target, title: "Results-Driven", desc: "Every project on Namso is focused on delivering measurable business outcomes — not just recommendations." },
-  { icon: Heart, title: "Fair & Transparent", desc: "Clear pricing, secure payments, and a platform built on trust between businesses and specialists." },
-  { icon: Lightbulb, title: "Forward-Thinking", desc: "We believe AI will reshape how businesses operate. Our platform connects the right expertise with real business needs." },
-  { icon: Users, title: "Community", desc: "We're building a network of skilled AI professionals and forward-thinking businesses driving innovation together." },
-];
+import { useTranslation } from "react-i18next";
 
 export default function About() {
+  const { t } = useTranslation();
+
+  const values = [
+    { icon: Target, title: t('about.values.resultsTitle'), desc: t('about.values.resultsDesc') },
+    { icon: Heart, title: t('about.values.fairTitle'), desc: t('about.values.fairDesc') },
+    { icon: Lightbulb, title: t('about.values.forwardTitle'), desc: t('about.values.forwardDesc') },
+    { icon: Users, title: t('about.values.communityTitle'), desc: t('about.values.communityDesc') },
+  ];
+
   return (
     <Layout>
       <section className="hero-gradient py-16 md:py-20">
         <div className="container text-center">
           <motion.h1 className="mb-4 font-display text-3xl font-bold text-primary-foreground md:text-5xl" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
-            About Namso
+            {t('about.heroTitle')}
           </motion.h1>
           <p className="mx-auto max-w-2xl text-lg text-primary-foreground/80">
-            Namso is the AI freelance marketplace that connects businesses with verified integration specialists.
+            {t('about.heroSub')}
           </p>
         </div>
       </section>
 
       <section className="py-16">
         <div className="container mx-auto max-w-3xl">
-          <h2 className="mb-2 font-display text-sm font-semibold uppercase tracking-wider text-primary">Our Mission</h2>
+          <h2 className="mb-2 font-display text-sm font-semibold uppercase tracking-wider text-primary">{t('about.missionTitle')}</h2>
           <p className="mb-8 text-lg leading-relaxed text-foreground">
-            Namso exists to make AI implementation accessible for every business. We connect companies with verified AI specialists who can build automations, deploy intelligent systems, and integrate AI tools — turning complex technology into practical business solutions.
+            {t('about.missionText')}
           </p>
 
-          <h2 className="mb-4 font-display text-2xl font-bold text-foreground">Our Story</h2>
+          <h2 className="mb-4 font-display text-2xl font-bold text-foreground">{t('about.storyTitle')}</h2>
           <p className="mb-4 leading-relaxed text-muted-foreground">
-            Namso started with a clear observation: businesses of all sizes want to leverage AI but struggle to find reliable, specialized talent to implement it. Meanwhile, skilled AI professionals need a dedicated platform to connect with businesses that value their expertise.
+            {t('about.storyText1')}
           </p>
           <p className="leading-relaxed text-muted-foreground">
-            We built Namso to bridge that gap. Our marketplace makes it easy for businesses anywhere in the world to find verified AI specialists who can automate workflows, deploy chatbots, build intelligent systems, and much more — with transparent pricing and secure payments.
+            {t('about.storyText2')}
           </p>
         </div>
       </section>
@@ -46,16 +49,16 @@ export default function About() {
       {/* Who Namso Is For */}
       <section className="border-y border-border bg-card py-16">
         <div className="container mx-auto max-w-3xl text-center">
-          <h2 className="mb-4 font-display text-2xl font-bold text-foreground">Who Namso Is For</h2>
+          <h2 className="mb-4 font-display text-2xl font-bold text-foreground">{t('about.whoTitle')}</h2>
           <p className="text-lg leading-relaxed text-muted-foreground">
-            Namso is built for businesses that want to implement AI solutions without the overhead of traditional consulting firms or the uncertainty of general freelance platforms.
+            {t('about.whoText')}
           </p>
         </div>
       </section>
 
       <section className="surface-warm py-16">
         <div className="container">
-          <h2 className="mb-10 text-center font-display text-2xl font-bold text-foreground">Our Values</h2>
+          <h2 className="mb-10 text-center font-display text-2xl font-bold text-foreground">{t('about.valuesTitle')}</h2>
           <div className="mx-auto grid max-w-4xl gap-6 md:grid-cols-2">
             {values.map((v, i) => (
               <motion.div
@@ -81,11 +84,11 @@ export default function About() {
 
       <section className="py-16 text-center">
         <div className="container">
-          <h2 className="mb-4 font-display text-2xl font-bold text-foreground">Want to Learn More?</h2>
-          <p className="mx-auto mb-6 max-w-md text-muted-foreground">See how Namso connects businesses with verified AI integration specialists.</p>
+          <h2 className="mb-4 font-display text-2xl font-bold text-foreground">{t('about.learnMoreTitle')}</h2>
+          <p className="mx-auto mb-6 max-w-md text-muted-foreground">{t('about.learnMoreSub')}</p>
           <div className="flex flex-col items-center justify-center gap-3 sm:flex-row">
-            <Link to="/how-it-works"><Button>How It Works <ArrowRight className="ml-2 h-4 w-4" /></Button></Link>
-            <Link to="/contact"><Button variant="outline">Contact Us</Button></Link>
+            <Link to="/how-it-works"><Button>{t('about.howItWorks')} <ArrowRight className="ml-2 h-4 w-4" /></Button></Link>
+            <Link to="/contact"><Button variant="outline">{t('about.contactUs')}</Button></Link>
           </div>
         </div>
       </section>
