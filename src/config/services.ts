@@ -1,104 +1,68 @@
-export type ServiceTier = "low" | "medium" | "high";
+export type ServiceTier = "core" | "premium";
 
 export interface ServiceConfig {
   id: string;
   translationKey: string;
-  previousPrice: number;
-  agencyPrice: number;
-  uplift: number;
+  descriptionKey: string;
+  outcomeKey: string;
+  startingPrice: number;
   tier: ServiceTier;
   icon: string;
 }
 
 export const servicesConfig: ServiceConfig[] = [
   {
-    id: "ai-meeting-summaries",
-    translationKey: "services.meeting_summaries",
-    previousPrice: 60,
-    agencyPrice: 150,
-    uplift: 90,
-    tier: "low",
-    icon: "FileText",
-  },
-  {
-    id: "ai-prompt-engineering",
-    translationKey: "services.prompt_engineering",
-    previousPrice: 90,
-    agencyPrice: 250,
-    uplift: 160,
-    tier: "low",
-    icon: "Bot",
-  },
-  {
-    id: "data-organisation",
-    translationKey: "services.data_organisation",
-    previousPrice: 90,
-    agencyPrice: 280,
-    uplift: 190,
-    tier: "low",
-    icon: "Database",
-  },
-  {
-    id: "ai-content-generation",
-    translationKey: "services.content_generation",
-    previousPrice: 95,
-    agencyPrice: 300,
-    uplift: 205,
-    tier: "low",
-    icon: "PenTool",
-  },
-  {
-    id: "ai-image-creation",
-    translationKey: "services.image_creation",
-    previousPrice: 100,
-    agencyPrice: 320,
-    uplift: 220,
-    tier: "medium",
-    icon: "Image",
-  },
-  {
-    id: "ai-research-analysis",
-    translationKey: "services.research_analysis",
-    previousPrice: 120,
-    agencyPrice: 400,
-    uplift: 280,
-    tier: "medium",
-    icon: "Search",
-  },
-  {
-    id: "ai-website-improvements",
-    translationKey: "services.website_improvements",
-    previousPrice: 140,
-    agencyPrice: 500,
-    uplift: 360,
-    tier: "medium",
-    icon: "Globe",
-  },
-  {
-    id: "ai-email-automation",
-    translationKey: "services.email_automation",
-    previousPrice: 150,
-    agencyPrice: 550,
-    uplift: 400,
-    tier: "medium",
-    icon: "Mail",
-  },
-  {
-    id: "workflow-automation",
+    id: "workflow-automation-system",
     translationKey: "services.workflow_automation",
-    previousPrice: 170,
-    agencyPrice: 650,
-    uplift: 480,
-    tier: "high",
+    descriptionKey: "services.workflow_automation_desc",
+    outcomeKey: "services.workflow_automation_outcome",
+    startingPrice: 750,
+    tier: "premium",
     icon: "Workflow",
   },
   {
-    id: "chatbot-setup",
-    translationKey: "services.chatbot_setup",
-    previousPrice: 220,
-    agencyPrice: 950,
-    uplift: 730,
-    tier: "high",
+    id: "chatbot-lead-capture-system",
+    translationKey: "services.chatbot_lead_capture",
+    descriptionKey: "services.chatbot_lead_capture_desc",
+    outcomeKey: "services.chatbot_lead_capture_outcome",
+    startingPrice: 950,
+    tier: "premium",
     icon: "MessageSquare",
+  },
+  {
+    id: "email-communication-system",
+    translationKey: "services.email_communication",
+    descriptionKey: "services.email_communication_desc",
+    outcomeKey: "services.email_communication_outcome",
+    startingPrice: 650,
+    tier: "core",
+    icon: "Mail",
+  },
+  {
+    id: "website-conversion-system",
+    translationKey: "services.website_conversion",
+    descriptionKey: "services.website_conversion_desc",
+    outcomeKey: "services.website_conversion_outcome",
+    startingPrice: 650,
+    tier: "core",
+    icon: "Globe",
+  },
+  {
+    id: "data-intelligence-system",
+    translationKey: "services.data_intelligence",
+    descriptionKey: "services.data_intelligence_desc",
+    outcomeKey: "services.data_intelligence_outcome",
+    startingPrice: 550,
+    tier: "core",
+    icon: "Database",
+  },
+  {
+    id: "research-analysis-system",
+    translationKey: "services.research_analysis",
+    descriptionKey: "services.research_analysis_desc",
+    outcomeKey: "services.research_analysis_outcome",
+    startingPrice: 550,
+    tier: "core",
+    icon: "Search",
   },
 ];

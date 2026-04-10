@@ -1,9 +1,9 @@
 import { useState, useMemo } from "react";
-import { Search, SlidersHorizontal, Shield } from "lucide-react";
+import { Search, SlidersHorizontal, Shield, ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 import { cn } from "@/lib/utils";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
 import Layout from "@/components/Layout";
 import ServiceCard from "@/components/ServiceCard";
 import { servicesConfig } from "@/config/services";
@@ -17,15 +17,14 @@ export default function BrowseServices() {
   const filtered = useMemo(() => {
     const result = servicesConfig.filter((s) => {
       const title = t(s.translationKey).toLowerCase();
-      const matchesSearch = !search || title.includes(search.toLowerCase());
-      return matchesSearch;
+      const desc = t(s.descriptionKey).toLowerCase();
+      const q = search.toLowerCase();
+      return !search || title.includes(q) || desc.includes(q);
     });
-    if (sortBy === "price-low") result.sort((a, b) => a.agencyPrice - b.agencyPrice);
-    else if (sortBy === "price-high") result.sort((a, b) => b.agencyPrice - a.agencyPrice);
+    if (sortBy === "price-low") result.sort((a, b) => a.startingPrice - b.startingPrice);
+    else if (sortBy === "price-high") result.sort((a, b) => b.startingPrice - a.startingPrice);
     return result;
   }, [search, sortBy, t]);
-
-
 
   return (
     <Layout>
@@ -57,8 +56,6 @@ export default function BrowseServices() {
           </div>
         </div>
 
-
-
         {filtered.length === 0 ? (
           <div className="py-20 text-center text-muted-foreground">
             <SlidersHorizontal className="mx-auto mb-4 h-12 w-12" />
@@ -67,7 +64,7 @@ export default function BrowseServices() {
           </div>
         ) : (
           <>
-            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {filtered.map((service) => (
                 <ServiceCard key={service.id} service={service} />
               ))}
@@ -80,6 +77,17 @@ export default function BrowseServices() {
             </div>
           </>
         )}
+
+        {/* Custom solution CTA */}
+        <div className="mt-16 rounded-2xl border border-border bg-secondary/30 p-8 md:p-12 text-center">
+          <h3 className="mb-2 font-display text-xl font-bold text-foreground">{t('browseServices.customCta')}</h3>
+          <p className="mb-6 text-muted-foreground">{t('browseServices.customCtaDesc')}</p>
+          <Link to="/book-call">
+            <Button size="lg" className="px-8">
+              {t('browseServices.bookCall')} <ArrowRight className="ml-2 h-4 w-4" />
+            </Button>
+          </Link>
+        </div>
       </div>
     </Layout>
   );

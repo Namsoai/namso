@@ -126,16 +126,24 @@
     "trustSecure": "Veilige betalingen · Geverifieerde specialisten · Betaal pas na goedkeuring"
   },
   "services": {
-    "meeting_summaries": "AI Vergadering Samenvattingen",
-    "prompt_engineering": "AI Prompt Engineering",
-    "data_organisation": "Data Organisatie",
-    "content_generation": "AI Content Generatie",
-    "image_creation": "AI Afbeelding Creatie",
-    "research_analysis": "AI Onderzoek & Analyse",
-    "website_improvements": "AI Website Verbeteringen",
-    "email_automation": "AI E-mail Automatisering",
-    "workflow_automation": "Workflow Automatisering",
-    "chatbot_setup": "Chatbot Opzet"
+    "workflow_automation": "Workflow Automatisering Systeem",
+    "workflow_automation_desc": "Automatiseer repetitieve workflows door tools te verbinden en handmatige processen te elimineren.",
+    "workflow_automation_outcome": "Bespaar elke week uren en verminder operationele fouten.",
+    "chatbot_lead_capture": "AI Chatbot & Leadgeneratie Systeem",
+    "chatbot_lead_capture_desc": "Implementeer AI-chatbots om leads vast te leggen, supportvragen af te handelen en websitebezoekers 24/7 te bedienen.",
+    "chatbot_lead_capture_outcome": "24/7 klantcontact zonder extra personeel.",
+    "email_communication": "E-mail & Communicatie Automatisering Systeem",
+    "email_communication_desc": "Automatiseer inboxbeheer, e-mailstromen en interne communicatieprocessen.",
+    "email_communication_outcome": "Minder inbox-tijd, snellere reacties, duidelijkere communicatie.",
+    "website_conversion": "Website Conversie & AI Optimalisatie Systeem",
+    "website_conversion_desc": "Verbeter websiteprestaties met AI-gestuurde automatisering en geoptimaliseerde leadstromen.",
+    "website_conversion_outcome": "Hogere conversieratio's en geautomatiseerde leadgeneratie.",
+    "data_intelligence": "Data Structurering & Intelligence Systeem",
+    "data_intelligence_desc": "Organiseer en automatiseer datapijplijnen om operationele efficiëntie en besluitvorming te verbeteren.",
+    "data_intelligence_outcome": "Schone, geautomatiseerde data die betere beslissingen aandrijft.",
+    "research_analysis": "AI Onderzoek & Analyse Systeem",
+    "research_analysis_desc": "Bouw systemen die automatisch zakelijke inzichten verzamelen, analyseren en leveren.",
+    "research_analysis_outcome": "Snellere, diepere inzichten zonder handmatig onderzoek."
   },
   "pricing": {
     "agencyPrice": "Bureauprijs",
@@ -271,15 +279,18 @@
     "contactUs": "Neem Contact Op"
   },
   "browseServices": {
-    "title": "Bekijk Diensten",
-    "sub": "Professionele AI-integratiediensten geleverd door geverifieerde specialisten. Veilige betalingen, transparante prijzen.",
-    "searchPlaceholder": "Zoek diensten...",
+    "title": "AI Automatiseringsoplossingen",
+    "sub": "Premium AI-systemen ontworpen om processen te automatiseren, leads vast te leggen en uw bedrijf te schalen. Veilige escrow-betalingen bij elk project.",
+    "searchPlaceholder": "Zoek oplossingen...",
     "all": "Alles",
     "priceLow": "Prijs ↑",
     "priceHigh": "Prijs ↓",
-    "noServices": "Geen diensten gevonden",
-    "noServicesSub": "Probeer uw zoekopdracht of filters aan te passen.",
-    "secureNotice": "Alle diensten zijn inclusief veilige escrow-betalingen. U betaalt pas nadat u het werk heeft goedgekeurd."
+    "noServices": "Geen oplossingen gevonden",
+    "noServicesSub": "Probeer uw zoekopdracht aan te passen.",
+    "secureNotice": "Alle oplossingen zijn inclusief veilige escrow-betalingen. U betaalt pas nadat u het werk heeft goedgekeurd.",
+    "customCta": "Iets op maat nodig?",
+    "customCtaDesc": "Boek een gratis consultgesprek om uw automatiseringsproject te scopen.",
+    "bookCall": "Plan een Gesprek"
   },
   "bookCall": {
     "heroTitle": "Laten we uw volgende AI-project uitstippelen.",
@@ -434,5 +445,21 @@
         "incorrectPass": "Onjuist wachtwoord. Ga naar de inlogpagina om het opnieuw te proberen of uw wachtwoord te resetten."
       }
     }
+  },
+  "serviceDetail": {
+    "startingAt": "Vanaf",
+    "from": "Vanaf",
+    "aboutService": "Over Dit Systeem",
+    "aboutDesc": "Dit is een premium AI-automatiseringssysteem ontworpen en geïmplementeerd door geverifieerde specialisten. Alle projecten verlopen via veilige escrow-mijlpalen.",
+    "scopeNote": "De definitieve scope en prijs worden overeengekomen tussen u en de specialist voordat het werk begint. Extra complexiteit kan de uiteindelijke investering beïnvloeden.",
+    "hireButton": "Vraag Deze Oplossing Aan",
+    "hireNote": "Plaats een aanvraag voor dit systeem en word gekoppeld aan een geverifieerde specialist.",
+    "createAccount": "Maak een Bedrijfsaccount Aan",
+    "needBusiness": "U heeft een bedrijfsaccount nodig om oplossingen aan te vragen.",
+    "delivery": "levering",
+    "secureEscrow": "Veilige escrow-betaling",
+    "revisionsIncluded": "Revisies inbegrepen",
+    "payAfterApproval": "Betaal pas na goedkeuring",
+    "verifiedSpecialist": "Geverifieerde specialist"
   }
 }
