@@ -13,7 +13,7 @@
  *   paymentId   – DB payment ID (must exist before this panel is shown)
  *   amount      – task budget amount
  *   buyerEmail  – business owner's email
- *   sellerEmail – freelancer's email
+ *   sellerEmail – builder's email
  *   description – (optional) human-readable label for the escrow transaction
  */
 
@@ -160,7 +160,7 @@ export default function EscrowPanel({
       setUiStatus(mapStatus(result.status));
       const msg = result.note
         ? "Release initiated. Funds will auto-release after inspection period."
-        : "Payment has been released to the freelancer.";
+        : "Payment has been released to the builder.";
       toast({ title: "Funds released", description: msg });
     } else {
       toast({ title: "Release failed", description: error ?? "Unknown error.", variant: "destructive" });
@@ -267,7 +267,7 @@ export default function EscrowPanel({
         {uiStatus === "released" && (
           <p className="flex items-center gap-1.5 text-xs text-muted-foreground">
             <ShieldCheck className="h-3.5 w-3.5 text-green-500" />
-            Funds have been released to the freelancer.
+            Funds have been released to the builder.
           </p>
         )}
 

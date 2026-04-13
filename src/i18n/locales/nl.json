@@ -282,7 +282,7 @@
     },
     "task": {
       "title": "Taakidentificatiegesprek",
-      "desc": "Het beste als u weet dat u hulp nodig heeft, maar niet zeker weet hoe u dit moet uitsplitsen. We helpen u bij het definiëren van specifieke, uitvoerbare taken die klaar zijn voor de marktplaats."
+      "desc": "Ideaal als u weet dat u hulp nodig heeft maar niet zeker weet hoe u het moet opsplitsen. Wij helpen u specifieke, uitvoerbare taken te scopen voor uw bouwer."
     },
     "form": {
       "title": "Boek Uw Sessie",
@@ -316,17 +316,17 @@
     "sending": "Verzenden...",
     "welcomeBack": "Welkom Terug",
     "loginToAccount": "Log in op uw Namso account",
-    "secureAccess": "Veilige toegang voor bedrijven, freelancers en beheerders.",
+    "secureAccess": "Veilige toegang voor bedrijven, bouwers en beheerders.",
     "email": "E-mail",
     "password": "Wachtwoord",
     "forgotPassword": "Wachtwoord vergeten?",
     "logIn": "Inloggen",
     "loggingIn": "Bezig met inloggen...",
-    "forBusinesses": "Voor bedrijven, freelancers en beheerders",
+    "forBusinesses": "Voor bedrijven, bouwers en beheerders",
     "businessJoin": "Bedrijf?",
-    "freelancerJoin": "Freelancer?",
+    "freelancerJoin": "Builder?",
     "joinAsBusiness": "Meld u aan als Bedrijf",
-    "joinAsFreelancer": "Meld u aan als Freelancer",
+    "joinAsFreelancer": "Word Builder",
     "noRoleAssigned": "Uw account heeft nog geen toegewezen rol."
   },
   "resetPassword": {
@@ -364,8 +364,8 @@
   },
   "signup": {
     "freelancer": {
-      "heroTitle": "Word AI Specialist bij Namso",
-      "heroDesc": "Meld u aan voor onze marktplaats en werk voor bedrijven wereldwijd. Gebruik uw AI-expertise om oplossingen te leveren, uw reputatie op te bouwen en uw freelance carrière te laten groeien.",
+      "heroTitle": "Word Applied AI Builder bij Namso",
+      "heroDesc": "Meld u aan voor ons platform en werk voor bedrijven wereldwijd. Gebruik uw AI-expertise om echte systemen te leveren, uw reputatie op te bouwen en uw carrière te laten groeien.",
       "idealFor": "Ideaal voor professionals met ervaring in ChatGPT, Zapier, Make, n8n, Notion AI, Airtable, Google Workspace en andere AI-platforms.",
       "perks": {
         "monetize": "Verdien aan uw AI-expertise met echte projecten",
@@ -390,15 +390,15 @@
         "bio": "Vertel ons over uw ervaring",
         "joinNow": "Nu Aanmelden",
         "joining": "Bezig met aanmelden...",
-        "welcomeCommunity": "Welkom bij onze freelance community!"
+        "welcomeCommunity": "Welkom bij Namso!"
       }
     },
     "business": {
       "heroTitle": "Meld u aan als Bedrijf",
-      "heroDesc": "Maak een bedrijfsaccount aan om AI-taken te plaatsen, voorstellen van freelancers te beoordelen en werk op één plek te beheren.",
+      "heroDesc": "Maak een bedrijfsaccount aan om projecten in te dienen, gematcht te worden met geverifieerde bouwers en uw AI-implementatie op één plek te beheren.",
       "perks": {
         "post": "Plaats taken snel en ontvang direct voorstellen",
-        "match": "Word gekoppeld aan geverifieerde freelancers",
+        "match": "Word gematcht met geverifieerde bouwers",
         "secure": "Beheer betalingen veilig",
         "review": "Beoordeel werk voor goedkeuring",
         "affordable": "Vind betaalbare AI-hulp voor uw bedrijf"

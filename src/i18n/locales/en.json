@@ -282,7 +282,7 @@
     },
     "task": {
       "title": "Task Identifier Call",
-      "desc": "Best if you know you need help but aren't sure how to break it down. We'll help you scope specific, actionable tasks ready to go on the marketplace."
+      "desc": "Best if you know you need help but aren't sure how to break it down. We'll help you scope specific, actionable tasks for your builder."
     },
     "form": {
       "title": "Book Your Session",
@@ -316,17 +316,17 @@
     "sending": "Sending...",
     "welcomeBack": "Welcome Back",
     "loginToAccount": "Log in to your Namso account",
-    "secureAccess": "Secure access for businesses, freelancers, and administrators.",
+    "secureAccess": "Secure access for businesses, builders, and administrators.",
     "email": "Email",
     "password": "Password",
     "forgotPassword": "Forgot password?",
     "logIn": "Log In",
     "loggingIn": "Logging in...",
-    "forBusinesses": "For businesses, freelancers, and administrators",
+    "forBusinesses": "For businesses, builders, and administrators",
     "businessJoin": "Business?",
-    "freelancerJoin": "Freelancer?",
+    "freelancerJoin": "Builder?",
     "joinAsBusiness": "Join as a Business",
-    "joinAsFreelancer": "Join as a Freelancer",
+    "joinAsFreelancer": "Join as a Builder",
     "noRoleAssigned": "Your account does not have an assigned role yet."
   },
   "resetPassword": {
@@ -364,8 +364,8 @@
   },
   "signup": {
     "freelancer": {
-      "heroTitle": "Join Namso as an AI Specialist",
-      "heroDesc": "Apply to join our marketplace and start working with businesses worldwide. Use your AI expertise to deliver real solutions, build your reputation, and grow your freelance career.",
+      "heroTitle": "Join Namso as an Applied AI Builder",
+      "heroDesc": "Apply to join our platform and start working with businesses worldwide. Use your AI expertise to deliver real systems, build your reputation, and grow your career.",
       "idealFor": "Ideal for professionals experienced with tools like ChatGPT, Zapier, Make, n8n, Notion AI, Airtable, Google Workspace, and other AI platforms.",
       "perks": {
         "monetize": "Monetize your AI expertise on real projects",
@@ -390,15 +390,15 @@
         "bio": "Tell us about your experience",
         "joinNow": "Join Now",
         "joining": "Joining...",
-        "welcomeCommunity": "Welcome to our freelancer community!"
+        "welcomeCommunity": "Welcome to Namso!"
       }
     },
     "business": {
       "heroTitle": "Join as a Business",
-      "heroDesc": "Create a business account to post AI tasks, review freelancer proposals, and manage work in one place.",
+      "heroDesc": "Create a business account to submit projects, get matched with vetted builders, and manage your AI implementation in one place.",
       "perks": {
         "post": "Post tasks quickly and get proposals fast",
-        "match": "Get matched with verified freelancers",
+        "match": "Get matched with vetted builders",
         "secure": "Manage payments securely",
         "review": "Review work before approval",
         "affordable": "Find affordable AI help for your business"
