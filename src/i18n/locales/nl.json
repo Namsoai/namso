@@ -1,41 +1,44 @@
 {
   "nav": {
-    "browseServices": "Bekijk Diensten",
+    "solutions": "Oplossingen",
     "howItWorks": "Hoe Het Werkt",
     "bookCall": "Plan een Gesprek",
     "dashboard": "Dashboard",
     "logOut": "Uitloggen",
     "logIn": "Inloggen",
     "signUp": "Aanmelden",
-    "joinSpecialist": "Word Specialist",
-    "joinBusiness": "Word Bedrijf"
+    "joinBuilder": "Word Builder",
+    "joinBusiness": "Word Zakelijk",
+    "browseServices": "Oplossingen",
+    "startProject": "Start een Project"
   },
   "footer": {
-    "description": "De AI freelance marktplaats die bedrijven verbindt met geverifieerde integratiespecialisten.",
-    "secure": "Veilige betalingen · Geverifieerde specialisten",
+    "description": "Het vertrouwde platform voor toegepaste AI-uitvoering. Wij helpen bedrijven bij het scopen, matchen en opleveren van werkende automatiseringssystemen.",
+    "secure": "Veilige betalingen · Geverifieerde bouwers · Betaal na goedkeuring",
     "forBusinesses": "Voor Bedrijven",
     "company": "Bedrijf",
     "legalSupport": "Juridisch & Ondersteuning",
     "aboutNamso": "Over Namso",
     "faq": "FAQ",
-    "contactUs": "Neem Contact Op",
-    "joinSpecialist": "Word een Specialist",
+    "contactUs": "Contact",
+    "joinBuilder": "Word Builder",
+    "joinSpecialist": "Word Builder",
     "privacyPolicy": "Privacybeleid",
-    "termsOfService": "Algemene Voorwaarden",
+    "termsOfService": "Servicevoorwaarden",
     "cookiePolicy": "Cookiebeleid",
-    "refundPolicy": "Restitutie & Resolutiebeleid",
+    "refundPolicy": "Restitutie- & Oplossingsbeleid",
     "allRightsReserved": "Alle rechten voorbehouden."
   },
   "home": {
     "heroTitle1": "Van AI-verwarring",
     "heroTitle2": "naar werkende systemen.",
-    "heroSub": "Namso koppelt uw bedrijf aan ervaren AI-bouwers die automatiseringssystemen scopen, bouwen en opleveren — zodat u resultaten krijgt, geen experimenten.",
-    "ctaPrimary": "Start een Project",
-    "ctaSecondary": "Plan een Gesprek",
+    "heroSub": "Namso scoped uw bedrijfsprobleem, koppelt u aan de juiste AI-bouwer en levert automatiseringssystemen die daadwerkelijk werken.",
+    "ctaPrimary": "Start Uw Project",
+    "ctaSecondary": "Bekijk Wat Wij Bouwen",
     "heroTrust": "Geverifieerde bouwers · Veilige escrow · Betaal na goedkeuring",
     "problem": {
       "tag": "Het Probleem",
-      "title": "AI is overal. Helderheid niet.",
+      "title": "AI is overal. Duidelijkheid niet.",
       "p1Title": "Te veel opties",
       "p1Desc": "Elke leverancier belooft transformatie. De meeste leveren verwarring.",
       "p2Title": "Geen duidelijk startpunt",
@@ -46,7 +49,7 @@
     "solution": {
       "tag": "De Oplossing",
       "title": "Wij veranderen overweldiging in uitvoering.",
-      "desc": "Namso is de operationele laag tussen uw bedrijfsproblemen en AI-uitvoering. Wij scopen het werk, koppelen u aan de juiste bouwer en leveren systemen die echt draaien.",
+      "desc": "Namso is de operationele laag tussen uw bedrijfsproblemen en AI-uitvoering. Wij scopen het werk, matchen u met de juiste bouwer en leveren systemen die echt draaien.",
       "s1Label": "Verwarring",
       "s1Result": "Helder plan",
       "s2Label": "Ruis",
@@ -57,14 +60,14 @@
     "process": {
       "tag": "Hoe Het Werkt",
       "title": "Vier stappen. Echt resultaat.",
-      "step1Title": "Zakelijke Behoefte",
-      "step1Desc": "U beschrijft het knelpunt, de inefficiëntie of de kans.",
-      "step2Title": "Namso Match",
-      "step2Desc": "Wij scopen het werk en verbinden u met de juiste AI-bouwer.",
-      "step3Title": "Toegepaste Levering",
-      "step3Desc": "Uw bouwer implementeert het systeem — automatiseringen, workflows, copilots.",
-      "step4Title": "Groeiende Waarde",
-      "step4Desc": "Resultaten stapelen op. Vertrouwen groeit. U komt terug voor het volgende systeem."
+      "step1Title": "Beschrijf Uw Probleem",
+      "step1Desc": "Vertel ons wat uw bedrijf vertraagt — knelpunten, handmatig werk, gemiste kansen.",
+      "step2Title": "Wij Scopen & Matchen",
+      "step2Desc": "Namso scoped het werk en verbindt u met de juiste AI-bouwer voor uw project.",
+      "step3Title": "Uw Bouwer Levert",
+      "step3Desc": "Uw gekoppelde bouwer implementeert het systeem — automatiseringen, workflows, copilots, integraties.",
+      "step4Title": "Resultaten Stapelen Op",
+      "step4Desc": "Het systeem werkt. Vertrouwen groeit. U komt terug voor het volgende."
     },
     "principles": {
       "tag": "Onze Principes",
@@ -78,39 +81,28 @@
       "p4Title": "Mensen boven tools",
       "p4Desc": "De juiste bouwer is belangrijker dan de juiste software."
     },
-    "market": {
-      "tag": "De Kans",
-      "title": "De bedrijven die nu bewegen, zullen leiden.",
-      "desc": "AI-adoptie versnelt. De kloof tussen bedrijven die implementeren en die afwachten groeit elk kwartaal. Namso zorgt ervoor dat u aan de juiste kant van die kloof staat.",
-      "stat1": "Bedrijven die AI-automatisering adopteren",
-      "stat1Note": "groeit snel jaar na jaar",
-      "stat2": "Kostenverlaging door automatisering",
-      "stat2Note": "gemiddeld over operationele workflows",
-      "stat3": "Snellere projectlevering",
-      "stat3Note": "vergeleken met traditioneel advies"
-    },
     "trust": {
       "tag": "Gebouwd op Vertrouwen",
-      "title": "Ontworpen om veilig te voelen voor serieuze bedrijven.",
+      "title": "Ontworpen voor serieuze bedrijven.",
       "t1Title": "Escrow Bescherming",
       "t1Desc": "Geld wordt veilig bewaard tot u het opgeleverde werk goedkeurt.",
       "t2Title": "Geverifieerde Bouwers",
-      "t2Desc": "Elke specialist wordt beoordeeld en geverifieerd voor toetreding.",
+      "t2Desc": "Elke bouwer wordt beoordeeld en geverifieerd voor toetreding.",
       "t3Title": "Transparante Prijzen",
-      "t3Desc": "Bekijk startprijzen vooraf. Geen verborgen kosten, geen verrassingen.",
+      "t3Desc": "Startprijzen vooraf. Geen verborgen kosten, geen verrassingen.",
       "t4Title": "Revisie Ondersteuning",
       "t4Desc": "Vraag wijzigingen aan tot het systeem precies werkt zoals afgesproken."
     },
     "finalCta": {
       "title": "Klaar om te stoppen met experimenteren en te beginnen met bouwen?",
-      "desc": "Vertel ons wat uw bedrijf vertraagt. Wij koppelen u aan een bouwer die het kan oplossen.",
-      "ctaPrimary": "Start een Project",
+      "desc": "Vertel ons wat uw bedrijf vertraagt. Wij scopen het project en matchen u met een bouwer die kan leveren.",
+      "ctaPrimary": "Start Uw Project",
       "ctaSecondary": "Plan een Gesprek",
       "footer": "Gratis starten · Geen verplichting · Betaal pas na goedkeuring"
     },
-    "browseServices": "Bekijk Diensten",
+    "browseServices": "Bekijk Oplossingen",
     "bookStrategy": "Plan een Strategiegesprek",
-    "trustSecure": "Veilige betalingen · Geverifieerde specialisten · Betaal pas na goedkeuring"
+    "trustSecure": "Veilige betalingen · Geverifieerde bouwers · Betaal pas na goedkeuring"
   },
   "services": {
     "workflow_automation": "Workflow Automatisering Systeem",
@@ -157,78 +149,79 @@
   },
   "about": {
     "heroTitle": "Over Namso",
-    "heroSub": "Namso is de AI freelance marktplaats die bedrijven verbindt met geverifieerde integratiespecialisten.",
+    "heroSub": "Wij helpen bedrijven van AI-verwarring naar werkende systemen.",
     "missionTitle": "Onze Missie",
-    "missionText": "Namso bestaat om AI-implementatie toegankelijk te maken voor elk bedrijf. We verbinden bedrijven met geverifieerde AI-specialisten die automatiseringen kunnen bouwen, intelligente systemen kunnen implementeren en AI-tools kunnen integreren — om zo complexe technologie om te zetten in praktische zakelijke oplossingen.",
-    "storyTitle": "Ons Verhaal",
-    "storyText1": "Namso begon met een duidelijke observatie: bedrijven van elke omvang willen AI inzetten, maar hebben moeite om betrouwbaar, gespecialiseerd talent te vinden om dit te implementeren. Ondertussen hebben begaafde AI-professionals een speciaal platform nodig om in contact te komen met bedrijven die hun expertise waarderen.",
-    "storyText2": "We hebben Namso gebouwd om die kloof te overbruggen. Onze marktplaats maakt het voor bedrijven overal ter wereld gemakkelijk om geverifieerde AI-specialisten te vinden die workflows kunnen automatiseren, chatbots kunnen inzetten, intelligente systemen kunnen bouwen en nog veel meer — met transparante prijzen en veilige betalingen.",
-    "whoTitle": "Voor Wie Namso Is",
-    "whoText": "Namso is gebouwd voor bedrijven die AI-oplossingen willen implementeren zonder de overhead van traditionele adviesbureaus of de onzekerheid van algemene freelanceplatforms.",
-    "valuesTitle": "Onze Waarden",
+    "missionText": "Namso bestaat om de kloof te dichten tussen bedrijfsproblemen en AI-uitvoering. Wij scopen het werk, matchen de juiste bouwer en leveren systemen die echt draaien — zodat bedrijven kunnen stoppen met experimenteren en kunnen beginnen met presteren.",
+    "storyTitle": "Waarom we dit bouwden",
+    "storyText1": "De meeste bedrijven weten dat AI belangrijk is. Maar de markt is rommelig, de tools veranderen snel, en iemand vinden die daadwerkelijk kan implementeren — niet alleen adviseren — is moeilijker dan het zou moeten zijn.",
+    "storyText2": "Wij bouwden Namso om dat op te lossen. Eén platform waar bedrijven hun probleem beschrijven en gematcht worden met AI-bouwers die echte systemen leveren. Geen hype. Geen giswerk. Alleen uitvoering.",
+    "whoTitle": "Voor wie Namso is",
+    "whoText": "Namso bedient bedrijven die AI willen inzetten maar een betrouwbare partner nodig hebben om te scopen, bouwen en leveren. We bedienen ook AI-bouwers die zinvol projectwerk willen zonder de overhead van klantacquisitie.",
+    "valuesTitle": "Waar wij in geloven",
     "values": {
-      "resultsTitle": "Resultaatgericht",
-      "resultsDesc": "Elk project op Namso is gericht op het leveren van meetbare zakelijke resultaten — niet alleen advies.",
-      "fairTitle": "Eerlijk & Transparant",
-      "fairDesc": "Heldere prijzen, veilige betalingen en een platform gebouwd op vertrouwen tussen bedrijven en specialisten.",
-      "forwardTitle": "Vooruitstrevend",
-      "forwardDesc": "Wij geloven dat AI de manier waarop bedrijven werken zal hervormen. Ons platform verbindt de juiste expertise met echte zakelijke behoeften.",
-      "communityTitle": "Gemeenschap",
-      "communityDesc": "We bouwen aan een netwerk van vaardige AI-professionals en vooruitstrevende bedrijven die samen innovatie stimuleren."
+      "resultsTitle": "Resultaat eerst",
+      "resultsDesc": "Elk project wordt gemeten aan wat het oplevert, niet wat het belooft.",
+      "fairTitle": "Eerlijk voor beide kanten",
+      "fairDesc": "Veilige escrow, eerlijke prijzen en heldere scope beschermen iedereen.",
+      "forwardTitle": "Vooruitdenkend",
+      "forwardDesc": "Wij bouwen voor de bedrijven die morgen leiden, niet voor degenen die vastzitten in gisteren.",
+      "communityTitle": "Builder community",
+      "communityDesc": "Wij investeren in onze bouwers omdat hun kwaliteit onze reputatie bepaalt."
     },
-    "learnMoreTitle": "Meer Weten?",
-    "learnMoreSub": "Ontdek hoe Namso bedrijven verbindt met geverifieerde AI-integratiespecialisten.",
+    "learnMoreTitle": "Wilt u meer weten?",
+    "learnMoreSub": "Bekijk hoe Namso werkt of neem contact op.",
     "howItWorks": "Hoe Het Werkt",
-    "contactUs": "Neem Contact Op"
+    "contactUs": "Contact"
   },
   "howItWorks": {
     "heroTitle": "Hoe Namso Werkt",
-    "heroSub": "Huur geverifieerde AI-specialisten in om oplossingen voor uw bedrijf te implementeren — ontdek hier hoe.",
+    "heroSub": "Wij scopen uw probleem, matchen u met de juiste bouwer en leveren werkende systemen. Zo werkt het.",
     "steps": {
       "1": {
-        "title": "Plaats Uw Project",
-        "desc": "Beschrijf de AI-integratie die u nodig heeft — van de implementatie van een chatbot tot workflow-automatisering. Plaatsen is gratis."
+        "title": "Beschrijf Uw Probleem",
+        "desc": "Vertel ons wat uw bedrijf vertraagt — knelpunten, handmatige processen, gemiste kansen. Wij helpen u het juiste startpunt te bepalen."
       },
       "2": {
-        "title": "Vind De Juiste Specialist",
-        "desc": "Wijs uw project direct toe aan geverifieerde AI-specialisten die aan uw behoeften voldoen."
+        "title": "Wij Scopen & Matchen",
+        "desc": "Namso scoped het werk tot een helder plan en verbindt u met een geverifieerde AI-bouwer die past bij uw project."
       },
       "3": {
-        "title": "Het Werk Wordt Gedaan",
-        "desc": "Uw specialist implementeert de oplossing. Beoordeel de resultaten en vraag indien nodig revisies aan."
+        "title": "Uw Bouwer Levert",
+        "desc": "Uw gematchte bouwer implementeert het systeem — automatiseringen, workflows, copilots, integraties — met heldere mijlpalen."
       },
       "4": {
-        "title": "Veilig Betalen",
-        "desc": "Geef de betaling pas vrij wanneer u tevreden bent. Als een project niet wordt opgeleverd zoals afgesproken, bieden wij bemiddeling."
+        "title": "Goedkeuren & Schalen",
+        "desc": "Beoordeel het opgeleverde systeem. Betaal pas na goedkeuring. Kom terug voor het volgende naarmate resultaten groeien."
       }
     },
     "securePayments": {
-      "title": "Veilige Betalingen",
-      "sub": "Betaal met vertrouwen via onze beveiligde kassa. Uw betaling wordt pas vrijgegeven nadat u het voltooide werk heeft beoordeeld en goedgekeurd.",
+      "title": "Ontworpen voor Vertrouwen",
+      "sub": "Elk project op Namso is beschermd door veilige escrow-betalingen en gestructureerde mijlpaallevering.",
       "cards": {
         "escrowTitle": "Escrow Bescherming",
-        "escrowDesc": "Geld wordt veilig bewaard totdat het project volgens afspraak is opgeleverd.",
-        "approvalTitle": "Goedkeuring Klant",
-        "approvalDesc": "Beoordeel de deliverables, vraag indien nodig revisies aan en keur pas goed als u tevreden bent.",
-        "disputeTitle": "Geschillenbeslechting",
-        "disputeDesc": "Als een project niet wordt afgeleverd zoals afgesproken, biedt ons team ondersteuning."
+        "escrowDesc": "Geld wordt veilig bewaard tot u het voltooide werk beoordeelt en goedkeurt.",
+        "approvalTitle": "Goedkeuring Vóór Betaling",
+        "approvalDesc": "U beslist wanneer het werk aan uw verwachtingen voldoet voordat er geld wordt vrijgegeven.",
+        "disputeTitle": "Eerlijke Oplossing",
+        "disputeDesc": "Als iets niet verloopt zoals gepland, grijpt ons team in om een eerlijk resultaat te waarborgen."
       }
     },
     "benefits": {
-      "title": "Waarom Bedrijven Voor Namso Kiezen",
-      "item1": "Geverifieerde AI-integratiespecialisten",
-      "item2": "Praktische implementatie, niet slechts advies",
-      "item3": "Snelle levering — de meeste projecten binnen 1–5 dagen",
-      "item4": "Veilige escrow-betalingen",
-      "item5": "Transparante prijzen bij elke vermelding",
-      "item6": "Ondersteuning voor revisies bij elk project"
+      "title": "Waarom bedrijven Namso kiezen",
+      "item1": "Geen wervingsoverhead — word gematcht met de juiste bouwer",
+      "item2": "Operator-geleide scoping — wij definiëren het plan met u",
+      "item3": "Betaal pas na goedkeuring van het opgeleverde systeem",
+      "item4": "Geverifieerde bouwers met toegepaste AI-ervaring",
+      "item5": "Volledige tweetalige ondersteuning (Engels & Nederlands)",
+      "item6": "Groeiende waarde — bouw vertrouwen, kom terug voor meer"
     },
     "cta": {
-      "title": "Klaar om te Beginnen?",
-      "sub": "Blader door diensten van geverifieerde AI-specialisten of maak een zakelijk account aan om projecten te plaatsen.",
-      "browse": "Bekijk Diensten",
-      "joinBusiness": "Sluit je aan als Bedrijf",
-      "secureText": "Veilige kassa · Beschermde betalingen · Betaal pas na goedkeuring"
+      "title": "Klaar om te starten?",
+      "sub": "Beschrijf uw probleem en wij scopen een oplossing.",
+      "startProject": "Start Uw Project",
+      "browse": "Bekijk Wat Wij Bouwen",
+      "joinBusiness": "Word Zakelijk",
+      "secureText": "Veilige betalingen · Geverifieerde bouwers · Betaal pas na goedkeuring"
     }
   },
   "contact": {
@@ -261,22 +254,23 @@
   },
   "faq": {
     "heroTitle": "Veelgestelde Vragen",
-    "heroSub": "Alles wat u moet weten over Namso.",
-    "stillHaveQuestions": "Heeft u nog vragen?",
+    "heroSub": "Antwoorden op veelgestelde vragen over hoe Namso werkt.",
+    "stillHaveQuestions": "Nog vragen?",
     "contactUs": "Neem Contact Op"
   },
   "browseServices": {
-    "title": "AI Automatiseringsoplossingen",
-    "sub": "Premium AI-systemen ontworpen om processen te automatiseren, leads vast te leggen en uw bedrijf te schalen. Veilige escrow-betalingen bij elk project.",
+    "title": "Wat Wij Helpen Bouwen",
+    "sub": "Dit zijn veelvoorkomende systemen die bedrijven ons vragen te scopen en op te leveren. Elk project begint met een gesprek — niet een winkelmandje.",
     "searchPlaceholder": "Zoek oplossingen...",
     "all": "Alles",
     "priceLow": "Prijs ↑",
     "priceHigh": "Prijs ↓",
     "noServices": "Geen oplossingen gevonden",
     "noServicesSub": "Probeer uw zoekopdracht aan te passen.",
-    "secureNotice": "Alle oplossingen zijn inclusief veilige escrow-betalingen. U betaalt pas nadat u het werk heeft goedgekeurd.",
-    "customCta": "Iets op maat nodig?",
-    "customCtaDesc": "Boek een gratis consultgesprek om uw automatiseringsproject te scopen.",
+    "secureNotice": "Alle projecten zijn inclusief veilige escrow-betalingen. U betaalt pas nadat u het opgeleverde werk goedkeurt.",
+    "customCta": "Niet gevonden wat u zoekt?",
+    "customCtaDesc": "Elk bedrijf is anders. Vertel ons uw probleem en wij scopen een oplossing.",
+    "startProject": "Start Uw Project",
     "bookCall": "Plan een Gesprek"
   },
   "bookCall": {
@@ -437,16 +431,19 @@
     "startingAt": "Vanaf",
     "from": "Vanaf",
     "aboutService": "Over Dit Systeem",
-    "aboutDesc": "Dit is een premium AI-automatiseringssysteem ontworpen en geïmplementeerd door geverifieerde specialisten. Alle projecten verlopen via veilige escrow-mijlpalen.",
-    "scopeNote": "De definitieve scope en prijs worden overeengekomen tussen u en de specialist voordat het werk begint. Extra complexiteit kan de uiteindelijke investering beïnvloeden.",
-    "hireButton": "Vraag Deze Oplossing Aan",
-    "hireNote": "Plaats een aanvraag voor dit systeem en word gekoppeld aan een geverifieerde specialist.",
+    "aboutDesc": "Dit is een toegepast AI-systeem dat via Namso wordt gescopet, gematcht en opgeleverd. Elk project begint met een gesprek om scope en doelen te bepalen.",
+    "scopeNote": "De definitieve scope en investering worden overeengekomen tussen u en uw gematchte bouwer voordat er werk begint.",
+    "scopeButton": "Scope Dit Systeem",
+    "scopeNote2": "Vertel ons over uw bedrijf en wij scopen dit systeem voor u.",
     "createAccount": "Maak een Bedrijfsaccount Aan",
     "needBusiness": "U heeft een bedrijfsaccount nodig om oplossingen aan te vragen.",
-    "delivery": "levering",
     "secureEscrow": "Veilige escrow-betaling",
     "revisionsIncluded": "Revisies inbegrepen",
     "payAfterApproval": "Betaal pas na goedkeuring",
-    "verifiedSpecialist": "Geverifieerde specialist"
+    "verifiedBuilder": "Geverifieerde bouwer",
+    "verifiedSpecialist": "Geverifieerde bouwer",
+    "talkThrough": "Bespreek dit gebruik",
+    "typicalTimeline": "Typische doorlooptijd",
+    "weeks": "weken"
   }
 }

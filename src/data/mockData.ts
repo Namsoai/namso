@@ -106,14 +106,14 @@ export const services: Service[] = [
 export const reviews: Review[] = [];
 
 export const faqs = [
-  { q: "How does Namso work?", a: "Browse our AI automation solutions or book a consultation call. Get matched with a verified specialist, agree on scope and pricing, and they deliver the system. Your payment is held securely and only released after you approve." },
-  { q: "Who are the specialists on Namso?", a: "Verified AI automation professionals with hands-on experience building intelligent systems, automations, and workflows for businesses." },
-  { q: "How much do solutions cost?", a: "Solutions start from €550 and vary based on complexity and scope. Each listing includes transparent starting prices upfront." },
+  { q: "How does Namso work?", a: "You describe your business problem, and Namso scopes the project, matches you with a vetted applied AI builder, and manages delivery. Your payment is held in escrow and only released after you approve the work." },
+  { q: "Who are the builders on Namso?", a: "Vetted applied AI professionals with hands-on experience building automation systems, workflows, and intelligent tools for businesses. Every builder is reviewed before joining the platform." },
+  { q: "How much do projects cost?", a: "Projects start from €550 and vary based on complexity and scope. Every solution listing shows a transparent starting price, and final scope is agreed before work begins." },
   { q: "How do payments work?", a: "Payments are processed securely through our platform. Funds are held in escrow and only released when you review and approve the completed work." },
   { q: "What if I'm not satisfied with the work?", a: "You can request revisions if the deliverables need adjustments. If a project isn't delivered as agreed, our team provides support and a fair resolution process." },
-  { q: "How fast is delivery?", a: "Most systems are delivered within 5–14 business days depending on complexity. Each solution listing includes an estimated delivery time." },
-  { q: "Is Namso available in my country?", a: "Yes. Namso is a global platform. Businesses from anywhere can post projects and hire specialists worldwide." },
+  { q: "How fast is delivery?", a: "Most systems are delivered within 1–3 weeks depending on complexity. Timelines are agreed during the scoping phase before work begins." },
+  { q: "Is Namso available in my country?", a: "Yes. Namso is a global platform. Businesses from anywhere can submit projects and work with builders worldwide." },
   { q: "Is my payment information safe?", a: "All payments are processed through secure, encrypted payment processing. We never store your card details directly. Funds are held in escrow until you approve the work." },
-  { q: "Can I hire specialists for ongoing work?", a: "Absolutely. Many businesses start with a single project and establish ongoing relationships with their preferred specialists for continuous AI support." },
-  { q: "What AI tools do specialists use?", a: "Our specialists are proficient in tools like ChatGPT, Zapier, Make, n8n, Notion AI, Google Workspace, Airtable, and many more. Each profile lists their specific skills and toolset." },
+  { q: "Can I work with the same builder again?", a: "Absolutely. Many businesses start with a single project and build ongoing relationships with their preferred builders for continuous AI implementation." },
+  { q: "What AI tools do builders use?", a: "Our builders are proficient in tools like ChatGPT, Zapier, Make, n8n, Notion AI, Google Workspace, Airtable, and many more. Each builder profile lists their specific skills and toolset." },
 ];

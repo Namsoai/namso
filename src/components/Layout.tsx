@@ -15,7 +15,7 @@ export function Navbar() {
   const { user, roles, signOut } = useAuth();
 
   const mainNav = [
-    { to: "/services", label: t('nav.browseServices') },
+    { to: "/services", label: t('nav.solutions') },
     { to: "/how-it-works", label: t('nav.howItWorks') },
     { to: "/book-call", label: t('nav.bookCall') },
   ];
@@ -108,7 +108,7 @@ export function Navbar() {
                       className="block rounded-md px-3 py-2 text-sm font-medium text-foreground transition-colors hover:bg-secondary"
                       onClick={() => setSignupOpen(false)}
                     >
-                      {t('nav.joinSpecialist')}
+                      {t('nav.joinBuilder')}
                     </Link>
                     <Link
                       to="/signup/business"
@@ -179,7 +179,7 @@ export function Navbar() {
                   <Button className="w-full" size="sm">{t('nav.logIn')}</Button>
                 </Link>
                 <Link to="/signup/freelancer" onClick={() => setMobileOpen(false)}>
-                  <Button variant="outline" className="w-full" size="sm">{t('nav.joinSpecialist')}</Button>
+                  <Button variant="outline" className="w-full" size="sm">{t('nav.joinBuilder')}</Button>
                 </Link>
                 <Link to="/signup/business" onClick={() => setMobileOpen(false)}>
                   <Button variant="outline" className="w-full" size="sm">{t('nav.joinBusiness')}</Button>
@@ -226,7 +226,7 @@ export function Footer() {
               <Link to="/about" className="transition-colors hover:text-primary-foreground">{t('footer.aboutNamso')}</Link>
               <Link to="/faq" className="transition-colors hover:text-primary-foreground">{t('footer.faq')}</Link>
               <Link to="/contact" className="transition-colors hover:text-primary-foreground">{t('footer.contactUs')}</Link>
-              <Link to="/signup/freelancer" className="transition-colors hover:text-primary-foreground">{t('footer.joinSpecialist')}</Link>
+              <Link to="/signup/freelancer" className="transition-colors hover:text-primary-foreground">{t('footer.joinBuilder')}</Link>
             </div>
           </div>
           <div>
@@ -236,7 +236,7 @@ export function Footer() {
               <Link to="/terms" className="transition-colors hover:text-primary-foreground">{t('footer.termsOfService')}</Link>
               <Link to="/cookies" className="transition-colors hover:text-primary-foreground">{t('footer.cookiePolicy')}</Link>
               <Link to="/refund-policy" className="transition-colors hover:text-primary-foreground">{t('footer.refundPolicy')}</Link>
-              <a href="mailto:info.namsoai@gmail.com" className="transition-colors hover:text-primary-foreground">info.namsoai@gmail.com</a>
+              <a href="mailto:hello@namso.ai" className="transition-colors hover:text-primary-foreground">hello@namso.ai</a>
             </div>
           </div>
         </div>

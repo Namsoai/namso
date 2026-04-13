@@ -48,7 +48,7 @@ export default function ServiceCard({ service }: { service: ServiceConfig }) {
           <div className="flex items-center justify-between border-t border-border pt-4">
             <div className="flex items-center gap-1.5 text-xs text-primary/70">
               <BadgeCheck className="h-3.5 w-3.5" />
-              {t("serviceDetail.verifiedSpecialist")}
+              {t("serviceDetail.verifiedBuilder")}
             </div>
             <span className="font-display text-lg font-bold text-foreground">
               {t("serviceDetail.from")} €{service.startingPrice}

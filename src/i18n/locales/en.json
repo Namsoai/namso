@@ -1,25 +1,28 @@
 {
   "nav": {
-    "browseServices": "Browse Services",
+    "solutions": "Solutions",
     "howItWorks": "How It Works",
     "bookCall": "Book a Call",
     "dashboard": "Dashboard",
     "logOut": "Log Out",
     "logIn": "Log In",
     "signUp": "Sign Up",
-    "joinSpecialist": "Join as Specialist",
-    "joinBusiness": "Join as Business"
+    "joinBuilder": "Join as Builder",
+    "joinBusiness": "Join as Business",
+    "browseServices": "Solutions",
+    "startProject": "Start a Project"
   },
   "footer": {
-    "description": "The AI freelance marketplace connecting businesses with verified integration specialists.",
-    "secure": "Secure payments · Verified specialists",
+    "description": "The trusted platform for applied AI execution. We help businesses scope, match, and deliver working automation systems.",
+    "secure": "Secure payments · Vetted builders · Pay after approval",
     "forBusinesses": "For Businesses",
     "company": "Company",
     "legalSupport": "Legal & Support",
     "aboutNamso": "About Namso",
     "faq": "FAQ",
     "contactUs": "Contact Us",
-    "joinSpecialist": "Join as a Specialist",
+    "joinBuilder": "Join as a Builder",
+    "joinSpecialist": "Join as a Builder",
     "privacyPolicy": "Privacy Policy",
     "termsOfService": "Terms of Service",
     "cookiePolicy": "Cookie Policy",
@@ -29,9 +32,9 @@
   "home": {
     "heroTitle1": "From AI confusion",
     "heroTitle2": "to working systems.",
-    "heroSub": "Namso matches your business with applied AI builders who scope, build, and deliver automation systems — so you get results, not experiments.",
-    "ctaPrimary": "Start a Project",
-    "ctaSecondary": "Book a Call",
+    "heroSub": "Namso scopes your business problem, matches you with the right applied AI builder, and delivers automation systems that actually work.",
+    "ctaPrimary": "Start Your Project",
+    "ctaSecondary": "See What We Build",
     "heroTrust": "Vetted builders · Secure escrow · Pay after approval",
     "problem": {
       "tag": "The Problem",
@@ -57,14 +60,14 @@
     "process": {
       "tag": "How It Works",
       "title": "Four steps. Real results.",
-      "step1Title": "Business Need",
-      "step1Desc": "You describe the bottleneck, inefficiency, or opportunity.",
-      "step2Title": "Namso Match",
-      "step2Desc": "We scope the work and connect you with the right applied AI builder.",
-      "step3Title": "Applied Delivery",
-      "step3Desc": "Your builder implements the system — automations, workflows, copilots.",
-      "step4Title": "Compounding Value",
-      "step4Desc": "Results compound. Trust builds. You come back for the next system."
+      "step1Title": "Describe Your Problem",
+      "step1Desc": "Tell us what's slowing your business down — bottlenecks, manual work, missed opportunities.",
+      "step2Title": "We Scope & Match",
+      "step2Desc": "Namso scopes the work and connects you with the right applied AI builder for your project.",
+      "step3Title": "Your Builder Delivers",
+      "step3Desc": "Your matched builder implements the system — automations, workflows, copilots, integrations.",
+      "step4Title": "Results Compound",
+      "step4Desc": "The system works. Trust builds. You come back for the next one."
     },
     "principles": {
       "tag": "Our Principles",
@@ -78,39 +81,28 @@
       "p4Title": "People over tools",
       "p4Desc": "The right builder matters more than the right software."
     },
-    "market": {
-      "tag": "The Opportunity",
-      "title": "The businesses that move now will lead.",
-      "desc": "AI adoption is accelerating. The gap between companies that implement and those that wait is growing every quarter. Namso exists to make sure you're on the right side of that gap.",
-      "stat1": "Businesses adopting AI automation",
-      "stat1Note": "growing rapidly year over year",
-      "stat2": "Cost reduction through automation",
-      "stat2Note": "on average across operational workflows",
-      "stat3": "Faster project delivery",
-      "stat3Note": "compared to traditional consulting"
-    },
     "trust": {
       "tag": "Built for Trust",
-      "title": "Designed to feel safe for serious businesses.",
+      "title": "Designed for serious businesses.",
       "t1Title": "Escrow Protection",
       "t1Desc": "Funds held securely until you approve the delivered work.",
       "t2Title": "Vetted Builders",
-      "t2Desc": "Every specialist is reviewed and verified before joining the platform.",
+      "t2Desc": "Every builder is reviewed and verified before joining the platform.",
       "t3Title": "Transparent Pricing",
-      "t3Desc": "See starting prices upfront. No hidden costs, no surprises.",
+      "t3Desc": "Starting prices upfront. No hidden costs, no surprises.",
       "t4Title": "Revision Support",
       "t4Desc": "Request changes until the system works exactly as scoped."
     },
     "finalCta": {
       "title": "Ready to stop experimenting and start building?",
-      "desc": "Tell us what's slowing your business down. We'll match you with a builder who can fix it.",
-      "ctaPrimary": "Start a Project",
+      "desc": "Tell us what's slowing your business down. We'll scope the project and match you with a builder who can deliver.",
+      "ctaPrimary": "Start Your Project",
       "ctaSecondary": "Book a Call",
       "footer": "Free to start · No commitment · Pay only after approval"
     },
     "browseServices": "Browse Services",
     "bookStrategy": "Book a Strategy Call",
-    "trustSecure": "Secure payments · Verified specialists · Pay only after approval"
+    "trustSecure": "Secure payments · Vetted builders · Pay only after approval"
   },
   "services": {
     "workflow_automation": "Workflow Automation System",
@@ -157,78 +149,79 @@
   },
   "about": {
     "heroTitle": "About Namso",
-    "heroSub": "Namso is the AI freelance marketplace that connects businesses with verified integration specialists.",
+    "heroSub": "We help businesses go from AI confusion to working systems.",
     "missionTitle": "Our Mission",
-    "missionText": "Namso exists to make AI implementation accessible for every business. We connect companies with verified AI specialists who can build automations, deploy intelligent systems, and integrate AI tools — turning complex technology into practical business solutions.",
-    "storyTitle": "Our Story",
-    "storyText1": "Namso started with a clear observation: businesses of all sizes want to leverage AI but struggle to find reliable, specialized talent to implement it. Meanwhile, skilled AI professionals need a dedicated platform to connect with businesses that value their expertise.",
-    "storyText2": "We built Namso to bridge that gap. Our marketplace makes it easy for businesses anywhere in the world to find verified AI specialists who can automate workflows, deploy chatbots, build intelligent systems, and much more — with transparent pricing and secure payments.",
-    "whoTitle": "Who Namso Is For",
-    "whoText": "Namso is built for businesses that want to implement AI solutions without the overhead of traditional consulting firms or the uncertainty of general freelance platforms.",
-    "valuesTitle": "Our Values",
+    "missionText": "Namso exists to close the gap between business problems and AI execution. We scope the work, match the right builder, and deliver systems that actually run — so businesses can stop experimenting and start operating.",
+    "storyTitle": "Why we built this",
+    "storyText1": "Most businesses know AI matters. But the market is noisy, the tools are changing fast, and finding someone who can actually implement — not just advise — is harder than it should be.",
+    "storyText2": "We built Namso to fix that. One platform where businesses describe their problem and get matched with applied AI builders who deliver real systems. No hype. No guesswork. Just execution.",
+    "whoTitle": "Who Namso is for",
+    "whoText": "Namso serves businesses that want to use AI but need a trusted partner to scope, build, and deliver. We also serve applied AI builders who want meaningful project work without the overhead of client acquisition.",
+    "valuesTitle": "What we believe",
     "values": {
-      "resultsTitle": "Results-Driven",
-      "resultsDesc": "Every project on Namso is focused on delivering measurable business outcomes — not just recommendations.",
-      "fairTitle": "Fair & Transparent",
-      "fairDesc": "Clear pricing, secure payments, and a platform built on trust between businesses and specialists.",
-      "forwardTitle": "Forward-Thinking",
-      "forwardDesc": "We believe AI will reshape how businesses operate. Our platform connects the right expertise with real business needs.",
-      "communityTitle": "Community",
-      "communityDesc": "We're building a network of skilled AI professionals and forward-thinking businesses driving innovation together."
+      "resultsTitle": "Results first",
+      "resultsDesc": "Every project is measured by what it delivers, not what it promises.",
+      "fairTitle": "Fair for both sides",
+      "fairDesc": "Secure escrow, honest pricing, and clear scope protect everyone involved.",
+      "forwardTitle": "Forward-thinking",
+      "forwardDesc": "We build for the businesses that will lead tomorrow, not the ones stuck in yesterday.",
+      "communityTitle": "Builder community",
+      "communityDesc": "We invest in our builders because their quality defines our reputation."
     },
-    "learnMoreTitle": "Want to Learn More?",
-    "learnMoreSub": "See how Namso connects businesses with verified AI integration specialists.",
+    "learnMoreTitle": "Want to learn more?",
+    "learnMoreSub": "See how Namso works or get in touch with our team.",
     "howItWorks": "How It Works",
     "contactUs": "Contact Us"
   },
   "howItWorks": {
     "heroTitle": "How Namso Works",
-    "heroSub": "Hire verified AI specialists to implement solutions for your business — here's how.",
+    "heroSub": "We scope your problem, match you with the right builder, and deliver working systems. Here's how.",
     "steps": {
       "1": {
-        "title": "Post Your Project",
-        "desc": "Describe the AI integration you need — from chatbot deployment to workflow automation or data pipeline setup. Posting is free."
+        "title": "Describe Your Problem",
+        "desc": "Tell us what's slowing your business down — bottlenecks, manual processes, missed opportunities. We'll help you define the right starting point."
       },
       "2": {
-        "title": "Get Matched With Specialists",
-        "desc": "Assign your project directly to verified AI specialists who fit your needs."
+        "title": "We Scope & Match",
+        "desc": "Namso scopes the work into a clear brief and connects you with a vetted applied AI builder who fits your project."
       },
       "3": {
-        "title": "Work Gets Done",
-        "desc": "Your specialist implements the solution using industry-leading AI tools. Review deliverables and request revisions if needed."
+        "title": "Your Builder Delivers",
+        "desc": "Your matched builder implements the system — automations, workflows, copilots, integrations — with clear milestones."
       },
       "4": {
-        "title": "Pay Securely",
-        "desc": "Release payment only when you're satisfied. If a project isn't delivered as agreed, our team provides support and a fair resolution process."
+        "title": "Approve & Scale",
+        "desc": "Review the delivered system. Pay only after you approve. Come back for the next one as results compound."
       }
     },
     "securePayments": {
-      "title": "Secure Payments",
-      "sub": "Pay with confidence through our secure checkout. Your payment is only released after you review and approve the completed work.",
+      "title": "Designed for Trust",
+      "sub": "Every project on Namso is protected by secure escrow payments and structured milestone delivery.",
       "cards": {
         "escrowTitle": "Escrow Protection",
-        "escrowDesc": "Funds are held securely until the project is delivered as agreed.",
-        "approvalTitle": "Client Approval",
-        "approvalDesc": "Review the deliverables, request revisions if needed, and approve only when satisfied.",
-        "disputeTitle": "Dispute Resolution",
-        "disputeDesc": "If a project isn't delivered as agreed, our team provides support and a fair resolution process."
+        "escrowDesc": "Funds are held securely until you review and approve the completed work.",
+        "approvalTitle": "Approval Before Payment",
+        "approvalDesc": "You decide when the work meets your expectations before any funds are released.",
+        "disputeTitle": "Fair Resolution",
+        "disputeDesc": "If something doesn't go as planned, our team steps in to ensure a fair outcome."
       }
     },
     "benefits": {
-      "title": "Why Businesses Choose Namso",
-      "item1": "Verified AI integration specialists",
-      "item2": "Hands-on implementation, not just advice",
-      "item3": "Fast turnaround — most projects in 1–5 days",
-      "item4": "Secure escrow payments",
-      "item5": "Transparent pricing on every listing",
-      "item6": "Revision support on every project"
+      "title": "Why businesses choose Namso",
+      "item1": "No hiring overhead — get matched with the right builder",
+      "item2": "Operator-led scoping — we define the brief with you",
+      "item3": "Pay only after you approve the delivered system",
+      "item4": "Vetted builders with applied AI experience",
+      "item5": "Full bilingual support (English & Dutch)",
+      "item6": "Compounding value — build trust, come back for more"
     },
     "cta": {
-      "title": "Ready to Get Started?",
-      "sub": "Browse services from verified AI specialists or create a business account to post projects.",
-      "browse": "Browse Services",
-      "joinBusiness": "Join as a Business",
-      "secureText": "Secure checkout · Protected payments · Pay only after approval"
+      "title": "Ready to start?",
+      "sub": "Describe your problem and we'll scope a solution.",
+      "startProject": "Start Your Project",
+      "browse": "See What We Build",
+      "joinBusiness": "Join as Business",
+      "secureText": "Secure payments · Vetted builders · Pay only after approval"
     }
   },
   "contact": {
@@ -261,22 +254,23 @@
   },
   "faq": {
     "heroTitle": "Frequently Asked Questions",
-    "heroSub": "Everything you need to know about Namso.",
+    "heroSub": "Answers to common questions about how Namso works.",
     "stillHaveQuestions": "Still have questions?",
     "contactUs": "Contact Us"
   },
   "browseServices": {
-    "title": "AI Automation Solutions",
-    "sub": "Premium AI systems designed to automate operations, capture leads, and scale your business. Secure escrow payments on every project.",
+    "title": "What We Help Build",
+    "sub": "These are common systems businesses ask us to scope and deliver. Every project starts with a conversation — not a cart.",
     "searchPlaceholder": "Search solutions...",
     "all": "All",
     "priceLow": "Price ↑",
     "priceHigh": "Price ↓",
     "noServices": "No solutions found",
     "noServicesSub": "Try adjusting your search.",
-    "secureNotice": "All solutions include secure escrow payments. You only pay after you approve the work.",
-    "customCta": "Need something custom?",
-    "customCtaDesc": "Book a free consultation to scope your automation project.",
+    "secureNotice": "All projects include secure escrow payments. You only pay after you approve the delivered work.",
+    "customCta": "Don't see what you need?",
+    "customCtaDesc": "Every business is different. Tell us your problem and we'll scope a solution.",
+    "startProject": "Start Your Project",
     "bookCall": "Book a Call"
   },
   "bookCall": {
@@ -437,16 +431,19 @@
     "startingAt": "Starting at",
     "from": "From",
     "aboutService": "About This System",
-    "aboutDesc": "This is a premium AI automation system designed and implemented by verified specialists. All projects proceed via secure escrow milestones.",
-    "scopeNote": "Final scope and pricing are agreed between you and the specialist before work begins. Additional complexity may affect the final investment.",
-    "hireButton": "Request This Solution",
-    "hireNote": "Post a request for this system and get matched with a verified specialist.",
+    "aboutDesc": "This is an applied AI system scoped, matched, and delivered through Namso. Every project starts with a conversation to define scope and outcomes.",
+    "scopeNote": "Final scope and investment are agreed between you and your matched builder before any work begins.",
+    "scopeButton": "Scope This System",
+    "scopeNote2": "Tell us about your business and we'll scope this system for you.",
     "createAccount": "Create Business Account",
     "needBusiness": "You need a business account to request solutions.",
-    "delivery": "delivery",
     "secureEscrow": "Secure escrow payment",
     "revisionsIncluded": "Revisions included",
     "payAfterApproval": "Pay only after approval",
-    "verifiedSpecialist": "Verified specialist"
+    "verifiedBuilder": "Verified builder",
+    "verifiedSpecialist": "Verified builder",
+    "talkThrough": "Talk through this use case",
+    "typicalTimeline": "Typical timeline",
+    "weeks": "weeks"
   }
 }

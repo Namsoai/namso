@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Search, Users, Zap, Shield, ArrowRight, CheckCircle2, Lock, ThumbsUp, ShieldCheck } from "lucide-react";
+import { Lightbulb, ArrowRightLeft, CheckCircle2, TrendingUp, Shield, ArrowRight, Lock, ThumbsUp, ShieldCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/Layout";
 import { useTranslation } from "react-i18next";
@@ -9,10 +9,10 @@ export default function HowItWorks() {
   const { t } = useTranslation();
 
   const steps = [
-    { icon: Search, title: t('howItWorks.steps.1.title'), desc: t('howItWorks.steps.1.desc') },
-    { icon: Users, title: t('howItWorks.steps.2.title'), desc: t('howItWorks.steps.2.desc') },
-    { icon: Zap, title: t('howItWorks.steps.3.title'), desc: t('howItWorks.steps.3.desc') },
-    { icon: Shield, title: t('howItWorks.steps.4.title'), desc: t('howItWorks.steps.4.desc') },
+    { icon: Lightbulb, title: t('howItWorks.steps.1.title'), desc: t('howItWorks.steps.1.desc') },
+    { icon: ArrowRightLeft, title: t('howItWorks.steps.2.title'), desc: t('howItWorks.steps.2.desc') },
+    { icon: CheckCircle2, title: t('howItWorks.steps.3.title'), desc: t('howItWorks.steps.3.desc') },
+    { icon: TrendingUp, title: t('howItWorks.steps.4.title'), desc: t('howItWorks.steps.4.desc') },
   ];
 
   const benefits = [
@@ -103,8 +103,8 @@ export default function HowItWorks() {
           <h2 className="mb-4 font-display text-3xl font-bold text-foreground">{t('howItWorks.cta.title')}</h2>
           <p className="mx-auto mb-8 max-w-md text-muted-foreground">{t('howItWorks.cta.sub')}</p>
           <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <Link to="/services"><Button size="lg">{t('howItWorks.cta.browse')} <ArrowRight className="ml-2 h-4 w-4" /></Button></Link>
-            <Link to="/signup/business"><Button size="lg" variant="outline">{t('howItWorks.cta.joinBusiness')}</Button></Link>
+            <Link to="/book-call"><Button size="lg">{t('howItWorks.cta.startProject')} <ArrowRight className="ml-2 h-4 w-4" /></Button></Link>
+            <Link to="/services"><Button size="lg" variant="outline">{t('howItWorks.cta.browse')}</Button></Link>
           </div>
           <p className="mt-4 text-xs text-muted-foreground">
             <Shield className="mr-1 inline h-3 w-3" />

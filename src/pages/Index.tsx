@@ -13,10 +13,7 @@ import {
   Lightbulb,
   ArrowRightLeft,
   CheckCircle2,
-  TrendingUp,
   Heart,
-  Users,
-  Sparkles,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/Layout";
@@ -66,12 +63,12 @@ export default function HomePage() {
             </p>
 
             <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
-              <Link to="/services">
+              <Link to="/book-call">
                 <Button size="lg" className="px-8">
                   {t("home.ctaPrimary")} <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </Link>
-              <Link to="/book-call">
+              <Link to="/services">
                 <Button size="lg" variant="outline" className="px-8">
                   {t("home.ctaSecondary")}
                 </Button>
@@ -252,52 +249,8 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ──────── 6 · MARKET OPPORTUNITY ──────── */}
-      <section className="py-24 md:py-32 bg-background">
-        <div className="container">
-          <motion.div
-            className="mx-auto max-w-3xl text-center mb-14"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={stagger}
-          >
-            <motion.span className="section-tag mb-4 inline-block" variants={fadeUp} custom={0}>
-              {t("home.market.tag")}
-            </motion.span>
-            <motion.h2 className="mb-5 font-display text-3xl font-bold text-foreground md:text-4xl" variants={fadeUp} custom={1}>
-              {t("home.market.title")}
-            </motion.h2>
-            <motion.p className="text-lg leading-relaxed text-muted-foreground" variants={fadeUp} custom={2}>
-              {t("home.market.desc")}
-            </motion.p>
-          </motion.div>
 
-          <motion.div
-            className="mx-auto grid max-w-3xl gap-6 md:grid-cols-3"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={stagger}
-          >
-            {[
-              { icon: TrendingUp, labelKey: "home.market.stat1", noteKey: "home.market.stat1Note" },
-              { icon: Sparkles, labelKey: "home.market.stat2", noteKey: "home.market.stat2Note" },
-              { icon: Users, labelKey: "home.market.stat3", noteKey: "home.market.stat3Note" },
-            ].map((s, i) => (
-              <motion.div key={s.labelKey} className="rounded-2xl border border-border bg-card p-6 text-center" variants={fadeUp} custom={i}>
-                <div className="mx-auto mb-3 flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10">
-                  <s.icon className="h-5 w-5 text-primary" />
-                </div>
-                <p className="mb-1 text-sm font-semibold text-foreground">{t(s.labelKey)}</p>
-                <p className="text-xs text-muted-foreground">{t(s.noteKey)}</p>
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
-      </section>
-
-      {/* ──────── 7 · TRUST SIGNALS ──────── */}
+      {/* ──────── 6 · TRUST SIGNALS ──────── */}
       <section className="py-24 md:py-32 bg-secondary/20">
         <div className="container">
           <div className="mx-auto max-w-3xl text-center mb-14">
@@ -348,7 +301,7 @@ export default function HomePage() {
                 {t("home.finalCta.ctaPrimary")} <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             </Link>
-            <Link to="/book-call">
+            <Link to="/services">
               <Button size="lg" className="bg-white/15 text-primary-foreground border border-white/25 hover:bg-white/25 shadow-lg px-8">
                 {t("home.finalCta.ctaSecondary")}
               </Button>

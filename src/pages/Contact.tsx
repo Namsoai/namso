@@ -75,8 +75,8 @@ export default function Contact() {
                   <Mail className="h-6 w-6 text-primary" />
                 </div>
                 <h3 className="mb-2 font-display text-xl font-bold text-foreground">{t('contact.emailSupport')}</h3>
-                <a href="mailto:info.namsoai@gmail.com" className="group flex items-center text-lg font-medium text-primary hover:underline">
-                  info.namsoai@gmail.com
+                <a href="mailto:hello@namso.ai" className="group flex items-center text-lg font-medium text-primary hover:underline">
+                  hello@namso.ai
                   <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </a>
               </div>
