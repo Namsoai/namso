@@ -195,7 +195,7 @@ export default function HomePage() {
               { num: "1", icon: Lightbulb, titleKey: "home.process.step1Title", descKey: "home.process.step1Desc" },
               { num: "2", icon: ArrowRightLeft, titleKey: "home.process.step2Title", descKey: "home.process.step2Desc" },
               { num: "3", icon: CheckCircle2, titleKey: "home.process.step3Title", descKey: "home.process.step3Desc" },
-              { num: "4", icon: TrendingUp, titleKey: "home.process.step4Title", descKey: "home.process.step4Desc" },
+              { num: "4", icon: CheckCircle2, titleKey: "home.process.step4Title", descKey: "home.process.step4Desc" },
             ].map((step, i) => (
               <motion.div key={step.num} className="relative p-6 text-center" variants={fadeUp} custom={i}>
                 {/* Connector line on desktop */}
@@ -205,7 +205,7 @@ export default function HomePage() {
                 <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-primary/10">
                   <step.icon className="h-6 w-6 text-primary" />
                 </div>
-                <span className="mb-1 block text-xs font-semibold uppercase tracking-wider text-primary">{t("home.process.tag").split(" ")[0]} {step.num}</span>
+                <span className="mb-1 block text-xs font-semibold uppercase tracking-wider text-primary">Step {step.num}</span>
                 <h3 className="mb-2 font-display text-base font-semibold text-foreground">{t(step.titleKey)}</h3>
                 <p className="text-sm leading-relaxed text-muted-foreground">{t(step.descKey)}</p>
               </motion.div>
